@@ -11,7 +11,7 @@ char * leer_palabra(FILE* archivo, int* longitud){
 	int len = 0;
 	while(true){
 		int c = fgetc(archivo);
-		if((c>=65 && c<=90) || (c>=97 && c<=122) || (c == 95) || (c == 45)){
+		if((c>=48 && c<=57) ||(c>=65 && c<=90) || (c>=97 && c<=122) || (c == 95) || (c == 45)){
 			palabra[len] = c;
 			len ++;
 			if (len % TAM == 0){
