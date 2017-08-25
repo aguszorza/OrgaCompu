@@ -9,3 +9,8 @@ Neuquen
 q
 1234321
 123abc4cba321
+Somos
+0
+Ojo
+abcdefghijklmnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba
+EstoesUnPalindromoOMOrdnilapNUSEOTse
