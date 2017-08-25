@@ -33,7 +33,7 @@ bool es_capicua(char* palabra, int len){
 	int inicio = 0;
 	int final = len - 1;
 	while(inicio < final){
-		if (tolower(palabra[inicio]) != tolower(palabra[final])){
+		if (tolower((unsigned char)palabra[inicio]) != tolower((unsigned char)palabra[final])){
 			return false;
 		}
 		inicio++;
@@ -53,9 +53,11 @@ int main(int argc, char* argv[]){
 			salida = fopen(argv[i + 1], "w");
 		}
 	}
+	
+	char* palabra;
+	int len;
 	while(!feof(entrada)){
-		int len;
-		char* palabra = leer_palabra(entrada, &len);
+		palabra = leer_palabra(entrada, &len);
 		if (es_capicua(palabra, len)){
 			fprintf(salida, "%s\n", palabra);
 		}
