@@ -47,7 +47,8 @@ int main(int argc, char* argv[]){
 	FILE* salida = stdout;
 	char* parametro;
 	
-	for (int i = 1; i < argc; i += 2){
+	int i;
+	for (i = 1; i < argc; i += 2){
 		if (strcmp(argv[i],"-i") == 0){
 			if (i + 1 >= argc){
 				fputs("Debe indicar un archivo de entrada luego de -i\n", stderr);
