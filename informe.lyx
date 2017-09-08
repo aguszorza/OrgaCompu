@@ -351,6 +351,9 @@ La función leer palabra, que se encarga de leer una palabra del archivo.
  error al leer un caracter del archivo.
  Si esto ocurriera, la función devolverá NULL, para que la función main
  pueda indicar el error como corresponda.
+ Por último, la función recibe por parámetro un puntero a entero, que sirve
+ para guardar la longitud de la palabra leída, con el objetivo de no tener
+ que calcularla nuevamente en otro momento.
 \end_layout
 
 \begin_layout Enumerate
