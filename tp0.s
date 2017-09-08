@@ -32,35 +32,46 @@ $L18:
 	la	$t9,fgetc
 	jal	$ra,$t9
 	sw	$v0,32($fp)
-	lw	$v0,32($fp)
-	slt	$v0,$v0,48
-	bne	$v0,$zero,$L23
-	lw	$v0,32($fp)
-	slt	$v0,$v0,58
-	bne	$v0,$zero,$L22
-$L23:
+	lw	$v0,56($fp)
+	lhu	$v0,12($v0)
+	srl	$v0,$v0,6
+	andi	$v0,$v0,0x1
+	beq	$v0,$zero,$L21
+	lw	$a0,24($fp)
+	la	$t9,free
+	jal	$ra,$t9
+	sw	$zero,36($fp)
+	b	$L17
+$L21:
 	lw	$v0,32($fp)
 	slt	$v0,$v0,65
 	bne	$v0,$zero,$L24
 	lw	$v0,32($fp)
 	slt	$v0,$v0,91
-	bne	$v0,$zero,$L22
+	bne	$v0,$zero,$L23
 $L24:
 	lw	$v0,32($fp)
 	slt	$v0,$v0,97
 	bne	$v0,$zero,$L25
 	lw	$v0,32($fp)
 	slt	$v0,$v0,123
-	bne	$v0,$zero,$L22
+	bne	$v0,$zero,$L23
 $L25:
-	lw	$v1,32($fp)
-	li	$v0,95			# 0x5f
-	beq	$v1,$v0,$L22
+	lw	$v0,32($fp)
+	slt	$v0,$v0,48
+	bne	$v0,$zero,$L26
+	lw	$v0,32($fp)
+	slt	$v0,$v0,58
+	bne	$v0,$zero,$L23
+$L26:
 	lw	$v1,32($fp)
 	li	$v0,45			# 0x2d
-	beq	$v1,$v0,$L22
-	b	$L21
-$L22:
+	beq	$v1,$v0,$L23
+	lw	$v1,32($fp)
+	li	$v0,95			# 0x5f
+	beq	$v1,$v0,$L23
+	b	$L22
+$L23:
 	lw	$v1,24($fp)
 	lw	$v0,28($fp)
 	addu	$v1,$v1,$v0
@@ -91,7 +102,7 @@ $L22:
 	jal	$ra,$t9
 	sw	$v0,24($fp)
 	b	$L18
-$L21:
+$L22:
 	lw	$v1,24($fp)
 	lw	$v0,28($fp)
 	addu	$v0,$v1,$v0
@@ -100,6 +111,9 @@ $L21:
 	lw	$v0,28($fp)
 	sw	$v0,0($v1)
 	lw	$v0,24($fp)
+	sw	$v0,36($fp)
+$L17:
+	lw	$v0,36($fp)
 	move	$sp,$fp
 	lw	$ra,48($sp)
 	lw	$fp,44($sp)
@@ -125,21 +139,21 @@ es_capicua:
 	sw	$a0,32($fp)
 	sw	$a1,36($fp)
 	lw	$v0,36($fp)
-	bne	$v0,$zero,$L29
+	bne	$v0,$zero,$L30
 	sw	$zero,16($fp)
-	b	$L28
-$L29:
+	b	$L29
+$L30:
 	sw	$zero,8($fp)
 	lw	$v0,36($fp)
 	addu	$v0,$v0,-1
 	sw	$v0,12($fp)
-$L30:
+$L31:
 	lw	$v0,8($fp)
 	lw	$v1,12($fp)
 	slt	$v0,$v0,$v1
-	bne	$v0,$zero,$L32
-	b	$L31
-$L32:
+	bne	$v0,$zero,$L33
+	b	$L32
+$L33:
 	lw	$v1,32($fp)
 	lw	$v0,8($fp)
 	addu	$v0,$v1,$v0
@@ -158,21 +172,21 @@ $L32:
 	addu	$v0,$v0,2
 	lh	$v1,0($a0)
 	lh	$v0,0($v0)
-	beq	$v1,$v0,$L33
+	beq	$v1,$v0,$L34
 	sw	$zero,16($fp)
-	b	$L28
-$L33:
+	b	$L29
+$L34:
 	lw	$v0,8($fp)
 	addu	$v0,$v0,1
 	sw	$v0,8($fp)
 	lw	$v0,12($fp)
 	addu	$v0,$v0,-1
 	sw	$v0,12($fp)
-	b	$L30
-$L31:
+	b	$L31
+$L32:
 	li	$v0,1			# 0x1
 	sw	$v0,16($fp)
-$L28:
+$L29:
 	lw	$v0,16($fp)
 	move	$sp,$fp
 	lw	$fp,28($sp)
@@ -213,7 +227,7 @@ $LC9:
 	.ascii	"-V\000"
 	.align	2
 $LC10:
-	.ascii	"TP0 version 1.0001\n\000"
+	.ascii	"TP0 version 1.0002\n\000"
 	.align	2
 $LC11:
 	.ascii	"-h\000"
@@ -232,6 +246,9 @@ $LC12:
 	.ascii	"tp0 -i ~/input -o ~/output\n\000"
 	.align	2
 $LC13:
+	.ascii	"Ocurrio un error inesperado\n\000"
+	.align	2
+$LC14:
 	.ascii	"%s\n\000"
 	.text
 	.align	2
@@ -258,13 +275,13 @@ main:
 	sw	$v0,28($fp)
 	li	$v0,1			# 0x1
 	sw	$v0,36($fp)
-$L35:
+$L36:
 	lw	$v0,36($fp)
 	lw	$v1,72($fp)
 	slt	$v0,$v0,$v1
-	bne	$v0,$zero,$L38
-	b	$L36
-$L38:
+	bne	$v0,$zero,$L39
+	b	$L37
+$L39:
 	lw	$v0,36($fp)
 	sll	$v1,$v0,2
 	lw	$v0,76($fp)
@@ -273,20 +290,20 @@ $L38:
 	la	$a1,$LC0
 	la	$t9,strcmp
 	jal	$ra,$t9
-	bne	$v0,$zero,$L39
+	bne	$v0,$zero,$L40
 	lw	$v0,36($fp)
 	addu	$v1,$v0,1
 	lw	$v0,72($fp)
 	slt	$v0,$v1,$v0
-	bne	$v0,$zero,$L40
+	bne	$v0,$zero,$L41
 	la	$a0,$LC1
 	la	$a1,__sF+176
 	la	$t9,fputs
 	jal	$ra,$t9
 	li	$v0,2			# 0x2
 	sw	$v0,48($fp)
-	b	$L34
-$L40:
+	b	$L35
+$L41:
 	lw	$v0,36($fp)
 	sll	$v1,$v0,2
 	lw	$v0,76($fp)
@@ -298,7 +315,7 @@ $L40:
 	la	$a1,$LC2
 	la	$t9,strcmp
 	jal	$ra,$t9
-	beq	$v0,$zero,$L37
+	beq	$v0,$zero,$L38
 	lw	$v0,36($fp)
 	sll	$v1,$v0,2
 	lw	$v0,76($fp)
@@ -310,15 +327,15 @@ $L40:
 	jal	$ra,$t9
 	sw	$v0,24($fp)
 	lw	$v0,24($fp)
-	bne	$v0,$zero,$L37
+	bne	$v0,$zero,$L38
 	la	$a0,$LC4
 	la	$a1,__sF+176
 	la	$t9,fputs
 	jal	$ra,$t9
 	li	$v0,1			# 0x1
 	sw	$v0,48($fp)
-	b	$L34
-$L39:
+	b	$L35
+$L40:
 	lw	$v0,36($fp)
 	sll	$v1,$v0,2
 	lw	$v0,76($fp)
@@ -327,20 +344,20 @@ $L39:
 	la	$a1,$LC5
 	la	$t9,strcmp
 	jal	$ra,$t9
-	bne	$v0,$zero,$L44
+	bne	$v0,$zero,$L45
 	lw	$v0,36($fp)
 	addu	$v1,$v0,1
 	lw	$v0,72($fp)
 	slt	$v0,$v1,$v0
-	bne	$v0,$zero,$L45
+	bne	$v0,$zero,$L46
 	la	$a0,$LC6
 	la	$a1,__sF+176
 	la	$t9,fputs
 	jal	$ra,$t9
 	li	$v0,2			# 0x2
 	sw	$v0,48($fp)
-	b	$L34
-$L45:
+	b	$L35
+$L46:
 	lw	$v0,36($fp)
 	sll	$v1,$v0,2
 	lw	$v0,76($fp)
@@ -352,7 +369,7 @@ $L45:
 	la	$a1,$LC2
 	la	$t9,strcmp
 	jal	$ra,$t9
-	beq	$v0,$zero,$L37
+	beq	$v0,$zero,$L38
 	lw	$v0,36($fp)
 	sll	$v1,$v0,2
 	lw	$v0,76($fp)
@@ -364,15 +381,15 @@ $L45:
 	jal	$ra,$t9
 	sw	$v0,28($fp)
 	lw	$v0,28($fp)
-	bne	$v0,$zero,$L37
+	bne	$v0,$zero,$L38
 	la	$a0,$LC8
 	la	$a1,__sF+176
 	la	$t9,fputs
 	jal	$ra,$t9
 	li	$v0,1			# 0x1
 	sw	$v0,48($fp)
-	b	$L34
-$L44:
+	b	$L35
+$L45:
 	lw	$v0,36($fp)
 	sll	$v1,$v0,2
 	lw	$v0,76($fp)
@@ -381,14 +398,14 @@ $L44:
 	la	$a1,$LC9
 	la	$t9,strcmp
 	jal	$ra,$t9
-	bne	$v0,$zero,$L49
+	bne	$v0,$zero,$L50
 	la	$a0,__sF+88
 	la	$a1,$LC10
 	la	$t9,fprintf
 	jal	$ra,$t9
 	sw	$zero,48($fp)
-	b	$L34
-$L49:
+	b	$L35
+$L50:
 	lw	$v0,36($fp)
 	sll	$v1,$v0,2
 	lw	$v0,76($fp)
@@ -397,52 +414,62 @@ $L49:
 	la	$a1,$LC11
 	la	$t9,strcmp
 	jal	$ra,$t9
-	bne	$v0,$zero,$L37
+	bne	$v0,$zero,$L38
 	la	$a0,__sF+88
 	la	$a1,$LC12
 	la	$t9,fprintf
 	jal	$ra,$t9
 	sw	$zero,48($fp)
-	b	$L34
-$L37:
+	b	$L35
+$L38:
 	lw	$v0,36($fp)
 	addu	$v0,$v0,2
 	sw	$v0,36($fp)
-	b	$L35
-$L36:
+	b	$L36
+$L37:
 	.set	noreorder
 	nop
 	.set	reorder
-$L52:
+$L53:
 	lw	$v0,24($fp)
 	lhu	$v0,12($v0)
 	srl	$v0,$v0,5
 	andi	$v0,$v0,0x1
-	beq	$v0,$zero,$L54
-	b	$L53
-$L54:
+	beq	$v0,$zero,$L55
+	b	$L54
+$L55:
 	addu	$v0,$fp,44
 	lw	$a0,24($fp)
 	move	$a1,$v0
 	la	$t9,leer_palabra
 	jal	$ra,$t9
 	sw	$v0,40($fp)
+	lw	$v0,40($fp)
+	bne	$v0,$zero,$L56
+	la	$a0,$LC13
+	la	$a1,__sF+176
+	la	$t9,fputs
+	jal	$ra,$t9
+	li	$v0,3			# 0x3
+	sw	$v0,48($fp)
+	b	$L35
+$L56:
 	lw	$a0,40($fp)
 	lw	$a1,44($fp)
 	la	$t9,es_capicua
 	jal	$ra,$t9
-	beq	$v0,$zero,$L55
+	beq	$v0,$zero,$L57
 	lw	$a0,28($fp)
-	la	$a1,$LC13
+	la	$a1,$LC14
 	lw	$a2,40($fp)
 	la	$t9,fprintf
 	jal	$ra,$t9
-$L55:
+$L57:
 	lw	$a0,40($fp)
 	la	$t9,free
 	jal	$ra,$t9
-	b	$L52
-$L53:
+	b	$L53
+$L54:
 	lw	$a0,24($fp)
 	la	$t9,fclose
 	jal	$ra,$t9
@@ -450,7 +477,7 @@ $L53:
 	la	$t9,fclose
 	jal	$ra,$t9
 	sw	$zero,48($fp)
-$L34:
+$L35:
 	lw	$v0,48($fp)
 	move	$sp,$fp
 	lw	$ra,64($sp)

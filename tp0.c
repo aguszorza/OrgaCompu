@@ -11,7 +11,11 @@ char * leer_palabra(FILE* archivo, int* longitud){
 	int len = 0;
 	while(true){
 		int c = fgetc(archivo);
-		if((c>=48 && c<=57) ||(c>=65 && c<=90) || (c>=97 && c<=122) || (c == 95) || (c == 45)){
+		if (ferror(archivo)){
+			free(palabra);
+			return NULL;
+		}
+		if((c>='A' && c<='Z') ||(c>='a' && c<='z') || (c>='0' && c<='9') || (c == '-') || (c == '_')){
 			palabra[len] = c;
 			len ++;
 			if (len % TAM == 0){
@@ -78,7 +82,7 @@ int main(int argc, char* argv[]){
 			}
 		}
 		else if (strcmp(argv[i],"-V") == 0){
-			fprintf(stdout, "TP0 version 1.0001\n");
+			fprintf(stdout, "TP0 version 1.0002\n");
 			return 0;
 		}
 		else if (strcmp(argv[i],"-h") == 0){
@@ -91,6 +95,10 @@ int main(int argc, char* argv[]){
 	int len;
 	while(!feof(entrada)){
 		palabra = leer_palabra(entrada, &len);
+		if (!palabra){
+			fputs("Ocurrio un error inesperado\n", stderr);
+			return 3;
+		}
 		if (es_capicua(palabra, len)){
 			fprintf(salida, "%s\n", palabra);
 		}
