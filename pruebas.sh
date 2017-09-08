@@ -60,6 +60,13 @@ echo "                    " >> ent.txt
 diff salida.txt vacio.txt
 rm ent.txt
 
+# Prueba con simbolos
+touch ent.txt
+echo "@#$%^*()!{}[],./?<>;:*-+\|=+" >> ent.txt 
+./tp0 -i ent.txt -o salida.txt
+diff salida.txt vacio.txt
+rm ent.txt
+
 # Prueba error: no se ingresa archivo de entrada
 touch res.txt
 echo "Debe indicar un archivo de entrada luego de -i" >> res.txt
@@ -100,6 +107,23 @@ diff error.txt res.txt
 rm res.txt
 rm error.txt
 
+#Prueba con stdin
+entrada.txt | ./tp0 -o salida.txt
+diff salida.txt resultado.txt
+
+#Prueba con stdin
+entrada.txt | ./tp0 -i - -o salida.txt
+diff salida.txt resultado.txt
+
+#Prueba con stdout
+./tp0 -i entrada.txt >> salida.txt
+diff salida.txt resultado.txt
+
+#Prueba con stdout
+./tp0 -i entrada.txt -o - >> salida.txt
+diff salida.txt resultado.txt
+
 #Borramos archivos sobrantes
 rm vacio.txt
 rm resultado_vacio.txt
+rm salida.txt
