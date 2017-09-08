@@ -446,7 +446,7 @@ En una de las pruebas utilizamos un archivo de texto ''entrada.txt'' que
  guiones y mezclando mayúsculas y minúsculas.
  Luego tenemos otro archivo, ''resultado.txt'' que es lo que se espera que
  devuelva el programa al ejecutarse con ese archivo de entrada.
- En la siguiente sección de muestran esos archivos.
+ En la siguiente sección se muestran esos archivos.
 \end_layout
 
 \begin_layout Standard
@@ -463,11 +463,12 @@ Archivo 'pruebas.sh'
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=bash"
+lstparams "language=bash,keywordstyle={\color{blue}}"
 inline false
 status open
 
 \begin_layout Plain Layout
+
 #/bin/bash
 \end_layout
 
@@ -476,6 +477,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
 gcc -Wall -o tp0 tp0.c
 \end_layout
 
@@ -488,14 +490,17 @@ gcc -Wall -o tp0 tp0.c
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con archivo de pruebas
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i entrada.txt -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt resultado.txt
 \end_layout
 
@@ -504,22 +509,27 @@ diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con archivo vacio
 \end_layout
 
 \begin_layout Plain Layout
+
 touch vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 touch resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i vacio.txt -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt resultado_vacio.txt
 \end_layout
 
@@ -528,18 +538,22 @@ diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con una sola letra mayúscula
 \end_layout
 
 \begin_layout Plain Layout
+
 echo M | ./tp0 -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 echo M > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt res.txt
 \end_layout
 
@@ -548,18 +562,22 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con una sola letra minúscula
 \end_layout
 
 \begin_layout Plain Layout
+
 echo m | ./tp0 -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 echo m > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt res.txt
 \end_layout
 
@@ -568,18 +586,22 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con un número
 \end_layout
 
 \begin_layout Plain Layout
+
 echo 3 | ./tp0 -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 echo 3 > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt res.txt
 \end_layout
 
@@ -588,18 +610,22 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con un guion
 \end_layout
 
 \begin_layout Plain Layout
+
 echo - | ./tp0 -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 echo - > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt res.txt
 \end_layout
 
@@ -608,18 +634,22 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con un guion bajo
 \end_layout
 
 \begin_layout Plain Layout
+
 echo _ | ./tp0 -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 echo _ > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt res.txt
 \end_layout
 
@@ -628,14 +658,17 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con un simbolo
 \end_layout
 
 \begin_layout Plain Layout
+
 echo @ | ./tp0 -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt vacio.txt
 \end_layout
 
@@ -644,18 +677,22 @@ diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con espacios
 \end_layout
 
 \begin_layout Plain Layout
+
 echo "                    " > ent.txt 
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i ent.txt -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt vacio.txt
 \end_layout
 
@@ -664,20 +701,24 @@ diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba con simbolos
 \end_layout
 
 \begin_layout Plain Layout
+
 echo "@#$%^*()!{}[],./?<>;:*+
 \backslash
 |=+" > ent.txt 
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i ent.txt -o salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt vacio.txt
 \end_layout
 
@@ -686,18 +727,22 @@ diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba error: no se ingresa archivo de entrada
 \end_layout
 
 \begin_layout Plain Layout
+
 echo "Debe indicar un archivo de entrada luego de -i" > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff error.txt res.txt
 \end_layout
 
@@ -706,18 +751,22 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba error: no se ingresa archivo de entrada
 \end_layout
 
 \begin_layout Plain Layout
+
 echo "Debe indicar un archivo de entrada luego de -i" > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -o salida.txt -i 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff error.txt res.txt
 \end_layout
 
@@ -726,18 +775,22 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba error: no se ingresa archivo de salida
 \end_layout
 
 \begin_layout Plain Layout
+
 echo "Debe indicar un archivo de salida luego de -o" > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -o 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff error.txt res.txt
 \end_layout
 
@@ -746,18 +799,22 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba error: no se ingresa archivo de salida
 \end_layout
 
 \begin_layout Plain Layout
+
 echo "Debe indicar un archivo de salida luego de -o" > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i entrada.txt -o 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff error.txt res.txt
 \end_layout
 
@@ -766,18 +823,22 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 # Prueba error: no se puede abrir el archivo de entrada
 \end_layout
 
 \begin_layout Plain Layout
+
 echo "El archivo de entrada no pudo abrirse" > res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i inexistente.txt 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff error.txt res.txt
 \end_layout
 
@@ -786,14 +847,17 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 #Prueba con stdin
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -o salida.txt  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt resultado.txt
 \end_layout
 
@@ -802,14 +866,17 @@ diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 #Prueba con stdin
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i - -o salida.txt < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt resultado.txt
 \end_layout
 
@@ -818,14 +885,17 @@ diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 #Prueba con stdout
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i entrada.txt > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt resultado.txt
 \end_layout
 
@@ -834,14 +904,17 @@ diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 #Prueba con stdout
 \end_layout
 
 \begin_layout Plain Layout
+
 ./tp0 -i entrada.txt -o - > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 diff salida.txt resultado.txt
 \end_layout
 
@@ -850,30 +923,37 @@ diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 #Borramos archivos sobrantes
 \end_layout
 
 \begin_layout Plain Layout
+
 rm vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 rm resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 rm salida.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 rm ent.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 rm error.txt
 \end_layout
 
 \begin_layout Plain Layout
+
 rm res.txt
 \end_layout
 
@@ -1305,31 +1385,37 @@ Código fuente
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=C,numbers=left,breaklines=true"
+lstparams "language=C,numbers=left,breaklines=true,keywordstyle={\color{blue}}"
 inline false
 status open
 
 \begin_layout Plain Layout
+
 #include <stdio.h>
 \end_layout
 
 \begin_layout Plain Layout
+
 #include <string.h>
 \end_layout
 
 \begin_layout Plain Layout
+
 #include <stdbool.h>
 \end_layout
 
 \begin_layout Plain Layout
+
 #include <stdlib.h>
 \end_layout
 
 \begin_layout Plain Layout
+
 #include <ctype.h>
 \end_layout
 
 \begin_layout Plain Layout
+
 #define TAM 10
 \end_layout
 
@@ -1342,97 +1428,120 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
 char * leer_palabra(FILE* archivo, int* longitud){
 \end_layout
 
 \begin_layout Plain Layout
+
 	char* palabra = realloc(NULL,TAM);
 \end_layout
 
 \begin_layout Plain Layout
+
 	int len = 0;
 \end_layout
 
 \begin_layout Plain Layout
+
 	while(true){
 \end_layout
 
 \begin_layout Plain Layout
+
 		int c = fgetc(archivo);
 \end_layout
 
 \begin_layout Plain Layout
+
 		if (ferror(archivo)){
 \end_layout
 
 \begin_layout Plain Layout
+
 			free(palabra);
 \end_layout
 
 \begin_layout Plain Layout
+
 			return NULL;
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 		if((c>='A' && c<='Z') ||(c>='a' && c<='z') || (c>='0' && c<='9') || (c
  == '-') || (c == '_')){
 \end_layout
 
 \begin_layout Plain Layout
+
 			palabra[len] = c;
 \end_layout
 
 \begin_layout Plain Layout
+
 			len ++;
 \end_layout
 
 \begin_layout Plain Layout
+
 			if (len % TAM == 0){
 \end_layout
 
 \begin_layout Plain Layout
+
 				palabra = realloc(palabra, TAM + len);
 \end_layout
 
 \begin_layout Plain Layout
+
 			}
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 		else{
 \end_layout
 
 \begin_layout Plain Layout
+
 			palabra[len] = '
 \backslash
 0';
 \end_layout
 
 \begin_layout Plain Layout
+
 			*longitud = len;
 \end_layout
 
 \begin_layout Plain Layout
+
 			return palabra;
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 	}
 \end_layout
 
 \begin_layout Plain Layout
+
 }
 \end_layout
 
@@ -1441,63 +1550,78 @@ char * leer_palabra(FILE* archivo, int* longitud){
 \end_layout
 
 \begin_layout Plain Layout
+
 bool es_capicua(char* palabra, int len){
 \end_layout
 
 \begin_layout Plain Layout
+
 	if (len == 0){
 \end_layout
 
 \begin_layout Plain Layout
+
 		return false;
 \end_layout
 
 \begin_layout Plain Layout
+
 	}
 \end_layout
 
 \begin_layout Plain Layout
+
 	int inicio = 0;
 \end_layout
 
 \begin_layout Plain Layout
+
 	int final = len - 1;
 \end_layout
 
 \begin_layout Plain Layout
+
 	while(inicio < final){
 \end_layout
 
 \begin_layout Plain Layout
+
 		if (tolower((unsigned char)palabra[inicio]) != tolower((unsigned char)palabra[
 final])){
 \end_layout
 
 \begin_layout Plain Layout
+
 			return false;
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 		inicio++;
 \end_layout
 
 \begin_layout Plain Layout
+
 		final--;
 \end_layout
 
 \begin_layout Plain Layout
+
 	}
 \end_layout
 
 \begin_layout Plain Layout
+
 	return true;
 \end_layout
 
 \begin_layout Plain Layout
+
 }
 \end_layout
 
@@ -1506,176 +1630,217 @@ final])){
 \end_layout
 
 \begin_layout Plain Layout
+
 int main(int argc, char* argv[]){
 \end_layout
 
 \begin_layout Plain Layout
+
 	FILE* entrada = stdin;
 \end_layout
 
 \begin_layout Plain Layout
+
 	FILE* salida = stdout;
 \end_layout
 
 \begin_layout Plain Layout
+
 	char* parametro;
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
 \begin_layout Plain Layout
+
 	int i;
 \end_layout
 
 \begin_layout Plain Layout
+
 	for (i = 1; i < argc; i += 2){
 \end_layout
 
 \begin_layout Plain Layout
+
 		if (strcmp(argv[i],"-i") == 0){
 \end_layout
 
 \begin_layout Plain Layout
+
 			if (i + 1 >= argc){
 \end_layout
 
 \begin_layout Plain Layout
+
 				fputs("Debe indicar un archivo de entrada luego de -i
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
+
 				return 2;
 \end_layout
 
 \begin_layout Plain Layout
+
 			}
 \end_layout
 
 \begin_layout Plain Layout
+
 			parametro = argv[i + 1];
 \end_layout
 
 \begin_layout Plain Layout
+
 			if (strcmp(parametro,"-") != 0){
 \end_layout
 
 \begin_layout Plain Layout
+
 				entrada = fopen(argv[i + 1], "r");
 \end_layout
 
 \begin_layout Plain Layout
+
 				if (!entrada){
 \end_layout
 
 \begin_layout Plain Layout
+
 					fputs("El archivo de entrada no pudo abrirse
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
+
 					return 1;
 \end_layout
 
 \begin_layout Plain Layout
+
 				}
 \end_layout
 
 \begin_layout Plain Layout
+
 			}
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 		else if (strcmp(argv[i],"-o") == 0){
 \end_layout
 
 \begin_layout Plain Layout
+
 			if (i + 1 >= argc){
 \end_layout
 
 \begin_layout Plain Layout
+
 				fputs("Debe indicar un archivo de salida luego de -o
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
+
 				return 2;
 \end_layout
 
 \begin_layout Plain Layout
+
 			}
 \end_layout
 
 \begin_layout Plain Layout
+
 			parametro = argv[i + 1];
 \end_layout
 
 \begin_layout Plain Layout
+
 			if (strcmp(parametro,"-") != 0){
 \end_layout
 
 \begin_layout Plain Layout
+
 				salida = fopen(argv[i + 1], "w");
 \end_layout
 
 \begin_layout Plain Layout
+
 				if (!salida){
 \end_layout
 
 \begin_layout Plain Layout
+
 					fputs("El archivo de salida no pudo abrirse
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
+
 					return 1;
 \end_layout
 
 \begin_layout Plain Layout
+
 				}
 \end_layout
 
 \begin_layout Plain Layout
+
 			}
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 		else if (strcmp(argv[i],"-V") == 0){
 \end_layout
 
 \begin_layout Plain Layout
+
 			fprintf(stdout, "TP0 version 1.0002
 \backslash
 n");
 \end_layout
 
 \begin_layout Plain Layout
+
 			return 0;
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 		else if (strcmp(argv[i],"-h") == 0){
 \end_layout
 
 \begin_layout Plain Layout
+
 			fprintf(stdout, "Usage:
 \backslash
 n
@@ -1708,98 +1873,121 @@ n");
 \end_layout
 
 \begin_layout Plain Layout
+
 			return 0;
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 	}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
 \begin_layout Plain Layout
+
 	char* palabra;
 \end_layout
 
 \begin_layout Plain Layout
+
 	int len;
 \end_layout
 
 \begin_layout Plain Layout
+
 	while(!feof(entrada)){
 \end_layout
 
 \begin_layout Plain Layout
+
 		palabra = leer_palabra(entrada, &len);
 \end_layout
 
 \begin_layout Plain Layout
+
 		if (!palabra){
 \end_layout
 
 \begin_layout Plain Layout
+
 			fputs("Ocurrio un error inesperado
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
+
 			return 3;
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 		if (es_capicua(palabra, len)){
 \end_layout
 
 \begin_layout Plain Layout
+
 			fprintf(salida, "%s
 \backslash
 n", palabra);
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 		free (palabra);
 \end_layout
 
 \begin_layout Plain Layout
+
 	}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
 \begin_layout Plain Layout
+
 	fclose(entrada);
 \end_layout
 
 \begin_layout Plain Layout
+
 	fclose(salida);
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
 \begin_layout Plain Layout
+
 	return 0;
 \end_layout
 
 \begin_layout Plain Layout
+
 }
 \end_layout
 
@@ -1823,816 +2011,1019 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 	.file	1 "tp0.c"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.section .mdebug.abi32
 \end_layout
 
 \begin_layout Plain Layout
+
 	.previous
 \end_layout
 
 \begin_layout Plain Layout
+
 	.abicalls
 \end_layout
 
 \begin_layout Plain Layout
+
 	.text
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 	.globl	leer_palabra
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ent	leer_palabra
 \end_layout
 
 \begin_layout Plain Layout
+
 leer_palabra:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.frame	$fp,56,$ra		# vars= 16, regs= 3/0, args= 16, extra= 8
 \end_layout
 
 \begin_layout Plain Layout
+
 	.mask	0xd0000000,-8
 \end_layout
 
 \begin_layout Plain Layout
+
 	.fmask	0x00000000,0
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set	noreorder
 \end_layout
 
 \begin_layout Plain Layout
+
 	.cpload	$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set	reorder
 \end_layout
 
 \begin_layout Plain Layout
+
 	subu	$sp,$sp,56
 \end_layout
 
 \begin_layout Plain Layout
+
 	.cprestore 16
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$ra,48($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$fp,44($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$gp,40($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$fp,$sp
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$a0,56($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$a1,60($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$a0,$zero
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$a1,10			# 0xa
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,realloc
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$zero,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 $L18:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,56($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fgetc
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,56($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lhu	$v0,12($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	srl	$v0,$v0,6
 \end_layout
 
 \begin_layout Plain Layout
+
 	andi	$v0,$v0,0x1
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq	$v0,$zero,$L21
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,free
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$zero,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L17
 \end_layout
 
 \begin_layout Plain Layout
+
 $L21:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v0,65
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L24
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v0,91
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L23
 \end_layout
 
 \begin_layout Plain Layout
+
 $L24:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v0,97
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L25
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v0,123
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L23
 \end_layout
 
 \begin_layout Plain Layout
+
 $L25:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v0,48
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L26
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v0,58
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L23
 \end_layout
 
 \begin_layout Plain Layout
+
 $L26:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v1,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,45			# 0x2d
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq	$v1,$v0,$L23
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v1,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,95			# 0x5f
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq	$v1,$v0,$L23
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L22
 \end_layout
 
 \begin_layout Plain Layout
+
 $L23:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v1,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v1,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	lbu	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sb	$v0,0($v1)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,1717960704			# 0x66660000
 \end_layout
 
 \begin_layout Plain Layout
+
 	ori	$v0,$v0,0x6667
 \end_layout
 
 \begin_layout Plain Layout
+
 	mult	$a0,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	mfhi	$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	sra	$v1,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	sra	$v0,$a0,31
 \end_layout
 
 \begin_layout Plain Layout
+
 	subu	$v1,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$v0,$v1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v0,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,$v1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v0,$v0,1
 \end_layout
 
 \begin_layout Plain Layout
+
 	subu	$v0,$a0,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L18
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,10
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$a1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,realloc
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L18
 \end_layout
 
 \begin_layout Plain Layout
+
 $L22:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v1,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	sb	$zero,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v1,60($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,0($v1)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 $L17:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$sp,$fp
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$ra,48($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$fp,44($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$sp,$sp,56
 \end_layout
 
 \begin_layout Plain Layout
+
 	j	$ra
 \end_layout
 
 \begin_layout Plain Layout
+
 	.end	leer_palabra
 \end_layout
 
 \begin_layout Plain Layout
+
 	.size	leer_palabra, .-leer_palabra
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 	.globl	es_capicua
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ent	es_capicua
 \end_layout
 
 \begin_layout Plain Layout
+
 es_capicua:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.frame	$fp,32,$ra		# vars= 16, regs= 2/0, args= 0, extra= 8
 \end_layout
 
 \begin_layout Plain Layout
+
 	.mask	0x50000000,-4
 \end_layout
 
 \begin_layout Plain Layout
+
 	.fmask	0x00000000,0
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set	noreorder
 \end_layout
 
 \begin_layout Plain Layout
+
 	.cpload	$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set	reorder
 \end_layout
 
 \begin_layout Plain Layout
+
 	subu	$sp,$sp,32
 \end_layout
 
 \begin_layout Plain Layout
+
 	.cprestore 0
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$fp,28($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$gp,24($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$fp,$sp
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$a0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$a1,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L30
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$zero,16($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L29
 \end_layout
 
 \begin_layout Plain Layout
+
 $L30:
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$zero,8($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,-1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,12($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 $L31:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,8($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v1,12($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v0,$v1
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L33
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L32
 \end_layout
 
 \begin_layout Plain Layout
+
 $L33:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v1,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,8($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	lbu	$v0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,1
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,_tolower_tab_
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$a0,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v1,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,12($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	lbu	$v0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,1
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,_tolower_tab_
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lh	$v1,0($a0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lh	$v0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq	$v1,$v0,$L34
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$zero,16($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L29
 \end_layout
 
 \begin_layout Plain Layout
+
 $L34:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,8($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,8($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,12($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,-1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,12($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L31
 \end_layout
 
 \begin_layout Plain Layout
+
 $L32:
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,1			# 0x1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,16($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 $L29:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,16($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$sp,$fp
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$fp,28($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$sp,$sp,32
 \end_layout
 
 \begin_layout Plain Layout
+
 	j	$ra
 \end_layout
 
 \begin_layout Plain Layout
+
 	.end	es_capicua
 \end_layout
 
 \begin_layout Plain Layout
+
 	.size	es_capicua, .-es_capicua
 \end_layout
 
 \begin_layout Plain Layout
+
 	.rdata
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC0:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"-i
 \backslash
 000"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC1:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"Debe indicar un archivo de entrada luego de -i
 \backslash
 n
@@ -2641,42 +3032,51 @@ n
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC2:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"-
 \backslash
 000"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC3:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"r
 \backslash
 000"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC4:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"El archivo de entrada no pudo abrirse
 \backslash
 n
@@ -2685,28 +3085,34 @@ n
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC5:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"-o
 \backslash
 000"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC6:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"Debe indicar un archivo de salida luego de -o
 \backslash
 n
@@ -2715,28 +3121,34 @@ n
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC7:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"w
 \backslash
 000"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC8:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"El archivo de salida no pudo abrirse
 \backslash
 n
@@ -2745,28 +3157,34 @@ n
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC9:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"-V
 \backslash
 000"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC10:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"TP0 version 1.0002
 \backslash
 n
@@ -2775,28 +3193,34 @@ n
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC11:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"-h
 \backslash
 000"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC12:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"Usage:
 \backslash
 n
@@ -2805,18 +3229,21 @@ n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"tp0 -h
 \backslash
 n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"tp0 -V
 \backslash
 n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"tp0 [options]
 \backslash
 n
@@ -2825,30 +3252,35 @@ n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"Options:
 \backslash
 n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"-V, --version  Print version and quit.
 \backslash
 n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"-h, --help   Print this information.
 \backslash
 n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"-i, --input   Location of the input file.
 \backslash
 n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"-o, --output   Location of the output file.
 \backslash
 n
@@ -2857,12 +3289,14 @@ n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"Example:
 \backslash
 n"
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"tp0 -i ~/input -o ~/output
 \backslash
 n
@@ -2871,14 +3305,17 @@ n
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC13:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"Ocurrio un error inesperado
 \backslash
 n
@@ -2887,14 +3324,17 @@ n
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 $LC14:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ascii	"%s
 \backslash
 n
@@ -2903,950 +3343,1187 @@ n
 \end_layout
 
 \begin_layout Plain Layout
+
 	.text
 \end_layout
 
 \begin_layout Plain Layout
+
 	.align	2
 \end_layout
 
 \begin_layout Plain Layout
+
 	.globl	main
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ent	main
 \end_layout
 
 \begin_layout Plain Layout
+
 main:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.frame	$fp,72,$ra		# vars= 32, regs= 3/0, args= 16, extra= 8
 \end_layout
 
 \begin_layout Plain Layout
+
 	.mask	0xd0000000,-8
 \end_layout
 
 \begin_layout Plain Layout
+
 	.fmask	0x00000000,0
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set	noreorder
 \end_layout
 
 \begin_layout Plain Layout
+
 	.cpload	$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set	reorder
 \end_layout
 
 \begin_layout Plain Layout
+
 	subu	$sp,$sp,72
 \end_layout
 
 \begin_layout Plain Layout
+
 	.cprestore 16
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$ra,64($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$fp,60($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$gp,56($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$fp,$sp
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$a0,72($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$a1,76($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$v0,__sF
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$v0,__sF+88
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,1			# 0x1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 $L36:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v1,72($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v0,$v1
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L39
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L37
 \end_layout
 
 \begin_layout Plain Layout
+
 $L39:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,76($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC0
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,strcmp
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L40
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v1,$v0,1
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,72($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L41
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a0,$LC1
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,__sF+176
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fputs
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,2			# 0x2
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,48($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L35
 \end_layout
 
 \begin_layout Plain Layout
+
 $L41:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,76($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,4
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC2
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,strcmp
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq	$v0,$zero,$L38
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,76($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,4
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC3
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fopen
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L38
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a0,$LC4
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,__sF+176
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fputs
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,1			# 0x1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,48($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L35
 \end_layout
 
 \begin_layout Plain Layout
+
 $L40:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,76($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC5
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,strcmp
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L45
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v1,$v0,1
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,72($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	slt	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L46
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a0,$LC6
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,__sF+176
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fputs
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,2			# 0x2
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,48($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L35
 \end_layout
 
 \begin_layout Plain Layout
+
 $L46:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,76($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,4
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,32($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC2
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,strcmp
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq	$v0,$zero,$L38
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,76($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,4
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC7
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fopen
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L38
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a0,$LC8
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,__sF+176
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fputs
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,1			# 0x1
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,48($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L35
 \end_layout
 
 \begin_layout Plain Layout
+
 $L45:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,76($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC9
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,strcmp
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L50
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a0,__sF+88
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC10
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fprintf
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$zero,48($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L35
 \end_layout
 
 \begin_layout Plain Layout
+
 $L50:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	sll	$v1,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,76($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,0($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC11
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,strcmp
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L38
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a0,__sF+88
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC12
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fprintf
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$zero,48($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L35
 \end_layout
 
 \begin_layout Plain Layout
+
 $L38:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$v0,2
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,36($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L36
 \end_layout
 
 \begin_layout Plain Layout
+
 $L37:
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set	noreorder
 \end_layout
 
 \begin_layout Plain Layout
+
 	nop
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set	reorder
 \end_layout
 
 \begin_layout Plain Layout
+
 $L53:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lhu	$v0,12($v0)
 \end_layout
 
 \begin_layout Plain Layout
+
 	srl	$v0,$v0,5
 \end_layout
 
 \begin_layout Plain Layout
+
 	andi	$v0,$v0,0x1
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq	$v0,$zero,$L55
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L54
 \end_layout
 
 \begin_layout Plain Layout
+
 $L55:
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$v0,$fp,44
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$a1,$v0
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,leer_palabra
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,40($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,40($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	bne	$v0,$zero,$L56
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a0,$LC13
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,__sF+176
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fputs
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	li	$v0,3			# 0x3
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$v0,48($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L35
 \end_layout
 
 \begin_layout Plain Layout
+
 $L56:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,40($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a1,44($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,es_capicua
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq	$v0,$zero,$L57
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$a1,$LC14
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a2,40($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fprintf
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 $L57:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,40($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,free
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	b	$L53
 \end_layout
 
 \begin_layout Plain Layout
+
 $L54:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,24($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fclose
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$a0,28($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la	$t9,fclose
 \end_layout
 
 \begin_layout Plain Layout
+
 	jal	$ra,$t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw	$zero,48($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 $L35:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$v0,48($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move	$sp,$fp
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$ra,64($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw	$fp,60($sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu	$sp,$sp,72
 \end_layout
 
 \begin_layout Plain Layout
+
 	j	$ra
 \end_layout
 
 \begin_layout Plain Layout
+
 	.end	main
 \end_layout
 
 \begin_layout Plain Layout
+
 	.size	main, .-main
 \end_layout
 
 \begin_layout Plain Layout
+
 	.ident	"GCC: (GNU) 3.3.3 (NetBSD nb3 20040520)"
 \end_layout
 
