@@ -29,6 +29,8 @@
 \use_default_options true
 \begin_modules
 customHeadersFooters
+tcolorbox
+fixltx2e
 \end_modules
 \maintain_unincluded_children false
 \language spanish
@@ -212,7 +214,7 @@ huge Infraestructura básica}
 \backslash
 textsc{
 \backslash
-small Matias Feld, Padrón: 99170}
+small Matias Leandro Feld, Padrón: 99170}
 \backslash
 
 \backslash
@@ -327,9 +329,9 @@ La función principal, main, que se encargara de la lógica de leer los parámet
  de entrada, el manejo de los archivos, y del bucle principal, que consiste
  en leer una palabra del archivo de entrada, comprobar si es palíndromo
  y escribirla en el archivo de salida si corresponde.
- Si algun archivo no se puede abrir, o no se pasaron correctamente los parámetro
-s, el programa mostrará un mensaje de error en el archivo stderr y finalizará
- con un código de error.
+ Si algun archivo no se puede abrir, no se pasaron correctamente los parámetros
+ o no se pudo leer correctamente la palabra, el programa mostrará un mensaje
+ de error en el archivo stderr y finalizará con un código de error.
 \end_layout
 
 \begin_layout Enumerate
@@ -340,7 +342,15 @@ La función leer palabra, que se encarga de leer una palabra del archivo.
  limitación con respecto a cantidad de letras de una palabra, lo que hacemos
  es leer carácter por carácter, guardándolos en un vector alojado en memoria
  dinámica que se irá redimensionando a medida que sea necesario.
- 
+ Para ello, definimos una variable TAM que determinará la cantidad de memoria
+ que se pide al inicio y al redimensionar.
+ En principio esa variable puede contener cualquier número, pero para no
+ estar redimensionando muchas veces y para no pedir muchamemoria innecesaria,
+ definimos ese valor en 10.
+ Por otro lado, esta función hace uso de la función fgetc(), que puede dar
+ error al leer un caracter del archivo.
+ Si esto ocurriera, la función devolverá NULL, para que la función main
+ pueda indicar el error como corresponda.
 \end_layout
 
 \begin_layout Enumerate
@@ -398,12 +408,13 @@ Pruebas
 \end_layout
 
 \begin_layout Standard
-Para probar el programa utilizamos un archivo de texto ''entrada.txt'' que
- contiene un conjunto de palabras con combinaciones de letras, numeros y
- guiones y mezclando mayúsculas y minúsculas.
- Luego tenemos otro archivo, ''resultado.txt'' que es lo que se espera que
- devuelva el programa al ejecutarse con ese archivo de entrada.
- Para comprobar el resultado, utilizamos el siguiente comando: 
+Para probar el programa utilizamos un script de bash llamado 'pruebas.sh''
+ que contiene un conjunto de pruebas que se realizan automáticamente.
+ Entre ellas,se encuentran pruebas con archivos vacios, archivos con un
+ solo caracter y archivos solo con simbolos.
+ Por otro lado, tambien se prueba que funcionen correctamente los mensajes
+ de error cuando los parámetros no son usados correctamente.
+ Todas las pruebas utilizan el siguiente comando:
 \end_layout
 
 \begin_layout Standard
@@ -426,15 +437,28 @@ $ diff salida.txt resultado.txt
 
 \begin_layout Standard
 Donde si no muestra nada significa que ambos archivos son iguales, y que
- por lo tanto el programa funciona correctamente.
+ por lo tanto todas las pruebas del programa funcionan correctamente.
 \end_layout
 
 \begin_layout Standard
-También realizamos pruebas utilizando salida estandar y entrada estandar,
+En una de las pruebas utilizamos un archivo de texto ''entrada.txt'' que
+ contiene un conjunto de palabras con combinaciones de letras, numeros y
+ guiones y mezclando mayúsculas y minúsculas.
+ Luego tenemos otro archivo, ''resultado.txt'' que es lo que se espera que
+ devuelva el programa al ejecutarse con ese archivo de entrada.
+ En la siguiente sección de muestran esos archivos.
+\end_layout
+
+\begin_layout Standard
+También realizamos pruebas utilizando salida estándar y entrada estándar,
  los cuales funcionaron correctamente.
- Cuando se trabaja con entrada estandar y se desea finalizar se debe ingresar
- ''ctrl D'', ya que utilizando ''ctrl C'' finaliza abruptamente y no se
- guarda correctamente el resultado.
+ Cuando se trabaja con entrada estándar y se desea finalizar se debe ingresar
+ ''ctrl D'', que inserta un EOF, ya que utilizando ''ctrl C'' finaliza abruptame
+nte y no se guarda correctamente el resultado.
+\end_layout
+
+\begin_layout Subsection
+Archivo 'pruebas.sh'
 \end_layout
 
 \begin_layout Subsection
