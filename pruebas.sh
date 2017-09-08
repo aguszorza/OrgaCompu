@@ -108,19 +108,19 @@ rm res.txt
 rm error.txt
 
 #Prueba con stdin
-entrada.txt | ./tp0 -o salida.txt
+./tp0 -o salida.txt  < entrada.txt
 diff salida.txt resultado.txt
 
 #Prueba con stdin
-entrada.txt | ./tp0 -i - -o salida.txt
+./tp0 -i - -o salida.txt < entrada.txt
 diff salida.txt resultado.txt
 
 #Prueba con stdout
-./tp0 -i entrada.txt >> salida.txt
+./tp0 -i entrada.txt > salida.txt
 diff salida.txt resultado.txt
 
 #Prueba con stdout
-./tp0 -i entrada.txt -o - >> salida.txt
+./tp0 -i entrada.txt -o - > salida.txt
 diff salida.txt resultado.txt
 
 #Borramos archivos sobrantes
