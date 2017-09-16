@@ -8,6 +8,7 @@
 #define ascii_9 57
 #define ascii_- 45
 #define ascii__ 95
+#define ascii_newline 10
 
 .text
 .abicalls
@@ -169,7 +170,8 @@ loop:
 no_es_caracter:
 	lw a0, 16($fp)                      # Recuperamos puntero a palabra
 	addu t0, s0, a0                     #t0 = palabra + len
-	sb zero, 0(t0)                      #Guardamos el "\0"
+	addiu t1, zero, ascii_newline
+	sb t1, 0(t0)                      	#Guardamos el "\n"
 	
 	lw a1, 44($fp)	                    # Cargamos puntero a len
 	sw s0, 0(a1)                        # Guardamos el len
@@ -432,9 +434,10 @@ escribir_palabra_archivo:
 	subu sp, sp, 40
 	sw s0, 16(sp)
 	sw s1, 20(sp)
-	sw $fp, 24(sp)
-	.cprestore 28
-	sw ra, 32(sp)
+	sw s2, 24(sp)
+	sw $fp, 28(sp)
+	.cprestore 32
+	sw ra, 36(sp)
 	move $fp, sp
 	
 	sw a0, 40($fp)                      # Guardamos el archivo de salida en el stackframe
@@ -444,7 +447,7 @@ escribir_palabra_archivo:
     la t0, pos_buffer_salida
     lw s0, 0, (t0)                      #s0 = pos actual del buffer
 
-    addu s1, zero, zero                 #Inicializamos el indice de la palabra
+    addu s1, zero, zero                 #Inicializamos el indice de la palabra en s1
     
     la t0, eof_leido
     lw t1, 0, (t0)                      #t1 = eof fue leido?
@@ -459,12 +462,11 @@ escribir_palabra_archivo:
 loop:
     lw a1, 44($fp)                      #Cargamos el puntero a la palabra
     addu t3, a1, s1                     #t3 = palabra + indice
-    lub t4, 0(t3)                       #t4 = caracter a escribir
-    beq t4, zero, return                #Salta si es \0
+    lub s2, 0(t3)                       #s2 = caracter a escribir
 
     lw a2, 48($fp)                      #Cargamos el puntero al buffer
     addu t5, a2, s0                     #t5 = buffer + pos_actual
-    sb t4, 0(t5)                        #Guardamos el caracter
+    sb s2, 0(t5)                        #Guardamos el caracter
 
     addiu s0,s0,1                       #Incrementamos pos_actual
     la t0, tam_buffer_salida
@@ -491,6 +493,7 @@ escribir_todo:
 
 continuar_loop:
     addu s1, s1, 1                      #Incrementamos el indice de la palabra
+    beq s2, ascii_newline, return       #Termina si es \n
     j loop                              #Vuelve al loop
 
 eof_leido:
@@ -503,9 +506,10 @@ return:
     sw s0, 0, (t0)                      #Guardamos la pos actual del buffer
     lw s0, 16($fp)
     lw s1, 20($fp)
-    lw ra, 32($fp)
-	lw gp, 28($fp)
-	lw $fp, 24($fp)
+    lw s2, 24($fp)
+    lw ra, 36($fp)
+	lw gp, 32($fp)
+	lw $fp, 28($fp)
 	addiu sp, sp, 40
 	jr ra
 
