@@ -458,39 +458,6 @@ end{center}
 \color black
 Por otro lado, el buffer correspondiente a la función leer caracter archivo
  quedará definido como lo indica la siguiente figura:
-\color inherit
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_leer_caracter_archivo.png}
-\backslash
-
-\backslash
-[1.5cm]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
