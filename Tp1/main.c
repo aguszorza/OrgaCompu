@@ -6,8 +6,8 @@ int palindrome (int ifd, size_t ibytes, int ofd, size_t obytes);
 int main(int argc, char* argv[]){
 	FILE* entrada = stdin;
 	FILE* salida = stdout;
-	int tam_buffer_entrada = 100;    /////////NO SE CUANTO ES POR DEFAULT
-	int tam_buffer_salida = 100;    /////////NO SE CUANTO ES POR DEFAULT
+	int tam_buffer_entrada = 1;
+	int tam_buffer_salida = 1;
 	char* parametro;
 	
 	int i;
