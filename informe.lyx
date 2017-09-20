@@ -1,0 +1,4909 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\date{}
+\usepackage{float}
+\usepackage{units}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{esint}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{xcolor}
+%-------------------------------------------------------------------------------
+%Modificaciones de leyendas en figuras
+%\usepackage[footnotesize, labelsep=quad]{caption}
+%\captionsetup{width=0.8\textwidth }
+\usepackage{caption}
+\captionsetup[figure]{margin=40pt,font=normalsize,labelfont=bf}
+\captionsetup[table]{margin=40pt,font=normalsize,labelfont=bf} 
+%-------------------------------------------------------------------------------
+% Added by lyx2lyx
+\end_preamble
+\use_default_options true
+\begin_modules
+customHeadersFooters
+tcolorbox
+fixltx2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_author "Agustín Zorzano"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref section
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 1.5cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+Organización de Computadoras (66.20)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.5]{fiuba.png}
+\backslash
+
+\backslash
+[1.5cm]    
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+Large Facultad de Ingeniería - U.B.A.}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+Large 66.20 Organización de Computadoras - Práctica Martes}
+\backslash
+
+\backslash
+[.05cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+small 2do.
+ Cuatrimestre de 2017}
+\backslash
+
+\backslash
+[3cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+ { 
+\backslash
+Huge 
+\backslash
+bfseries Trabajo práctico Nº 0}
+\backslash
+
+\backslash
+[.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 
+\backslash
+huge Infraestructura básica}
+\backslash
+
+\backslash
+[3cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+small Matias Leandro Feld, Padrón: 99170}
+\backslash
+
+\backslash
+[.05cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+feldmatias@gmail.com
+\backslash
+
+\backslash
+[.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+small Federico Funes, Padrón: 98372}
+\backslash
+
+\backslash
+[.05cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+fede.funes96@gmail.com
+\backslash
+
+\backslash
+[.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+small Agustín Zorzano, Padrón: 99224}
+\backslash
+
+\backslash
+[.05cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+aguszorza@gmail.com
+\backslash
+
+\backslash
+[.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\begin_layout Plain Layout
+
+% Bottom of the page {
+\backslash
+large 
+\backslash
+today}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Documentación e implementación
+\end_layout
+
+\begin_layout Standard
+
+\color black
+El objetivo del trabajo es realizar un programa en lenguaje MIPS32 que lea
+ palabras de una archivo (o de entrada estandar) y guarde en otro archivo
+ (mostrar por salida estandar) únicamente aquellas palabras que sean palíndromos.
+ Además, para analizar como influyen en el tiempo de ejecución las lecturas
+ y escrituras en archivos, se implementó un sistema de buffer.
+ Esto significa que al leer de un archivo no se hará de a un caracter por
+ vez, sino que se llenará el buffer de entrada y luego se leerán los caracteres
+ desde éste.
+ Asimismo, para la escritura de archivos se realizará algo similar.
+ Se guardarán en el buffer los caracteres a escribir, y se escribirán en
+ el archivo una vez que el buffer se llene.
+ De este modo, variando el tamaño del buffer, se podrá analizar como afectan
+ al tiempo las operaciones con archivos.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+El programa se divide en las siguientes funciones: 
+\end_layout
+
+\begin_layout Enumerate
+
+\color black
+La función principal, main, que se encargara de la lógica de leer los parámetros
+ de entrada y el manejo de los archivos.
+ Si algun archivo no se puede abrir, no se pasaron correctamente los parámetros
+ el programa mostrará un mensaje de error en el archivo stderr y finalizará
+ con un código de error.
+ Esta funcion será escrita en lenguaje C.
+\end_layout
+
+\begin_layout Enumerate
+La función leer archivo, que es la que se encarga del bucle principal.
+ 
+\color black
+que consiste en leer una palabra del archivo de entrada, comprobar si es
+ palíndromo y escribirla en el archivo de salida si corresponde.
+ Ésta es la función de entrada al programa en MIPS que deberá ser llamada
+ desde el programa en C.
+ Recibe por parámetro el archivo de entrada, el de salida y el tamaño del
+ buffer.
+ Al ser llamada lo primero que hará es crear los buffer de entrada y salida,
+ utilizando la función crear_buffer().
+ Luego entrará en el bucle hasta que todos los caracteres del archivo de
+ entrada sean analizados.
+ El buffer correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.25]{imagenes/stackframe_leer_archivo.png}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\color black
+La función leer palabra, que se encarga de leer una palabra del archivo.
+ Debido a las limitaciones de lo que se considera palabra, y a que no hay
+ limitación con respecto a cantidad de letras de una palabra, lo que hacemos
+ es leer carácter por carácter, guardándolos en un vector alojado en memoria
+ dinámica que se irá redimensionando a medida que sea necesario.
+ Para ello, definimos una variable TAM que determinará la cantidad de memoria
+ que se pide al inicio y al redimensionar.
+ En principio esa variable puede contener cualquier número, pero para no
+ estar redimensionando muchas veces y para no pedir mucha memoria innecesaria,
+ definimos ese valor en 10.
+ La función recibe por parámetro un puntero a entero, que sirve para guardar
+ la longitud de la palabra leída, con el objetivo de no tener que calcularla
+ nuevamente en otro momento.
+ Para leer un caracter llamará a la función leer_caracter_archivo().
+ Para facilitar la escritura de la palabra, al final de la misma se insertará
+ un 
+\backslash
+n.
+ El buffer correspondiente a la función leer palabra quedará definido de
+ la siguiente manera:
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.25]{imagenes/stackframe_leer_palabra.png}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\color black
+Por otro lado, el buffer correspondiente a la función leer caracter archivo
+ quedará definido como lo indica la siguiente figura:
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.25]{imagenes/stackframe_leer_caracter_archivo.png}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\color black
+La función es capicúa, que se encarga de comprobar si la palabra es o no
+ un palíndromo, y devuelve un valor booleano según corresponda.
+ Ésta función recibe por parámetro el puntero a la palabra y la longitud
+ de la misma.
+ El buffer correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.25]{imagenes/stackframe_es_capicua.png}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La función my_tolower, que fue implementada para no usar la del lenguaje
+ C, se encarga de pasar a minúscula un caracter.
+ Para eso, recibe por parámetro el caracter, y lo transforma únicamente
+ si es una letra mayúscula, caso contrario lo devuelve como viene.
+ 
+\color black
+El buffer correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.25]{imagenes/stackframe_my_tolower.png}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La función crear buffer, es la encargada de crear los buffers.
+ Para ello recibirá por parámetro el tamaño del mismo, y lo creará haciendo
+ uso de la función malloc.
+ 
+\color black
+El buffer correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.25]{imagenes/stackframe_crear_buffer.png}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La función leer caracter archivo, que se encarga de leer un carácter del
+ archivo de entrada.
+ Como se explicó anteriormente, ésta hace uso de un buffer.
+ Por lo tanto, conociendo el tamaño del buffer y la última posición leída,
+ devolverá el caracter correspondiente, y cuando la posición sea mayor o
+ igual al tamaño se encargará de llenar el buffer nuevamente con nuevos
+ datos.
+ Esta función tiene una complicación adicional, ya que debe indicar cuando
+ fue leído el final del archivo en el buffer.
+ Para eso, utilizaremos una variable global, que será nula hasta el momento
+ en que se lee el EOF, que cambiará de valor y permitirá avisar a las demás
+ funciones que ya se leyó todo el archivo.
+ 
+\color black
+El buffer correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.25]{imagenes/stackframe_leer_caracter_archivo.png}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Por último, la función escribir_palabra_archivo, que se encarga de escribir
+ una palabra en el archivo de salida.
+ Debido a que debe utilizar el buffer, la función recibirá por parámetro
+ la palabra, y guardará de a un caracter por vez en el buffer.
+ Una vez que se llene el buffer, independientemente si se guardó toda la
+ palabra o no, éste se escribirá en el archivo y se vaciará.
+ Al igual que la anterior, también tiene una complicación.
+ Puede ocurrir que el buffer no se llene completamente y se haya terminado
+ el archivo, en cuyo caso, utilizando la variable global que indica que
+ se leyó el EOF, escribirá todo lo que se encuentre en el buffer en ese
+ momento.
+ A su vez, guardará en otra variable global que se ha escrito el EOF, para
+ indicar a la función principal que se acabó de escribir el archivo.
+ 
+\color black
+El buffer correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.25]{imagenes/stackframe_escribir_palabra_archivo.png}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comandos para compilacion
+\end_layout
+
+\begin_layout Standard
+Para compilar el programa, tanto en Linux como en NetBSD utilizamos el siguiente
+ comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+$ gcc -Wall -o tp0 tp0.c 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para obtener el codigo MIPS32 generado por el compilador utilizamos el siguiente
+ comando en el sistema operativo NetBSD:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+$ gcc -Wall -O0 -S -mrnames tp0.c
+\end_layout
+
+\begin_layout Section
+Pruebas
+\end_layout
+
+\begin_layout Standard
+Para probar el programa utilizamos un script de bash llamado 'pruebas.sh''
+ que contiene un conjunto de pruebas que se realizan automáticamente.
+ Entre ellas,se encuentran pruebas con archivos vacios, archivos con un
+ solo caracter y archivos solo con simbolos.
+ Por otro lado, tambien se prueba que funcionen correctamente los mensajes
+ de error cuando los parámetros no son usados correctamente.
+ Todas las pruebas utilizan el siguiente comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+$ diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde si no muestra nada significa que ambos archivos son iguales, y que
+ por lo tanto todas las pruebas del programa funcionan correctamente.
+\end_layout
+
+\begin_layout Standard
+En una de las pruebas utilizamos un archivo de texto ''entrada.txt'' que
+ contiene un conjunto de palabras con combinaciones de letras, numeros y
+ guiones y mezclando mayúsculas y minúsculas.
+ Luego tenemos otro archivo, ''resultado.txt'' que es lo que se espera que
+ devuelva el programa al ejecutarse con ese archivo de entrada.
+ En la siguiente sección se muestran esos archivos.
+\end_layout
+
+\begin_layout Standard
+También realizamos pruebas utilizando salida estándar y entrada estándar,
+ los cuales funcionaron correctamente.
+ Cuando se trabaja con entrada estándar y se desea finalizar se debe ingresar
+ ''ctrl D'', que inserta un EOF, ya que utilizando ''ctrl C'' finaliza abruptame
+nte y no se guarda correctamente el resultado.
+\end_layout
+
+\begin_layout Subsection
+Archivo 'pruebas.sh'
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=bash,keywordstyle={\color{blue}}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#/bin/bash
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+gcc -Wall -o tp0 tp0.c
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con archivo de pruebas
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i entrada.txt -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con archivo vacio
+\end_layout
+
+\begin_layout Plain Layout
+
+touch vacio.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+touch resultado_vacio.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i vacio.txt -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt resultado_vacio.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con una sola letra mayúscula
+\end_layout
+
+\begin_layout Plain Layout
+
+echo M | ./tp0 -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+echo M > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con una sola letra minúscula
+\end_layout
+
+\begin_layout Plain Layout
+
+echo m | ./tp0 -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+echo m > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con un número
+\end_layout
+
+\begin_layout Plain Layout
+
+echo 3 | ./tp0 -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+echo 3 > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con un guion
+\end_layout
+
+\begin_layout Plain Layout
+
+echo - | ./tp0 -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+echo - > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con un guion bajo
+\end_layout
+
+\begin_layout Plain Layout
+
+echo _ | ./tp0 -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+echo _ > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con un simbolo
+\end_layout
+
+\begin_layout Plain Layout
+
+echo @ | ./tp0 -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt vacio.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con espacios
+\end_layout
+
+\begin_layout Plain Layout
+
+echo "                    " > ent.txt 
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i ent.txt -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt vacio.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba con simbolos
+\end_layout
+
+\begin_layout Plain Layout
+
+echo "@#$%^*()!{}[],./?<>;:*+
+\backslash
+|=+" > ent.txt 
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i ent.txt -o salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt vacio.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba error: no se ingresa archivo de entrada
+\end_layout
+
+\begin_layout Plain Layout
+
+echo "Debe indicar un archivo de entrada luego de -i" > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba error: no se ingresa archivo de entrada
+\end_layout
+
+\begin_layout Plain Layout
+
+echo "Debe indicar un archivo de entrada luego de -i" > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -o salida.txt -i 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba error: no se ingresa archivo de salida
+\end_layout
+
+\begin_layout Plain Layout
+
+echo "Debe indicar un archivo de salida luego de -o" > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -o 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba error: no se ingresa archivo de salida
+\end_layout
+
+\begin_layout Plain Layout
+
+echo "Debe indicar un archivo de salida luego de -o" > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i entrada.txt -o 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prueba error: no se puede abrir el archivo de entrada
+\end_layout
+
+\begin_layout Plain Layout
+
+echo "El archivo de entrada no pudo abrirse" > res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i inexistente.txt 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#Prueba con stdin
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -o salida.txt  < entrada.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#Prueba con stdin
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i - -o salida.txt < entrada.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#Prueba con stdout
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i entrada.txt > salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#Prueba con stdout
+\end_layout
+
+\begin_layout Plain Layout
+
+./tp0 -i entrada.txt -o - > salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#Borramos archivos sobrantes
+\end_layout
+
+\begin_layout Plain Layout
+
+rm vacio.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+rm resultado_vacio.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+rm salida.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+rm ent.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+rm error.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+rm res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Archivo ’entrada.txt’
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Pruebas varias:
+\end_layout
+
+\begin_layout Plain Layout
+
+aaa     pelota hola como estas
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+pepep aaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa
+\end_layout
+
+\begin_layout Plain Layout
+
+_aa_
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+_aAAa_
+\end_layout
+
+\begin_layout Plain Layout
+
+-a-a-
+\end_layout
+
+\begin_layout Plain Layout
+
+-a-a
+\end_layout
+
+\begin_layout Plain Layout
+
+Neuquen
+\end_layout
+
+\begin_layout Plain Layout
+
+-Neuquen-   neu%q%uen
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+1234321   ?123?123abc4cba321
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Prueba del enunciado:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Somos los primeros en completar el TP 0.
+\end_layout
+
+\begin_layout Plain Layout
+
+Ojo que La fecha de entrega del TP0 es el martes 12 de septiembre.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Palabras largas mezcladas:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+abcdefghijklmnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba??=
+=
+\end_layout
+
+\begin_layout Plain Layout
+
+ABCDEFGHIJKLMnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba??=
+=
+\end_layout
+
+\begin_layout Plain Layout
+
+EstoesUnPalindromoOMOrdnilapNUSEOTse.........EStono
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Pruebas de guiones  guiones bajos:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+__--__???????######$$$$_-_-_@@@@@-_-__-_-!    ---___
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Pruebas de palabras de una letra:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+a   %%% % 1 2 ^4^ - _ C D
+\end_layout
+
+\begin_layout Plain Layout
+
+b  ! @ # $ % ^ & * ( ) = + 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+c
+\end_layout
+
+\begin_layout Plain Layout
+
+d
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Pruebas solo mayusculas:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+AAA ABCDEDCBA   ABC123--321CBA  WXXW
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+PALINDROMO  -ABCB-
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Archivo ’resultado.txt’
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+aaa
+\end_layout
+
+\begin_layout Plain Layout
+
+pepep
+\end_layout
+
+\begin_layout Plain Layout
+
+aaaaaaaaaaaaaaa
+\end_layout
+
+\begin_layout Plain Layout
+
+aaaaaaaaaaaaaaaa
+\end_layout
+
+\begin_layout Plain Layout
+
+_aa_
+\end_layout
+
+\begin_layout Plain Layout
+
+_aAAa_
+\end_layout
+
+\begin_layout Plain Layout
+
+-a-a-
+\end_layout
+
+\begin_layout Plain Layout
+
+Neuquen
+\end_layout
+
+\begin_layout Plain Layout
+
+-Neuquen-
+\end_layout
+
+\begin_layout Plain Layout
+
+q
+\end_layout
+
+\begin_layout Plain Layout
+
+1234321
+\end_layout
+
+\begin_layout Plain Layout
+
+123abc4cba321
+\end_layout
+
+\begin_layout Plain Layout
+
+Somos
+\end_layout
+
+\begin_layout Plain Layout
+
+0
+\end_layout
+
+\begin_layout Plain Layout
+
+Ojo
+\end_layout
+
+\begin_layout Plain Layout
+
+abcdefghijklmnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba
+\end_layout
+
+\begin_layout Plain Layout
+
+ABCDEFGHIJKLMnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba
+\end_layout
+
+\begin_layout Plain Layout
+
+EstoesUnPalindromoOMOrdnilapNUSEOTse
+\end_layout
+
+\begin_layout Plain Layout
+
+__--__
+\end_layout
+
+\begin_layout Plain Layout
+
+_-_-_
+\end_layout
+
+\begin_layout Plain Layout
+
+-_-__-_-
+\end_layout
+
+\begin_layout Plain Layout
+
+a
+\end_layout
+
+\begin_layout Plain Layout
+
+1
+\end_layout
+
+\begin_layout Plain Layout
+
+2
+\end_layout
+
+\begin_layout Plain Layout
+
+4
+\end_layout
+
+\begin_layout Plain Layout
+
+-
+\end_layout
+
+\begin_layout Plain Layout
+
+_
+\end_layout
+
+\begin_layout Plain Layout
+
+C
+\end_layout
+
+\begin_layout Plain Layout
+
+D
+\end_layout
+
+\begin_layout Plain Layout
+
+b
+\end_layout
+
+\begin_layout Plain Layout
+
+c
+\end_layout
+
+\begin_layout Plain Layout
+
+d
+\end_layout
+
+\begin_layout Plain Layout
+
+AAA
+\end_layout
+
+\begin_layout Plain Layout
+
+ABCDEDCBA
+\end_layout
+
+\begin_layout Plain Layout
+
+ABC123--321CBA
+\end_layout
+
+\begin_layout Plain Layout
+
+WXXW
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Código fuente
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C,numbers=left,breaklines=true,keywordstyle={\color{blue}}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#include <stdio.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <string.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <stdbool.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <stdlib.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <ctype.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#define TAM 10
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+char * leer_palabra(FILE* archivo, int* longitud){
+\end_layout
+
+\begin_layout Plain Layout
+
+	char* palabra = realloc(NULL,TAM);
+\end_layout
+
+\begin_layout Plain Layout
+
+	int len = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	while(true){
+\end_layout
+
+\begin_layout Plain Layout
+
+		int c = fgetc(archivo);
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (ferror(archivo)){
+\end_layout
+
+\begin_layout Plain Layout
+
+			free(palabra);
+\end_layout
+
+\begin_layout Plain Layout
+
+			return NULL;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		if((c>='A' && c<='Z') ||(c>='a' && c<='z') || (c>='0' && c<='9') || (c
+ == '-') || (c == '_')){
+\end_layout
+
+\begin_layout Plain Layout
+
+			palabra[len] = c;
+\end_layout
+
+\begin_layout Plain Layout
+
+			len ++;
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (len % TAM == 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+				palabra = realloc(palabra, TAM + len);
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else{
+\end_layout
+
+\begin_layout Plain Layout
+
+			palabra[len] = '
+\backslash
+0';
+\end_layout
+
+\begin_layout Plain Layout
+
+			*longitud = len;
+\end_layout
+
+\begin_layout Plain Layout
+
+			return palabra;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bool es_capicua(char* palabra, int len){
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (len == 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+		return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	int inicio = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int final = len - 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	while(inicio < final){
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (tolower((unsigned char)palabra[inicio]) != tolower((unsigned char)palabra[
+final])){
+\end_layout
+
+\begin_layout Plain Layout
+
+			return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		inicio++;
+\end_layout
+
+\begin_layout Plain Layout
+
+		final--;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main(int argc, char* argv[]){
+\end_layout
+
+\begin_layout Plain Layout
+
+	FILE* entrada = stdin;
+\end_layout
+
+\begin_layout Plain Layout
+
+	FILE* salida = stdout;
+\end_layout
+
+\begin_layout Plain Layout
+
+	char* parametro;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i = 1; i < argc; i += 2){
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (strcmp(argv[i],"-i") == 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (i + 1 >= argc){
+\end_layout
+
+\begin_layout Plain Layout
+
+				fputs("Debe indicar un archivo de entrada luego de -i
+\backslash
+n", stderr);
+\end_layout
+
+\begin_layout Plain Layout
+
+				return 2;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			parametro = argv[i + 1];
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (strcmp(parametro,"-") != 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+				entrada = fopen(argv[i + 1], "r");
+\end_layout
+
+\begin_layout Plain Layout
+
+				if (!entrada){
+\end_layout
+
+\begin_layout Plain Layout
+
+					fputs("El archivo de entrada no pudo abrirse
+\backslash
+n", stderr);
+\end_layout
+
+\begin_layout Plain Layout
+
+					return 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else if (strcmp(argv[i],"-o") == 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (i + 1 >= argc){
+\end_layout
+
+\begin_layout Plain Layout
+
+				fputs("Debe indicar un archivo de salida luego de -o
+\backslash
+n", stderr);
+\end_layout
+
+\begin_layout Plain Layout
+
+				return 2;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			parametro = argv[i + 1];
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (strcmp(parametro,"-") != 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+				salida = fopen(argv[i + 1], "w");
+\end_layout
+
+\begin_layout Plain Layout
+
+				if (!salida){
+\end_layout
+
+\begin_layout Plain Layout
+
+					fputs("El archivo de salida no pudo abrirse
+\backslash
+n", stderr);
+\end_layout
+
+\begin_layout Plain Layout
+
+					return 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else if (strcmp(argv[i],"-V") == 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+			fprintf(stdout, "TP0 version 1.0002
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+			return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else if (strcmp(argv[i],"-h") == 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+			fprintf(stdout, "Usage:
+\backslash
+n
+\backslash
+ntp0 -h
+\backslash
+ntp0 -V
+\backslash
+ntp0 [options]
+\backslash
+n
+\backslash
+nOptions:
+\backslash
+n-V, --version  Print version and quit.
+\backslash
+n-h, --help   Print this information.
+\backslash
+n-i, --input   Location of the input file.
+\backslash
+n-o, --output   Location of the output file.
+\backslash
+n
+\backslash
+nExample:
+\backslash
+ntp0 -i ~/input -o ~/output
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+			return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	char* palabra;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int len;
+\end_layout
+
+\begin_layout Plain Layout
+
+	while(!feof(entrada)){
+\end_layout
+
+\begin_layout Plain Layout
+
+		palabra = leer_palabra(entrada, &len);
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (!palabra){
+\end_layout
+
+\begin_layout Plain Layout
+
+			fputs("Ocurrio un error inesperado
+\backslash
+n", stderr);
+\end_layout
+
+\begin_layout Plain Layout
+
+			return 3;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (es_capicua(palabra, len)){
+\end_layout
+
+\begin_layout Plain Layout
+
+			fprintf(salida, "%s
+\backslash
+n", palabra);
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		free (palabra);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	fclose(entrada);
+\end_layout
+
+\begin_layout Plain Layout
+
+	fclose(salida);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Codigo MIPS32
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\small},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+	.file	1 "tp0.c"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.section .mdebug.abi32
+\end_layout
+
+\begin_layout Plain Layout
+
+	.previous
+\end_layout
+
+\begin_layout Plain Layout
+
+	.abicalls
+\end_layout
+
+\begin_layout Plain Layout
+
+	.text
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+	.globl	leer_palabra
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ent	leer_palabra
+\end_layout
+
+\begin_layout Plain Layout
+
+leer_palabra:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.frame	$fp,56,$ra		# vars= 16, regs= 3/0, args= 16, extra= 8
+\end_layout
+
+\begin_layout Plain Layout
+
+	.mask	0xd0000000,-8
+\end_layout
+
+\begin_layout Plain Layout
+
+	.fmask	0x00000000,0
+\end_layout
+
+\begin_layout Plain Layout
+
+	.set	noreorder
+\end_layout
+
+\begin_layout Plain Layout
+
+	.cpload	$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	.set	reorder
+\end_layout
+
+\begin_layout Plain Layout
+
+	subu	$sp,$sp,56
+\end_layout
+
+\begin_layout Plain Layout
+
+	.cprestore 16
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$ra,48($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$fp,44($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$gp,40($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$fp,$sp
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$a0,56($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$a1,60($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$a0,$zero
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$a1,10			# 0xa
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,realloc
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$zero,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+$L18:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,56($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fgetc
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,56($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lhu	$v0,12($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	srl	$v0,$v0,6
+\end_layout
+
+\begin_layout Plain Layout
+
+	andi	$v0,$v0,0x1
+\end_layout
+
+\begin_layout Plain Layout
+
+	beq	$v0,$zero,$L21
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,free
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$zero,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L17
+\end_layout
+
+\begin_layout Plain Layout
+
+$L21:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v0,65
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L24
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v0,91
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L23
+\end_layout
+
+\begin_layout Plain Layout
+
+$L24:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v0,97
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L25
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v0,123
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L23
+\end_layout
+
+\begin_layout Plain Layout
+
+$L25:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v0,48
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L26
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v0,58
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L23
+\end_layout
+
+\begin_layout Plain Layout
+
+$L26:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v1,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,45			# 0x2d
+\end_layout
+
+\begin_layout Plain Layout
+
+	beq	$v1,$v0,$L23
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v1,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,95			# 0x5f
+\end_layout
+
+\begin_layout Plain Layout
+
+	beq	$v1,$v0,$L23
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L22
+\end_layout
+
+\begin_layout Plain Layout
+
+$L23:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v1,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v1,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	lbu	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sb	$v0,0($v1)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,1717960704			# 0x66660000
+\end_layout
+
+\begin_layout Plain Layout
+
+	ori	$v0,$v0,0x6667
+\end_layout
+
+\begin_layout Plain Layout
+
+	mult	$a0,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	mfhi	$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	sra	$v1,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	sra	$v0,$a0,31
+\end_layout
+
+\begin_layout Plain Layout
+
+	subu	$v1,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$v0,$v1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v0,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,$v1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v0,$v0,1
+\end_layout
+
+\begin_layout Plain Layout
+
+	subu	$v0,$a0,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L18
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,10
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$a1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,realloc
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L18
+\end_layout
+
+\begin_layout Plain Layout
+
+$L22:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v1,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	sb	$zero,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v1,60($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,0($v1)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+$L17:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$sp,$fp
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$ra,48($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$fp,44($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$sp,$sp,56
+\end_layout
+
+\begin_layout Plain Layout
+
+	j	$ra
+\end_layout
+
+\begin_layout Plain Layout
+
+	.end	leer_palabra
+\end_layout
+
+\begin_layout Plain Layout
+
+	.size	leer_palabra, .-leer_palabra
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+	.globl	es_capicua
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ent	es_capicua
+\end_layout
+
+\begin_layout Plain Layout
+
+es_capicua:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.frame	$fp,32,$ra		# vars= 16, regs= 2/0, args= 0, extra= 8
+\end_layout
+
+\begin_layout Plain Layout
+
+	.mask	0x50000000,-4
+\end_layout
+
+\begin_layout Plain Layout
+
+	.fmask	0x00000000,0
+\end_layout
+
+\begin_layout Plain Layout
+
+	.set	noreorder
+\end_layout
+
+\begin_layout Plain Layout
+
+	.cpload	$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	.set	reorder
+\end_layout
+
+\begin_layout Plain Layout
+
+	subu	$sp,$sp,32
+\end_layout
+
+\begin_layout Plain Layout
+
+	.cprestore 0
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$fp,28($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$gp,24($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$fp,$sp
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$a0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$a1,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L30
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$zero,16($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L29
+\end_layout
+
+\begin_layout Plain Layout
+
+$L30:
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$zero,8($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,-1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,12($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+$L31:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,8($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v1,12($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v0,$v1
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L33
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L32
+\end_layout
+
+\begin_layout Plain Layout
+
+$L33:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v1,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,8($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	lbu	$v0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,1
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,_tolower_tab_
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$a0,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v1,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,12($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	lbu	$v0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,1
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,_tolower_tab_
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lh	$v1,0($a0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lh	$v0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	beq	$v1,$v0,$L34
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$zero,16($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L29
+\end_layout
+
+\begin_layout Plain Layout
+
+$L34:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,8($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,8($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,12($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,-1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,12($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L31
+\end_layout
+
+\begin_layout Plain Layout
+
+$L32:
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,1			# 0x1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,16($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+$L29:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,16($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$sp,$fp
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$fp,28($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$sp,$sp,32
+\end_layout
+
+\begin_layout Plain Layout
+
+	j	$ra
+\end_layout
+
+\begin_layout Plain Layout
+
+	.end	es_capicua
+\end_layout
+
+\begin_layout Plain Layout
+
+	.size	es_capicua, .-es_capicua
+\end_layout
+
+\begin_layout Plain Layout
+
+	.rdata
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC0:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"-i
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC1:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"Debe indicar un archivo de entrada luego de -i
+\backslash
+n
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC2:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"-
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC3:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"r
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC4:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"El archivo de entrada no pudo abrirse
+\backslash
+n
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC5:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"-o
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC6:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"Debe indicar un archivo de salida luego de -o
+\backslash
+n
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC7:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"w
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC8:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"El archivo de salida no pudo abrirse
+\backslash
+n
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC9:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"-V
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC10:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"TP0 version 1.0002
+\backslash
+n
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC11:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"-h
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC12:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"Usage:
+\backslash
+n
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"tp0 -h
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"tp0 -V
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"tp0 [options]
+\backslash
+n
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"Options:
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"-V, --version  Print version and quit.
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"-h, --help   Print this information.
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"-i, --input   Location of the input file.
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"-o, --output   Location of the output file.
+\backslash
+n
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"Example:
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"tp0 -i ~/input -o ~/output
+\backslash
+n
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC13:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"Ocurrio un error inesperado
+\backslash
+n
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+$LC14:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ascii	"%s
+\backslash
+n
+\backslash
+000"
+\end_layout
+
+\begin_layout Plain Layout
+
+	.text
+\end_layout
+
+\begin_layout Plain Layout
+
+	.align	2
+\end_layout
+
+\begin_layout Plain Layout
+
+	.globl	main
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ent	main
+\end_layout
+
+\begin_layout Plain Layout
+
+main:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.frame	$fp,72,$ra		# vars= 32, regs= 3/0, args= 16, extra= 8
+\end_layout
+
+\begin_layout Plain Layout
+
+	.mask	0xd0000000,-8
+\end_layout
+
+\begin_layout Plain Layout
+
+	.fmask	0x00000000,0
+\end_layout
+
+\begin_layout Plain Layout
+
+	.set	noreorder
+\end_layout
+
+\begin_layout Plain Layout
+
+	.cpload	$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	.set	reorder
+\end_layout
+
+\begin_layout Plain Layout
+
+	subu	$sp,$sp,72
+\end_layout
+
+\begin_layout Plain Layout
+
+	.cprestore 16
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$ra,64($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$fp,60($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$gp,56($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$fp,$sp
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$a0,72($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$a1,76($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$v0,__sF
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$v0,__sF+88
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,1			# 0x1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+$L36:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v1,72($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v0,$v1
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L39
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L37
+\end_layout
+
+\begin_layout Plain Layout
+
+$L39:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,76($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC0
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,strcmp
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L40
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v1,$v0,1
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,72($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L41
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a0,$LC1
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,__sF+176
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fputs
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,2			# 0x2
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,48($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L35
+\end_layout
+
+\begin_layout Plain Layout
+
+$L41:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,76($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,4
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC2
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,strcmp
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	beq	$v0,$zero,$L38
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,76($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,4
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC3
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fopen
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L38
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a0,$LC4
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,__sF+176
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fputs
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,1			# 0x1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,48($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L35
+\end_layout
+
+\begin_layout Plain Layout
+
+$L40:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,76($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC5
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,strcmp
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L45
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v1,$v0,1
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,72($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	slt	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L46
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a0,$LC6
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,__sF+176
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fputs
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,2			# 0x2
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,48($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L35
+\end_layout
+
+\begin_layout Plain Layout
+
+$L46:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,76($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,4
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,32($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC2
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,strcmp
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	beq	$v0,$zero,$L38
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,76($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,4
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC7
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fopen
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L38
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a0,$LC8
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,__sF+176
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fputs
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,1			# 0x1
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,48($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L35
+\end_layout
+
+\begin_layout Plain Layout
+
+$L45:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,76($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC9
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,strcmp
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L50
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a0,__sF+88
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC10
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fprintf
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$zero,48($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L35
+\end_layout
+
+\begin_layout Plain Layout
+
+$L50:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	sll	$v1,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,76($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,0($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC11
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,strcmp
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L38
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a0,__sF+88
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC12
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fprintf
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$zero,48($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L35
+\end_layout
+
+\begin_layout Plain Layout
+
+$L38:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$v0,2
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,36($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L36
+\end_layout
+
+\begin_layout Plain Layout
+
+$L37:
+\end_layout
+
+\begin_layout Plain Layout
+
+	.set	noreorder
+\end_layout
+
+\begin_layout Plain Layout
+
+	nop
+\end_layout
+
+\begin_layout Plain Layout
+
+	.set	reorder
+\end_layout
+
+\begin_layout Plain Layout
+
+$L53:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lhu	$v0,12($v0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	srl	$v0,$v0,5
+\end_layout
+
+\begin_layout Plain Layout
+
+	andi	$v0,$v0,0x1
+\end_layout
+
+\begin_layout Plain Layout
+
+	beq	$v0,$zero,$L55
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L54
+\end_layout
+
+\begin_layout Plain Layout
+
+$L55:
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$v0,$fp,44
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$a1,$v0
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,leer_palabra
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,40($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,40($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	bne	$v0,$zero,$L56
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a0,$LC13
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,__sF+176
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fputs
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	li	$v0,3			# 0x3
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$v0,48($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L35
+\end_layout
+
+\begin_layout Plain Layout
+
+$L56:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,40($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a1,44($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,es_capicua
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	beq	$v0,$zero,$L57
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$a1,$LC14
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a2,40($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fprintf
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+$L57:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,40($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,free
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	b	$L53
+\end_layout
+
+\begin_layout Plain Layout
+
+$L54:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,24($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fclose
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$a0,28($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	la	$t9,fclose
+\end_layout
+
+\begin_layout Plain Layout
+
+	jal	$ra,$t9
+\end_layout
+
+\begin_layout Plain Layout
+
+	sw	$zero,48($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+$L35:
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$v0,48($fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	move	$sp,$fp
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$ra,64($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lw	$fp,60($sp)
+\end_layout
+
+\begin_layout Plain Layout
+
+	addu	$sp,$sp,72
+\end_layout
+
+\begin_layout Plain Layout
+
+	j	$ra
+\end_layout
+
+\begin_layout Plain Layout
+
+	.end	main
+\end_layout
+
+\begin_layout Plain Layout
+
+	.size	main, .-main
+\end_layout
+
+\begin_layout Plain Layout
+
+	.ident	"GCC: (GNU) 3.3.3 (NetBSD nb3 20040520)"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
