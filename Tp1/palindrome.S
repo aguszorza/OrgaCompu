@@ -37,7 +37,7 @@ palindrome:
     move a0, a1                         #a0 = tamanio del buffer entrada
 
     la t9, crear_buffer
-    jal ra,t9                           #Crea el buffer de entrada
+    jalr t9                           	#Crea el buffer de entrada
     beq v0, zero, error_primer_buffer	#Si devuelve 0 ocurrio un error
     sw v0, 24($fp)                      #Guardamos el buffer de entrada en el stackframe
     la t0, tam_buffer_entrada
@@ -46,7 +46,7 @@ palindrome:
 
     lw a0, 60($fp)                      #a0 = tamanio del buffer de salida
     la t9, crear_buffer
-    jal ra,t9                           #Crea el buffer de salida
+    jalr t9                           	#Crea el buffer de salida
     beq v0, zero, error_segundo_buffer	#Si devuelve 0 ocurrio un error
     sw v0, 28($fp)                      #Guardamos el buffer de salida en el stackframe
     la t0, tam_buffer_salida
@@ -54,16 +54,12 @@ palindrome:
     sw t1, 0(t0)						#Actualizo el tamanio del buffer salida
 	
 loop:
-	la t0, eof_escrito
-    lw t1, 0(t0)						#t0 = eof escrito?
-	bgt t1, zero, terminar              # Termina si se escribio EOF
-	
     lw a0, 48($fp)                      #Cargamos en a0 el archivo de entrada
 	addu a1, $fp, 16                    #Cargamos en a1 el puntero a len
     lw a2, 24($fp)                      #Cargamos en a2 el buffer de entrada
 	
 	la t9, leer_palabra
-	jal ra, t9                          #Lee la proxima palabra
+	jalr t9                          	#Lee la proxima palabra
 
 	sw v0, 20($fp)                      # Guardamos el puntero a la palabra
 	beq v0, zero, error_inesperado      # No se pudo leer la palabra
@@ -71,7 +67,7 @@ loop:
 	move a0, v0                         #a0 = puntero a palabra
     lw a1, 16 ($fp)                     #a1 = len(palabra)
 	la t9, es_capicua
-	jal ra, t9                          #Llama a es_capicua      
+	jalr t9                          	#Llama a es_capicua      
 
 	beq v0, zero, continuar_loop        #Si no es capicua continua el loop         
 	
@@ -79,26 +75,35 @@ loop:
 	lw a1, 20($fp)                      #a1 = puntero a la palabra
     lw a2, 28($fp)                      #a2 = buffer de salida
     la t9, escribir_palabra_archivo
-    jal ra, t9                          #Escribe la palabra en el archivo
+    jalr t9                          	#Escribe la palabra en el archivo
     beq v0, zero, error_escritura		#Si devuelve 0 ocurrio un error
 
 continuar_loop:
     
     lw a0, 20($fp)                      #a0 = puntero a palabra
     la t9, my_free
-    jal ra,t9                           #Llama a free(palabra)
-    j loop
+    jalr t9                           	#Llama a free(palabra)
+    
+    la t0, eof_leido
+    lw t1, 0(t0)						#t1 = eof leido?
+    beq t1, zero, loop					#si no fue leido sigue el loop
+    la t0, eof_escrito
+    addiu t1, zero, 1
+    sw t1, 0(t0)						#actualizo eof_escrito = 1
+    la t9, escribir_palabra_archivo
+    jalr t9                          	#Escribe todo lo que queda en el buffer
+    beq v0, zero, error_escritura		#Si devuelve 0 ocurrio un error
 
 terminar:
 	move v0, zero
 free_segundo_buffer:
 	lw a0, 28($fp)                      #Cargamos el buffer de salida 
 	la t9,my_free
-	jal ra,t9							#Liberamos el segundo buffer
+	jalr t9								#Liberamos el segundo buffer
 free_primer_buffer:
 	lw a0, 24($fp)                      #Cargamos el buffer de entrada 
 	la t9,my_free
-	jal ra,t9							#Liberamos el primer buffer
+	jalr t9								#Liberamos el primer buffer
 
 return:
 	lw ra, 40($fp)
@@ -109,18 +114,18 @@ return:
 
 error_segundo_buffer:
 	addiu v0, zero, 1					#Devuelve codigo de error 1
-	j free_primer_buffer				#Libera el primer buffer
+	b free_primer_buffer				#Libera el primer buffer
 error_primer_buffer:
 	addiu v0, zero, 1 					#Devuelve codigo de error 1
-	j return							#No libera nada
+	b return							#No libera nada
 
 error_escritura:
 	lw a0, 20($fp)                      #a0 = puntero a la palabra
 	la t9, my_free
-	jal ra,t9							#Libera la palabra
+	jalr t9								#Libera la palabra
 error_inesperado:
 	addiu v0, zero, 2 					#Devuelve codigo de error 2
-	j free_segundo_buffer				#Libera ambos buffer
+	b free_segundo_buffer				#Libera ambos buffer
 	
 .end palindrome
 .size palindrome,.-palindrome
@@ -156,13 +161,13 @@ loop:
     addu t0, a0, s0         #t0 = palabra + inicio
 	lub a0, 0(t0)           # Leemos el  caracter palabra[inicio]
 	la t9, my_tolower       
-	jal ra, t9              #Llamamos a tolower() con el caracter
+	jalr t9              	#Llamamos a tolower() con el caracter
 	sw v0, 16($fp)          # Guardamos el primer caracter en minuscula
 	lw a0, 40($fp)          #Recuperamos el puntero a la palabra
     addu t0, a0, s1         #t0 = palabra + final
 	lub a0, 0(t0)	        # Leemos el  caracter palabra[final]
 	la t9, my_tolower
-	jal ra, t9              #Llamamos a tolower() con el caracter
+	jalr t9              	#Llamamos a tolower() con el caracter
 	sw v0, 20($fp)          # Guardamos el segundo caracter en minuscula
 	move t0, v0             #t0 = segundo caracter
 	lw t1, 16($fp)          #t1 = primer caracter
@@ -174,7 +179,7 @@ loop:
 
 return_true:
 	addiu v0, zero, 1
-	j return
+	b return
 
 return_false:
 	addu v0, zero, zero
@@ -252,7 +257,7 @@ leer_palabra:
     la t0, TAM
 	lw a0, 0(t0)            			#Carga TAM en a0     
 	la t9, my_malloc
-	jal ra, t9             				#Llama a malloc
+	jalr t9             				#Llama a malloc
 	beq v0, zero, terminar_con_error	#Si malloc devuelve 0 ocurrio un error
 
 	sw v0, 16($fp)          			#Guardamos el puntero a la palabra en el stackframe
@@ -263,7 +268,7 @@ loop:
 	lw a0, 40($fp)                      # Recuperamos el puntero al archivo
     lw a1, 48($fp)                      # Recuperamos el puntero al buffer
 	la t9, leer_caracter_archivo
-	jal ra, t9                          #Leemos un caracter, queda en v0
+	jalr t9                          	#Leemos un caracter, queda en v0
 	beq v0, -1, error					#Si devuelve -1 ocurrio un error
 
 
@@ -290,7 +295,7 @@ no_es_caracter:
 	
 	lw a1, 44($fp)	                    # Cargamos puntero a len
 	sw s0, 0(a1)                        # Guardamos el len
-	j terminar                          #Sale del loop
+	b terminar                          #Sale del loop
 
 es_caracter:
 	lw a0, 16($fp)                      # Recuperamos puntero a palabra
@@ -306,13 +311,15 @@ es_caracter:
 	bne t2, zero, loop                  #Continua al loop si el modulo no es 0
 	
 	lw a0, 16($fp)                      # Recuperamos puntero a palabra en a0
-	addu a1, s0, t1                     # a1 = len + TAM
+	move a1, s0							#a1 = len
+	move a2, t1                    		# a2 = TAM
 
 	la t9, my_realloc
-	jal ra,t9                           #Llama a realloc
+	jalr t9                          	#Llama a realloc
 	beq v0, zero, error					#Si realloc devuelve 0 ocurrio un error
+	sw v0, 16($fp)          			#Guardamos el nuevo puntero en el stackframe
 
-	j loop                              #Vuelve siempre al loop
+	b loop                              #Vuelve siempre al loop
 
 terminar:
 	lw v0, 16($fp)                      #Carga en v0 el puntero a la palabra
@@ -327,10 +334,10 @@ return:
 error:
 	lw a0, 16($fp)                      # Recuperamos puntero a palabra en a0
 	la t9, my_free
-	jal ra,t9							#Llama a free con la palabra
+	jalr t9								#Llama a free con la palabra
 terminar_con_error:
 	move v0, zero						#Devuelve 0 si ocurrio un error
-	j return						
+	b return						
 	
 .end leer_palabra
 .size leer_palabra,.-leer_palabra 
@@ -355,7 +362,7 @@ crear_buffer:
 	sw a0, 32($fp)                      # Guardamos el tamanio del buffer en el stackframe
 
     la t9, my_malloc                    
-    jal ra, t9                          #Llama a malloc
+    jalr t9                          	#Llama a malloc
     
     bne v0, zero, return         		#Salta si no ocurrio un error
     move v0, zero						#Devuelve 0 si ocurrio un error
@@ -383,20 +390,17 @@ leer_caracter_archivo:
 	.cpload t9
 	.set reorder
 
-	subu sp, sp, 32
+	subu sp, sp, 40
 	sw s0, 16(sp)
-	sw $fp, 20(sp)
-	.cprestore 24
-	sw ra, 28(sp)
+	sw s1, 20(sp)
+	sw $fp, 24(sp)
+	.cprestore 28
+	sw ra, 32(sp)
 	move $fp, sp
 	
 	sw a0, 32($fp)                      # Guardamos el archivo de entrada en el stackframe
 	sw a1, 36($fp)                      # Guardamos el puntero al buffer en el stackframe
 	
-	la t0, eof_leido
-	lw t1,0(t0)							#t1 = eof leido?
-	bgt t1, zero, eof_fue_leido			#Salta si EOF ya fue leido
-
     la t0, pos_buffer_entrada
     lw s0, 0, (t0)                      #s0 = pos actual del buffer
     
@@ -409,17 +413,37 @@ leer_caracter_archivo:
 
     li v0, SYS_read
     syscall
+    bne a3, zero, error_inesperado		#Salta si hubo un error
+    beq v0, zero, leyo_eof				#Si read devuelve 0 leyo EOF
     
     addu s0, zero, zero                 #Pos_actual = 0
     
-    blt v0, zero, error_inesperado		#Si read devuelve negativo hubo un error
-    beq v0, zero, leyo_eof				#Si read devuelve 0 leyo EOF
     la t0, tam_buffer_entrada
     lw a2, 0, (t0)                      #a2 = tam actual del buffer
     blt v0,a2, leer_caracter			#Salta si read no leyo menos bytes de lo indicado
 	
-	la t0, tam_buffer_entrada			#Si leyo menos bytes
-	sw v0, 0(t0)						#Actualizo el tamanio del buffer
+#Si leyo menos bytes 
+leer_archivo:
+	move s1,v0 							#s1 = cantidad bytes leidos
+	lw a0, 32($fp)                      # a0 = archivo de entrada
+	lw a1, 36($fp)                      
+	addu a1, a1, s1						#a1 = puntero a buffer + cant bytes leidos
+	la t0, tam_buffer_entrada
+    lw a2, 0, (t0)                      
+	subu a2, a2, s1						#a2 = tam actual del buffer - cant bytes leidos
+	li v0, SYS_read
+	syscall
+	bne a3, zero, error_inesperado		#Salta si hubo un error
+	beq v0, zero, eof_leido				#Si es cero leyo eof
+	addu s1, s1, v0						#s1 = cant bytes leidos
+	la t0, tam_buffer_entrada
+    lw t1, 0, (t0)						#t1 = tam buffer entrada
+    blt s1, t1, leer_archivo			#Si cant bytes leidos < tam vuelve a leer
+    beq s1, t1, leer_caracter			#Si ya leyo todo salta a leer caracter
+	
+eof_leido:
+	la t0, tam_buffer_entrada			#Si leyo menos bytes pero todavia hay cosas en el buffer
+	sw s1, 0(t0)						#Actualizo el tamanio del buffer
 
 leer_caracter:
     
@@ -433,26 +457,23 @@ leer_caracter:
 
 return:
 	lw s0, 16($fp)
-    lw ra, 28($fp)
-	lw gp, 24($fp)
-	lw $fp, 20($fp)
-	addiu sp, sp, 32
+	lw s1, 20($fp)
+    lw ra, 32($fp)
+	lw gp, 28($fp)
+	lw $fp, 24($fp)
+	addiu sp, sp, 40
 	jr ra
 
 leyo_eof:
 	la t0, eof_leido
 	addiu t1,zero,1
 	sw t1, 0(t0)						#Actualizo la variable EOF leido
-	addiu v0, zero, ascii_a				#Devuelvo a (Se que no va a ser escrita)
-	j return
-	
-eof_fue_leido:
-	addu v0, zero, zero					#Devuelvo cero porque EOF ya fue leido
-	j return
+	addiu v0, zero, zero				#Devuelvo 0
+	b return
 
 error_inesperado:
 	addiu v0, zero, -1					#Devuelvo -1 
-	j return
+	b return
 
 .end leer_caracter_archivo
 .size leer_caracter_archivo,.-leer_caracter_archivo
@@ -469,32 +490,33 @@ escribir_palabra_archivo:
 	.cpload t9
 	.set reorder
 
-	subu sp, sp, 40
+	subu sp, sp, 48
 	sw s0, 16(sp)
 	sw s1, 20(sp)
 	sw s2, 24(sp)
-	sw $fp, 28(sp)
-	.cprestore 32
-	sw ra, 36(sp)
+	sw s3, 28(sp)
+	sw $fp, 32(sp)
+	.cprestore 36
+	sw ra, 40(sp)
 	move $fp, sp
 	
 	sw a0, 40($fp)                      # Guardamos el archivo de salida en el stackframe
 	sw a1, 44($fp)                      # Guardamos el puntero a la palabra en el stackframe
     sw a2, 48($fp)                      # Guardamos el buffer en el stackframe
 
+	move s3, zero						#s3 = cant bytes escritos = 0
     la t0, pos_buffer_salida
     lw s0, 0, (t0)                      #s0 = pos actual del buffer
 
     addu s1, zero, zero                 #Inicializamos el indice de la palabra en s1
     
-    la t0, eof_leido
-    lw t1, 0, (t0)                      #t1 = eof fue leido?
-    beq t1,zero, loop					#Salta si eof no fue leido
+    la t0, eof_escrito
+    lw t1, 0, (t0)                      #t1 = eof debe ser escrito?
+    beq t1,zero, loop					#Salta si eof no debe ser escrito
     
     la t0, tam_buffer_salida
-    subu s0, s0, 1
-    sw s0, 0, (t0)                      #Actualiza el tamanio del buffer a la posicion actual - 1
-    j escribir_todo
+    sw s0, 0, (t0)                      #Actualiza el tamanio del buffer a la posicion actual
+    b escribir_todo
     
 
 loop:
@@ -516,46 +538,48 @@ loop:
 escribir_todo:
     lw a0, 40($fp)                      # Cargamos el archivo de salida 
     lw a1, 48($fp)                      # Cargamos el buffer 
+    addu a1, a1, s3						#a1 = buffer + cant bytes escritos
     la t0, tam_buffer_salida
     lw a2, 0(t0)                        # Cargamos el tamanio total del buffer 
+    subu a2, a2, s3						#a2 = tam - cant bytes escritos
     li v0, SYS_write
     syscall
     
-    blt v0, zero, error_inesperado		#Si write devuelve negativo ocurrio un error
+    bne a3, zero, error_inesperado		#Salta si ocurrio un error
+    addu s3, s3, v0						#s3 = cant bytes escritos
+    la t0, tam_buffer_salida
+    lw t1, 0(t0)                        # t1 = tamanio total del buffer 
+    blt s3, t1, escribir_todo			#Si escribio menos bytes vuelve a escribir
     
     addu s0, zero, zero                 #Pos_actual = 0
     
-    la t0, eof_leido
-    lw t1, 0, (t0)                      #t1 = eof_leido
-    bgt t1, zero, eof_leido				#Salta si EOF fue leido
+    la t0, eof_escrito
+    lw t1, 0, (t0)                      #t1 = eof_escrito
+    bgt t1, zero, terminar				#Termina si EOF fue escrito
 
 continuar_loop:
     addu s1, s1, 1                      #Incrementamos el indice de la palabra
     beq s2, ascii_newline, terminar     #Termina si es \n
-    j loop                              #Vuelve al loop
-
-eof_leido:
-	la t0, eof_escrito
-	addiu t1, zero, 1
-    sw t1, 0, (t0)                      #Actualizo la variable EOF leido
+    b loop                              #Vuelve al loop
 
 terminar:
-	addiu v0, zero, 1					#Devuelve 1 si no ocurrio in error
+	addiu v0, zero, 1					#Devuelve 1 si no ocurrio un error
 return:
     la t0, pos_buffer_salida
     sw s0, 0, (t0)                      
     lw s0, 16($fp)
     lw s1, 20($fp)
     lw s2, 24($fp)
-    lw ra, 36($fp)
-	lw gp, 32($fp)
-	lw $fp, 28($fp)
-	addiu sp, sp, 40
+    lw s3, 28($fp)
+    lw ra, 40($fp)
+	lw gp, 36($fp)
+	lw $fp, 32($fp)
+	addiu sp, sp, 48
 	jr ra
 
 error_inesperado:
 	move v0, zero						#Devuelve 0 si ocurrio un error
-	j return
+	b return
 
 .end escribir_palabra_archivo
 .size escribir_palabra_archivo,.-escribir_palabra_archivo
