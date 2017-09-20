@@ -90,6 +90,8 @@ continuar_loop_palindrome:
     la t0, eof_escrito
     addiu t1, zero, 1
     sw t1, 0(t0)						#actualizo eof_escrito = 1
+    lw a0, 56($fp)						#a0 = archivo de salida
+    lw a2, 28($fp)						#a2 = buffer de salida
     la t9, putch
     jalr t9                          	#Escribe todo lo que queda en el buffer
     beq v0, zero, error_escritura		#Si devuelve 0 ocurrio un error
@@ -148,8 +150,8 @@ es_capicua:
 	sw ra, 40(sp)
 	move $fp, sp
 	
-	sw a0, 40($fp)                  # Guardamos el puntero a la palabra (primer argumento) en el stackframe
-	sw a1, 44($fp)                  # Guardamos la longitud (segundo argumento) en el stackframe
+	sw a0, 48($fp)                  # Guardamos el puntero a la palabra (primer argumento) en el stackframe
+	sw a1, 52($fp)                  # Guardamos la longitud (segundo argumento) en el stackframe
 
 	beq a1, zero, return_false_capicua      #Si len es 0 devuelve false
 	
@@ -157,13 +159,13 @@ es_capicua:
 	subu s1, a1, 1                  #Inicializamos la variable final
 
 loop_capicua:
-	lw a0, 40($fp)          #Recuperamos el puntero a la palabra
-    addu t0, a0, s0         #t0 = palabra + inicio
+	lw t0, 48($fp)          #Recuperamos el puntero a la palabra
+    addu t0, t0, s0         #t0 = palabra + inicio
 	lbu a0, 0(t0)           # Leemos el  caracter palabra[inicio]
 	la t9, my_tolower       
 	jalr t9              	#Llamamos a tolower() con el caracter
 	sw v0, 16($fp)          # Guardamos el primer caracter en minuscula
-	lw a0, 40($fp)          #Recuperamos el puntero a la palabra
+	lw a0, 48($fp)          #Recuperamos el puntero a la palabra
     addu t0, a0, s1         #t0 = palabra + final
 	lbu a0, 0(t0)	        # Leemos el  caracter palabra[final]
 	la t9, my_tolower
@@ -221,7 +223,7 @@ my_tolower:
 	addiu a0, a0, 32            		# 32 es la diferencia entre minusculas y mayusculas en ascii
 	
 return_tolower:
-	move a0, v0                 #Pone el resultado en v0
+	move v0, a0                 #Pone el resultado en v0
 	lw gp, 20($fp)
 	lw $fp, 16($fp)
 	addiu sp, sp, 24
@@ -313,7 +315,8 @@ es_caracter:
 	
 	lw a0, 16($fp)                      # Recuperamos puntero a palabra en a0
 	move a1, s0							#a1 = len
-	move a2, t1                    		# a2 = TAM
+	la t0, TAM
+	lw a2, 0(t0)            			#Carga TAM en a2
 
 	la t9, myrealloc
 	jalr t9                          	#Llama a realloc
@@ -341,7 +344,7 @@ terminar_con_error:
 	b return_leer_palabra						
 	
 .end leer_palabra
-.size leer_palabra,.-leer_palabra 
+.size leer_palabra,.-leer_palabra  
 
 
 #___________________________________________________________________________________________
@@ -386,7 +389,7 @@ return_crear_buffer:
 
 getch:
 
-	.frame $fp, 32, ra
+	.frame $fp, 40, ra
 	.set noreorder
 	.cpload t9
 	.set reorder
@@ -399,8 +402,8 @@ getch:
 	sw ra, 32(sp)
 	move $fp, sp
 	
-	sw a0, 32($fp)                      # Guardamos el archivo de entrada en el stackframe
-	sw a1, 36($fp)                      # Guardamos el puntero al buffer en el stackframe
+	sw a0, 40($fp)                      # Guardamos el archivo de entrada en el stackframe
+	sw a1, 44($fp)                      # Guardamos el puntero al buffer en el stackframe
 	
     la t0, pos_buffer_entrada
     lw s0, 0(t0)                      #s0 = pos actual del buffer
@@ -420,14 +423,14 @@ getch:
     addu s0, zero, zero                 #Pos_actual = 0
     
     la t0, tam_buffer_entrada
-    lw a2, 0(t0)                      #a2 = tam actual del buffer
+    lw a2, 0(t0)                      	#a2 = tam actual del buffer
     blt v0,a2, leer_caracter			#Salta si read no leyo menos bytes de lo indicado
 	
 #Si leyo menos bytes 
 leer_archivo:
 	move s1,v0 							#s1 = cantidad bytes leidos
-	lw a0, 32($fp)                      # a0 = archivo de entrada
-	lw a1, 36($fp)                      
+	lw a0, 40($fp)                      # a0 = archivo de entrada
+	lw a1, 44($fp)                      
 	addu a1, a1, s1						#a1 = puntero a buffer + cant bytes leidos
 	la t0, tam_buffer_entrada
     lw a2, 0(t0)                      
@@ -448,7 +451,7 @@ eof_leido_getch:
 
 leer_caracter:
     
-    lw a1, 36($fp)                      #Cargo el puntero al buffer
+    lw a1, 44($fp)                      #Cargo el puntero al buffer
     addu t2, s0, a1                     #t2 = buffer + pos
     lbu v0, 0(t2)                       #v0 = caracter leido
     addiu s0, s0, 1                     #Incremento la posicion actual
@@ -486,7 +489,7 @@ error_getch:
 
 putch:
 
-	.frame $fp, 40, ra
+	.frame $fp, 48, ra
 	.set noreorder
 	.cpload t9
 	.set reorder
@@ -501,9 +504,9 @@ putch:
 	sw ra, 40(sp)
 	move $fp, sp
 	
-	sw a0, 40($fp)                      # Guardamos el archivo de salida en el stackframe
-	sw a1, 44($fp)                      # Guardamos el puntero a la palabra en el stackframe
-    sw a2, 48($fp)                      # Guardamos el buffer en el stackframe
+	sw a0, 48($fp)                      # Guardamos el archivo de salida en el stackframe
+	sw a1, 52($fp)                      # Guardamos el puntero a la palabra en el stackframe
+    sw a2, 56($fp)                      # Guardamos el buffer en el stackframe
 
 	move s3, zero						#s3 = cant bytes escritos = 0
     la t0, pos_buffer_salida
@@ -515,30 +518,32 @@ putch:
     lw t1, 0(t0)                      #t1 = eof debe ser escrito?
     beq t1,zero, loop_putch				#Salta si eof no debe ser escrito
     
+    move s3, zero						#s3 = cant bytes escritos = 0
     la t0, tam_buffer_salida
     sw s0, 0(t0)                      #Actualiza el tamanio del buffer a la posicion actual
     b escribir_todo_putch
     
 
 loop_putch:
-    lw a1, 44($fp)                      #Cargamos el puntero a la palabra
+    lw a1, 52($fp)                      #Cargamos el puntero a la palabra
     addu t3, a1, s1                     #t3 = palabra + indice
     lbu s2, 0(t3)                       #s2 = caracter a escribir
 
-    lw a2, 48($fp)                      #Cargamos el puntero al buffer
+    lw a2, 56($fp)                      #Cargamos el puntero al buffer
     addu t5, a2, s0                     #t5 = buffer + pos_actual
     sb s2, 0(t5)                        #Guardamos el caracter
 
     addiu s0,s0,1                       #Incrementamos pos_actual
     la t0, tam_buffer_salida
     lw t1, 0(t0)                      	#Cargamos el tamanio del buffer
-    bne s0, t1, continuar_loop_putch    #Salta si pos_actual != tam_buffer
+    bltu s0, t1, continuar_loop_putch   #Salta si pos_actual < tam_buffer
+    move s3, zero						#s3 = cant bytes escritos = 0
 
 #Si no salta tengo que volver a escribir el archivo y vaciar el buffer
 
 escribir_todo_putch:
-    lw a0, 40($fp)                      # Cargamos el archivo de salida 
-    lw a1, 48($fp)                      # Cargamos el buffer 
+    lw a0, 48($fp)                      # Cargamos el archivo de salida 
+    lw a1, 56($fp)                      # Cargamos el buffer 
     addu a1, a1, s3						#a1 = buffer + cant bytes escritos
     la t0, tam_buffer_salida
     lw a2, 0(t0)                        # Cargamos el tamanio total del buffer 

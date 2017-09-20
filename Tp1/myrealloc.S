@@ -41,7 +41,7 @@ loop:
 	addu t0, t0, s0						#t0 = puntero viejo + indice
 	
 	lw t1, 16($fp)						#t1 = puntero nuevo
-	addu t1, t0, s0						#t0 = puntero nuevo + indice
+	addu t1, t1, s0						#t1 = puntero nuevo + indice
 	
 	lbu t2, 0(t0)						#Cargo el byte a copiar en t2
 	sb t2, 0(t1)						#Guardo el byte
