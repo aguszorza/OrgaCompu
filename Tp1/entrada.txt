@@ -1,0 +1,41 @@
+Pruebas varias:
+aaa     pelota hola como estas
+
+pepep aaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa
+_aa_
+
+_aAAa_
+-a-a-
+-a-a
+Neuquen
+-Neuquen-   neu%q%uen
+
+1234321   ?123?123abc4cba321
+
+Prueba del enunciado:
+
+Somos los primeros en completar el TP 0.
+Ojo que La fecha de entrega del TP0 es el martes 12 de septiembre.
+
+Palabras largas mezcladas:
+
+abcdefghijklmnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba??==
+ABCDEFGHIJKLMnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba??==
+EstoesUnPalindromoOMOrdnilapNUSEOTse.........EStono
+
+Pruebas de guiones  guiones bajos:
+
+__--__???????######$$$$_-_-_@@@@@-_-__-_-!    ---___
+
+Pruebas de palabras de una letra:
+
+a   %%% % 1 2 ^4^ - _ C D
+b  ! @ # $ % ^ & * ( ) = + \
+c
+d
+
+Pruebas solo mayusculas:
+
+AAA ABCDEDCBA   ABC123--321CBA  WXXW
+
+PALINDROMO  -ABCB-

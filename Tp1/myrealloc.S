@@ -3,7 +3,7 @@
 
 .text
 .abicalls
-.align2
+.align 2
 
 .globl myrealloc
 .ent myrealloc
@@ -43,7 +43,7 @@ loop:
 	lw t1, 16($fp)						#t1 = puntero nuevo
 	addu t1, t0, s0						#t0 = puntero nuevo + indice
 	
-	lub t2, 0(t0)						#Cargo el byte a copiar en t2
+	lbu t2, 0(t0)						#Cargo el byte a copiar en t2
 	sb t2, 0(t1)						#Guardo el byte
 	
 	addiu s0, s0, 1						#incremento el indice

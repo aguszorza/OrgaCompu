@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 extern int palindrome (int ifd, size_t ibytes, int ofd, size_t obytes);
 
@@ -77,8 +78,8 @@ int main(int argc, char* argv[]){
 			return 0;
 		}
 	}
-
-	int resultado = palindrome(fileno(entrada), tam_buffer_entrada, fileno(salida), tam_buffer_salida)
+	
+	int resultado = palindrome(fileno(entrada), tam_buffer_entrada, fileno(salida), tam_buffer_salida);
 	
 	if (resultado != 0){
 		fputs("Ocurrio un error\n", stderr);
