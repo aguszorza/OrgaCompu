@@ -10,9 +10,9 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{esint}
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+%\numberwithin{table}{section}
+%\numberwithin{equation}{section}
 \usepackage[T1]{fontenc}
 \usepackage{charter}
 \usepackage{xcolor}
@@ -369,32 +369,37 @@ que consiste en leer una palabra del archivo de entrada, comprobar si es
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_leer_archivo.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de leer_archivo
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_leer_archivo.png}
-\backslash
-
-\backslash
-[1.5cm]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -429,32 +434,39 @@ n en lugar de un
  manera:
 \color inherit
 
-\begin_inset ERT
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_leer_palabra.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_leer_palabra.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de leer_palabra
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -473,32 +485,39 @@ La función es capicúa, que se encarga de comprobar si la palabra es o no
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_es_capicua.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_es_capicua.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de es_capicua
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -517,32 +536,39 @@ El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_my_tolower.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_my_tolower.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de my_tolower
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -560,32 +586,37 @@ El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_crear_buffer.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de crear_buffer
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_crear_buffer.png}
-\backslash
-
-\backslash
-[1.5cm]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -618,32 +649,39 @@ El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_leer_caracter_archivo.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_leer_caracter_archivo.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de getch
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -669,32 +707,39 @@ El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_escribir_palabra_archivo.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_escribir_palabra_archivo.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de putch
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -720,32 +765,39 @@ El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_myrealloc.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_myrealloc.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de myrealloc
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset

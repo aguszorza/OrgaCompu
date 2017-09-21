@@ -10,9 +10,9 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{esint}
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+%\numberwithin{table}{section}
+%\numberwithin{equation}{section}
 \usepackage[T1]{fontenc}
 \usepackage{charter}
 \usepackage{xcolor}
@@ -190,7 +190,7 @@ small 2do.
 \backslash
 Huge 
 \backslash
-bfseries Trabajo práctico Nº 0}
+bfseries Trabajo práctico Nº 1}
 \backslash
 
 \backslash
@@ -201,7 +201,7 @@ bfseries Trabajo práctico Nº 0}
 
 { 
 \backslash
-huge Infraestructura básica}
+huge Programación MIPS}
 \backslash
 
 \backslash
@@ -343,55 +343,63 @@ El programa se divide en las siguientes funciones:
 La función principal, main, que se encargara de la lógica de leer los parámetros
  de entrada y el manejo de los archivos.
  Si algun archivo no se puede abrir, no se pasaron correctamente los parámetros
- el programa mostrará un mensaje de error en el archivo stderr y finalizará
- con un código de error.
+ el programa, o se produjo un error en la ejecución, mostrará un mensaje
+ de error en el archivo stderr y finalizará con un código de error.
  Esta funcion será escrita en lenguaje C.
 \end_layout
 
 \begin_layout Enumerate
-La función leer archivo, que es la que se encarga del bucle principal.
+La función palindrome, que es la que se encarga del bucle principal.
  
 \color black
 que consiste en leer una palabra del archivo de entrada, comprobar si es
  palíndromo y escribirla en el archivo de salida si corresponde.
  Ésta es la función de entrada al programa en MIPS que deberá ser llamada
  desde el programa en C.
- Recibe por parámetro el archivo de entrada, el de salida y el tamaño del
- buffer.
+ Recibe por parámetro el archivo de entrada, el de salida y los tamaños
+ de los buffer.
  Al ser llamada lo primero que hará es crear los buffer de entrada y salida,
  utilizando la función crear_buffer().
  Luego entrará en el bucle hasta que todos los caracteres del archivo de
  entrada sean analizados.
- El buffer correspondiente a esta función quedará definido de la siguiente
+ El bucle termina cuando se lee el EOF, y en este caso se llamará una vez
+ más a la funciónque escribe en archivos para escribir todo lo que haya
+ quedado en el buffer de salida.
+ El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_leer_archivo.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de leer_archivo
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_leer_archivo.png}
-\backslash
-
-\backslash
-[1.5cm]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -411,53 +419,59 @@ La función leer palabra, que se encarga de leer una palabra del archivo.
  que se pide al inicio y al redimensionar.
  En principio esa variable puede contener cualquier número, pero para no
  estar redimensionando muchas veces y para no pedir mucha memoria innecesaria,
- definimos ese valor en 10.
+ definimos ese valor en 50.
  La función recibe por parámetro un puntero a entero, que sirve para guardar
  la longitud de la palabra leída, con el objetivo de no tener que calcularla
  nuevamente en otro momento.
- Para leer un caracter llamará a la función leer_caracter_archivo().
+ Para leer un caracter llamará a la función getch().
  Para facilitar la escritura de la palabra, al final de la misma se insertará
  un 
 \backslash
-n.
- El buffer correspondiente a la función leer palabra quedará definido de
- la siguiente manera:
+n en lugar de un 
+\backslash
+0.
+ El stackframe correspondiente a la función quedará definido de la siguiente
+ manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_leer_palabra.png
+	scale 40
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_leer_palabra.png}
-\backslash
-
-\backslash
-[1.5cm]
-\end_layout
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
+Stackframe de leer_palabra
 \end_layout
 
 \end_inset
 
 
-\color black
-Por otro lado, el buffer correspondiente a la función leer caracter archivo
- quedará definido como lo indica la siguiente figura:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -467,36 +481,43 @@ La función es capicúa, que se encarga de comprobar si la palabra es o no
  un palíndromo, y devuelve un valor booleano según corresponda.
  Ésta función recibe por parámetro el puntero a la palabra y la longitud
  de la misma.
- El buffer correspondiente a esta función quedará definido de la siguiente
+ El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_es_capicua.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_es_capicua.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de es_capicua
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -505,42 +526,49 @@ end{center}
 \end_layout
 
 \begin_layout Enumerate
-La función my_tolower, que fue implementada para no usar la del lenguaje
+La función my_tolower, que fue implementada para reemplazar la del lenguaje
  C, se encarga de pasar a minúscula un caracter.
  Para eso, recibe por parámetro el caracter, y lo transforma únicamente
  si es una letra mayúscula, caso contrario lo devuelve como viene.
  
 \color black
-El buffer correspondiente a esta función quedará definido de la siguiente
+El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_my_tolower.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_my_tolower.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de my_tolower
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -554,36 +582,41 @@ La función crear buffer, es la encargada de crear los buffers.
  uso de la función malloc.
  
 \color black
-El buffer correspondiente a esta función quedará definido de la siguiente
+El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_crear_buffer.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de crear_buffer
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_crear_buffer.png}
-\backslash
-
-\backslash
-[1.5cm]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -592,8 +625,7 @@ end{center}
 \end_layout
 
 \begin_layout Enumerate
-La función leer caracter archivo, que se encarga de leer un carácter del
- archivo de entrada.
+La función getch, que se encarga de leer un carácter del archivo de entrada.
  Como se explicó anteriormente, ésta hace uso de un buffer.
  Por lo tanto, conociendo el tamaño del buffer y la última posición leída,
  devolverá el caracter correspondiente, y cuando la posición sea mayor o
@@ -604,38 +636,52 @@ La función leer caracter archivo, que se encarga de leer un carácter del
  Para eso, utilizaremos una variable global, que será nula hasta el momento
  en que se lee el EOF, que cambiará de valor y permitirá avisar a las demás
  funciones que ya se leyó todo el archivo.
+ Si se produjera algún error en la lectura devolverá un código de error.
+ Para la lectura del archivo hace uso de un syscall.
+ Puede ocurrir que se lean menos bytes de los pedidos, en ese caso pueden
+ ser por dos razones, que no hay más por leer o que se leyó menos pero se
+ puede leer más.
+ Esto lo solucionamos haciendo que la lectura se haga en un loop, que termina
+ cuando no hay más para leer o cuando se llenó el buffer.
  
 \color black
-El buffer correspondiente a esta función quedará definido de la siguiente
+El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_leer_caracter_archivo.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_leer_caracter_archivo.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de getch
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{center}
 \end_layout
 
 \end_inset
@@ -644,51 +690,114 @@ end{center}
 \end_layout
 
 \begin_layout Enumerate
-Por último, la función escribir_palabra_archivo, que se encarga de escribir
- una palabra en el archivo de salida.
+La función putch, que se encarga de escribir una palabra en el archivo de
+ salida.
  Debido a que debe utilizar el buffer, la función recibirá por parámetro
  la palabra, y guardará de a un caracter por vez en el buffer.
  Una vez que se llene el buffer, independientemente si se guardó toda la
  palabra o no, éste se escribirá en el archivo y se vaciará.
  Al igual que la anterior, también tiene una complicación.
  Puede ocurrir que el buffer no se llene completamente y se haya terminado
- el archivo, en cuyo caso, utilizando la variable global que indica que
- se leyó el EOF, escribirá todo lo que se encuentre en el buffer en ese
- momento.
- A su vez, guardará en otra variable global que se ha escrito el EOF, para
- indicar a la función principal que se acabó de escribir el archivo.
+ el archivo, en cuyo caso, utilizando la variable global que indica si se
+ debe escribir el EOF, escribirá todo lo que se encuentre en el buffer en
+ ese momento.
  
 \color black
-El buffer correspondiente a esta función quedará definido de la siguiente
+El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \color inherit
 
-\begin_inset ERT
-status open
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_escribir_palabra_archivo.png
+	scale 25
+
+\end_inset
 
 
-\backslash
-begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
+\begin_inset Caption Standard
 
-\backslash
-includegraphics[scale=0.25]{imagenes/stackframe_escribir_palabra_archivo.png}
-\backslash
+\begin_layout Plain Layout
 
-\backslash
-[1.5cm]
+Stackframe de putch
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
+\end_layout
 
-\backslash
-end{center}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Por último, la función myrealloc, que sirve para redimensionar un bloque
+ de memoria dinámica.
+ Para facilitar la programación de la misma, se decidió que solo se podrá
+ redimensionar aumentando el tamaño del bloque y no disminuyéndolo.
+ Por eso, la función recibe por parámetro el puntero al bloque, el tamaño
+ actual, y el tamaño a agregar.
+ Haciendo uso de la función mymalloc crea un nuevo bloque y copia byte por
+ byte los datos del bloque viejo al nuevo.
+ Finalmente libera el bloque viejo y devuelve el nuevo.
+ Si se produjera un error al llamar a la función mymalloc se devolverá un
+ puntero a NULL.
+ 
+\color black
+El stackframe correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_myrealloc.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+Stackframe de myrealloc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -701,8 +810,7 @@ Comandos para compilacion
 \end_layout
 
 \begin_layout Standard
-Para compilar el programa, tanto en Linux como en NetBSD utilizamos el siguiente
- comando:
+Para compilar el programa utilizamos el siguiente comando:
 \end_layout
 
 \begin_layout Standard
@@ -713,7 +821,7 @@ Para compilar el programa, tanto en Linux como en NetBSD utilizamos el siguiente
 \end_layout
 
 \begin_layout Standard
-$ gcc -Wall -o tp0 tp0.c 
+$ gcc -Wall -o tp1 main.c mymalloc.S myrealloc.S palindrome.S
 \end_layout
 
 \begin_layout Standard
@@ -724,8 +832,7 @@ $ gcc -Wall -o tp0 tp0.c
 \end_layout
 
 \begin_layout Standard
-Para obtener el codigo MIPS32 generado por el compilador utilizamos el siguiente
- comando en el sistema operativo NetBSD:
+o se puede optar por ejecutar el script de bash:
 \end_layout
 
 \begin_layout Standard
@@ -736,7 +843,7 @@ Para obtener el codigo MIPS32 generado por el compilador utilizamos el siguiente
 \end_layout
 
 \begin_layout Standard
-$ gcc -Wall -O0 -S -mrnames tp0.c
+$ ./compilar.sh
 \end_layout
 
 \begin_layout Section
@@ -750,6 +857,8 @@ Para probar el programa utilizamos un script de bash llamado 'pruebas.sh''
  solo caracter y archivos solo con simbolos.
  Por otro lado, tambien se prueba que funcionen correctamente los mensajes
  de error cuando los parámetros no son usados correctamente.
+ Se realizan pruebas para distintos tamaños de buffer para asegurarnos que
+ funcione correctamente.
  Todas las pruebas utilizan el siguiente comando:
 \end_layout
 
@@ -783,6 +892,8 @@ En una de las pruebas utilizamos un archivo de texto ''entrada.txt'' que
  Luego tenemos otro archivo, ''resultado.txt'' que es lo que se espera que
  devuelva el programa al ejecutarse con ese archivo de entrada.
  En la siguiente sección se muestran esos archivos.
+ En el resto de las pruebas se usan archivos creados dentro del mismo script,
+ que se borran al finalizar.
 \end_layout
 
 \begin_layout Standard
