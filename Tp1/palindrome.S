@@ -421,14 +421,14 @@ getch:
     beq v0, zero, leyo_eof_getch		#Si read devuelve 0 leyo EOF
     
     addu s0, zero, zero                 #Pos_actual = 0
+    move s1,v0 							#s1 = cantidad bytes leidos
     
     la t0, tam_buffer_entrada
     lw a2, 0(t0)                      	#a2 = tam actual del buffer
-    blt v0,a2, leer_caracter			#Salta si read no leyo menos bytes de lo indicado
+    beq v0,a2, leer_caracter			#Salta si read no leyo menos bytes de lo indicado
 	
 #Si leyo menos bytes 
 leer_archivo:
-	move s1,v0 							#s1 = cantidad bytes leidos
 	lw a0, 40($fp)                      # a0 = archivo de entrada
 	lw a1, 44($fp)                      
 	addu a1, a1, s1						#a1 = puntero a buffer + cant bytes leidos
@@ -508,7 +508,6 @@ putch:
 	sw a1, 52($fp)                      # Guardamos el puntero a la palabra en el stackframe
     sw a2, 56($fp)                      # Guardamos el buffer en el stackframe
 
-	move s3, zero						#s3 = cant bytes escritos = 0
     la t0, pos_buffer_salida
     lw s0, 0(t0)                      #s0 = pos actual del buffer
 

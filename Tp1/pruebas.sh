@@ -93,7 +93,7 @@ diff salida.txt res.txt
 echo m | ./tp1 -o salida.txt -I 20 -O 1000
 diff salida.txt res.txt
 echo m | ./tp1 -o salida.txt -I 1000 -O 20
-diff salida.txt res.txtt
+diff salida.txt res.txt
 
 # Prueba con un número
 echo 3 > res.txt
