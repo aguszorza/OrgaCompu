@@ -80,10 +80,13 @@ int main(int argc, char* argv[]){
 			fprintf(stdout, "-i, --input   Location of the input file.\n");
 			fprintf(stdout, "-o, --output   Location of the output file.\n");
 			fprintf(stdout, "-I, --ibuf-bytes Byte-count of the input buffer.\n");
-			fprintf(stdout, "-I, --ibuf-bytes Byte-count of the input buffer.\n");
 			fprintf(stdout, "-O, --obuf-bytes Byte-count of the output buffer.\n");
-			fprintf(stdout, "\nExample:\ntp1 -i ~/input -o ~/output -I 10 -O 10\n");
+			fprintf(stdout, "\nExample:\ntp1 -i ~/input -o ~/output -I 10 -O 10\n\n");
 			return 0;
+		}
+		else {
+			fputs("La opcion seleccionada no existe, ejecute tp1 -h para mas informacion.\n", stderr);
+			return 3;
 		}
 	}
 	

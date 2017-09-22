@@ -1,88 +1,89 @@
-PRUEBAS CON ARCHIVO DE PRUEBAS ENTRADA.TXT Y RESULTADO.TXT
+MEDICIONES CON ARCHIVO DE PRUEBAS ENTRADA.TXT
 
-Resultado con 1 byte entrada y 1 byte salida:
+Resultado con 1 byte de buffer:
 
 real	0m0.066s
-user	0m0.004s
-sys	0m0.062s
+user	0m0.000s
+sys	0m0.082s
 
-Resultado con 20 bytes entrada y 20 bytes salida:
+Resultado con 20 bytes de buffer:
 
 real	0m0.035s
-user	0m0.006s
-sys	0m0.045s
+user	0m0.022s
+sys	0m0.017s
 
-Resultado con 50 bytes entrada y 50 bytes salida:
+Resultado con 50 bytes de buffer:
 
-real	0m0.051s
+real	0m0.035s
+user	0m0.023s
+sys	0m0.028s
+
+Resultado con 100 bytes de buffer:
+
+real	0m0.031s
 user	0m0.000s
-sys	0m0.059s
+sys	0m0.043s
 
-Resultado con 100 bytes entrada y 100 bytes salida:
+Resultado con 250 bytes de buffer:
+
+real	0m0.035s
+user	0m0.004s
+sys	0m0.031s
+
+Resultado con 500 bytes de buffer:
+
+real	0m0.035s
+user	0m0.028s
+sys	0m0.023s
+
+Resultado con 1000 bytes de buffer:
 
 real	0m0.031s
 user	0m0.004s
 sys	0m0.027s
 
-Resultado con 250 bytes entrada y 250 bytes salida:
 
-real	0m0.035s
-user	0m0.000s
-sys	0m0.051s
-
-Resultado con 500 bytes entrada y 500 bytes salida:
-
-real	0m0.035s
-user	0m0.000s
-sys	0m0.035s
-
-Resultado con 1000 bytes entrada y 1000 bytes salida:
-
-real	0m0.031s
-user	0m0.007s
-sys	0m0.040s
-
-PRUEBAS CON ARCHIVO CON 30 LINEAS DE 5000 CARACTERES CADA UNA (TODAS SON PALINDROMO)
+MEDICIONES CON ARCHIVO CON 30 LINEAS DE 5000 CARACTERES CADA UNA (TODAS SON PALINDROMO)
 
 
-Resultado con 1 byte entrada y 1 byte salida:
+Resultado con 1 byte de buffer:
 
-real	0m9.684s
-user	0m1.254s
-sys	0m8.426s
+real	0m10.133s
+user	0m1.816s
+sys	0m8.336s
 
-Resultado con 20 bytes entrada y 20 bytes salida:
+Resultado con 20 bytes de buffer:
+
+real	0m1.750s
+user	0m1.125s
+sys	0m0.625s
+
+Resultado con 50 bytes de buffer:
+
+real	0m1.500s
+user	0m1.160s
+sys	0m0.355s
+
+Resultado con 100 bytes de buffer:
+
+real	0m1.402s
+user	0m1.094s
+sys	0m0.320s
+
+Resultado con 250 bytes de buffer:
+
+real	0m1.383s
+user	0m1.082s
+sys	0m0.316s
+
+Resultado con 500 bytes de buffer:
 
 real	0m1.336s
-user	0m0.779s
-sys	0m0.573s
+user	0m1.035s
+sys	0m0.316s
 
-Resultado con 50 bytes entrada y 50 bytes salida:
+Resultado con 1000 bytes de buffer:
 
-real	0m1.066s
-user	0m0.725s
-sys	0m0.357s
-
-Resultado con 100 bytes entrada y 100 bytes salida:
-
-real	0m0.969s
-user	0m0.746s
-sys	0m0.238s
-
-Resultado con 250 bytes entrada y 250 bytes salida:
-
-real	0m0.914s
-user	0m0.734s
-sys	0m0.180s
-
-Resultado con 500 bytes entrada y 500 bytes salida:
-
-real	0m0.883s
-user	0m0.715s
-sys	0m0.168s
-
-Resultado con 1000 bytes entrada y 1000 bytes salida:
-
-real	0m0.883s
-user	0m0.694s
-sys	0m0.192s
+real	0m1.332s
+user	0m1.019s
+sys	0m0.317s
