@@ -1,0 +1,1622 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\date{}
+\usepackage{float}
+\usepackage{units}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{esint}
+%\numberwithin{figure}{section}
+%\numberwithin{table}{section}
+%\numberwithin{equation}{section}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{xcolor}
+%-------------------------------------------------------------------------------
+%Modificaciones de leyendas en figuras
+%\usepackage[footnotesize, labelsep=quad]{caption}
+%\captionsetup{width=0.8\textwidth }
+\usepackage{caption}
+\captionsetup[figure]{margin=40pt,font=normalsize,labelfont=bf}
+\captionsetup[table]{margin=40pt,font=normalsize,labelfont=bf} 
+%-------------------------------------------------------------------------------
+% Added by lyx2lyx
+\end_preamble
+\use_default_options true
+\begin_modules
+customHeadersFooters
+tcolorbox
+fixltx2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_author "Agustín Zorzano"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref section
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 1.5cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+Organización de Computadoras (66.20)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=0.5]{fiuba.png}
+\backslash
+
+\backslash
+[1.5cm]    
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+Large Facultad de Ingeniería - U.B.A.}
+\backslash
+
+\backslash
+[1.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+Large 66.20 Organización de Computadoras - Práctica Martes}
+\backslash
+
+\backslash
+[.05cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+small 2do.
+ Cuatrimestre de 2017}
+\backslash
+
+\backslash
+[3cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+ { 
+\backslash
+Huge 
+\backslash
+bfseries Trabajo práctico Nº 1}
+\backslash
+
+\backslash
+[.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 
+\backslash
+huge Programación MIPS}
+\backslash
+
+\backslash
+[3cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+small Matias Leandro Feld, Padrón: 99170}
+\backslash
+
+\backslash
+[.05cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+feldmatias@gmail.com
+\backslash
+
+\backslash
+[.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+small Federico Funes, Padrón: 98372}
+\backslash
+
+\backslash
+[.05cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+fede.funes96@gmail.com
+\backslash
+
+\backslash
+[.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsc{
+\backslash
+small Agustín Zorzano, Padrón: 99224}
+\backslash
+
+\backslash
+[.05cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+aguszorza@gmail.com
+\backslash
+
+\backslash
+[.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\begin_layout Plain Layout
+
+% Bottom of the page {
+\backslash
+large 
+\backslash
+today}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Documentación e implementación
+\end_layout
+
+\begin_layout Standard
+
+\color black
+El objetivo del trabajo es realizar un programa en lenguaje MIPS32 que lea
+ palabras de una archivo (o de entrada estándar) y guarde en otro archivo
+ (mostrar por salida estándar) únicamente aquellas palabras que sean palíndromos.
+ Además, para analizar como influyen en el tiempo de ejecución las lecturas
+ y escrituras en archivos, se implementó un sistema de buffer.
+ Esto significa que al leer de un archivo no se hará de a un caracter por
+ vez, sino que se llenará el buffer de entrada y luego se leerán los caracteres
+ desde éste.
+ Asimismo, para la escritura de archivos se realizará algo similar.
+ Se guardarán en el buffer los caracteres a escribir, y se escribirán en
+ el archivo una vez que el buffer se llene.
+ De este modo, variando el tamaño del buffer, se podrá analizar como afectan
+ al tiempo de ejecución las operaciones con archivos.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+El programa se divide en las siguientes funciones: 
+\end_layout
+
+\begin_layout Enumerate
+
+\color black
+La función principal, main, que se encargará de la lógica de leer los parámetros
+ de entrada y el manejo de los archivos.
+ Si algun archivo no se puede abrir, no se pasaron correctamente los parámetros
+ el programa, o se produjo un error en la ejecución, mostrará un mensaje
+ de error en el archivo stderr y finalizará con un código de error.
+ Esta funcion será escrita en lenguaje C.
+\end_layout
+
+\begin_layout Enumerate
+La función palindrome, que es la que se encarga del bucle principal.
+ 
+\color black
+que consiste en leer una palabra del archivo de entrada, comprobar si es
+ palíndromo y escribirla en el archivo de salida si corresponde.
+ Ésta es la función de entrada al programa en MIPS que deberá ser llamada
+ desde el programa en C.
+ Recibe por parámetro el archivo de entrada, el de salida y los tamaños
+ de los buffer.
+ Al ser llamada lo primero que hará es crear los buffer de entrada y salida,
+ utilizando la función crear_buffer().
+ Luego entrará en el bucle hasta que todos los caracteres del archivo de
+ entrada sean analizados.
+ El bucle termina cuando se lee el EOF, y en este caso se llamará una vez
+ más a la función que escribe en archivos para escribir todo lo que haya
+ quedado en el buffer de salida.
+ El stackframe correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_leer_archivo.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de leer_archivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\color black
+La función leer_palabra, que se encarga de leer una palabra del archivo.
+ Debido a las limitaciones de lo que se considera palabra, y a que no hay
+ limitación con respecto a cantidad de letras de una palabra, lo que hacemos
+ es leer carácter por carácter, guardándolos en un vector alojado en memoria
+ dinámica que se irá redimensionando a medida que sea necesario.
+ Para ello, definimos una variable TAM que determinará la cantidad de memoria
+ que se pide al inicio y al redimensionar.
+ En principio esa variable puede contener cualquier número, pero para no
+ estar redimensionando muchas veces y para no pedir mucha memoria innecesaria,
+ definimos ese valor en 50.
+ La función recibe por parámetro un puntero a entero, que sirve para guardar
+ la longitud de la palabra leída, con el objetivo de no tener que calcularla
+ nuevamente en otro momento.
+ Para leer un caracter del archivo llamará a la función getch().
+ Para facilitar la escritura de la palabra en el archivo de salida, al final
+ de cada palabra se insertará un 
+\backslash
+n en lugar de un 
+\backslash
+0, ya que 
+\backslash
+n no es considerado un caracter, y además necesitamos imprimirlo luego de
+ cada palabra.
+ El stackframe correspondiente a la función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_leer_palabra.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de leer_palabra
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\color black
+La función es_capicúa, que se encarga de comprobar si la palabra es o no
+ un palíndromo, y devuelve un valor booleano según corresponda.
+ Ésta función recibe por parámetro el puntero a la palabra y la longitud
+ de la misma.
+ El stackframe correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_es_capicua.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de es_capicua
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La función my_tolower, que fue implementada para reemplazar la del lenguaje
+ C, se encarga de pasar a minúscula un caracter.
+ Para eso, recibe por parámetro el caracter, y lo transforma únicamente
+ si es una letra mayúscula, caso contrario lo devuelve como viene.
+ 
+\color black
+El stackframe correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_my_tolower.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de my_tolower
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La función crear_buffer, es la encargada de crear los buffers.
+ Para ello recibirá por parámetro el tamaño del mismo, y lo creará haciendo
+ uso de la función mymalloc.
+ 
+\color black
+Como resultado devuelve el puntero al buffer correspondiente.
+ El stackframe correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_crear_buffer.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de crear_buffer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La función getch, que se encarga de leer un carácter del archivo de entrada.
+ Como se explicó anteriormente, ésta hace uso de un buffer.
+ Por lo tanto, conociendo el tamaño del buffer y la última posición leída,
+ devolverá el caracter correspondiente, y cuando la posición sea mayor o
+ igual al tamaño se encargará de llenar el buffer nuevamente con nuevos
+ datos.
+ Esta función tiene una complicación adicional, ya que debe indicar cuando
+ fue leído el final del archivo en el buffer.
+ Para eso, utilizaremos una variable global, que será nula hasta el momento
+ en que se lee el EOF, que cambiará de valor y permitirá avisar a las demás
+ funciones que ya se leyó todo el archivo.
+ Si se produjera algún error en la lectura devolverá un código de error.
+ Para la lectura del archivo hace uso de un syscall, puede ocurrir que se
+ lean menos bytes de los pedidos, en ese caso pueden ser por dos razones,
+ que no hay más por leer o que se leyó menos pero se puede leer más.
+ Esto lo solucionamos haciendo que la lectura se haga en un loop, que termina
+ cuando no hay más para leer o cuando se llenó el buffer.
+ 
+\color black
+Cuando se lee el EOF, para poder distinguir si quedan o no caracteres en
+ el buffer para analizar, lo que hacemos es realizar una doble llamada al
+ syscall.
+ En la primera, se determina si quedan o no caracteres para analizar, si
+ devuelve cero significa que no hay más.
+ En cambio, si la segunda llamada, que es la que se realiza en el loop,
+ devuelve cero en algún ciclo del loop, significa que se alcanzó el final
+ de archivo pero todavía hay caracteres para analizar en el buffer.
+ En este último caso no se actualiza la variable global que indica que el
+ EOF fue leído.
+ El stackframe correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_leer_caracter_archivo.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de getch
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La función putch, que se encarga de escribir una palabra en el archivo de
+ salida.
+ Debido a que debe utilizar el buffer, la función recibirá por parámetro
+ la palabra, y guardará de a un caracter por vez en el buffer.
+ Una vez que se llene el buffer, independientemente si se guardó toda la
+ palabra o no, éste se escribirá en el archivo y se vaciará.
+ Al igual que la anterior, también tiene una complicación.
+ Puede ocurrir que el buffer no se llene completamente y se haya terminado
+ el archivo, en cuyo caso, utilizando la variable global que indica si se
+ debe escribir el EOF, escribirá todo lo que se encuentre en el buffer en
+ ese momento.
+ 
+\color black
+También, puede ocurrir que el syscall no escriba el total de los bytes pedidos,
+ por lo que la escritura se realiza en un loop hasta que escriba todo.
+ El stackframe correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_escribir_palabra_archivo.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de putch
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Por último, la función myrealloc, que sirve para redimensionar un bloque
+ de memoria dinámica.
+ Para facilitar la programación de la misma, y porque no lo necesitamos,
+ se decidió que solo se podrá redimensionar aumentando el tamaño del bloque
+ y no disminuyéndolo.
+ Por eso, la función recibe por parámetro el puntero al bloque, el tamaño
+ actual, y el tamaño a agregar.
+ Haciendo uso de la función mymalloc crea un nuevo bloque y copia byte por
+ byte los datos del bloque viejo al nuevo.
+ Finalmente libera el bloque viejo y devuelve el nuevo.
+ Si se produjera un error al llamar a la función mymalloc se devolverá un
+ puntero a NULL.
+ 
+\color black
+El stackframe correspondiente a esta función quedará definido de la siguiente
+ manera:
+\color inherit
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/stackframe_myrealloc.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stackframe de myrealloc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comandos para compilacion
+\end_layout
+
+\begin_layout Standard
+Para compilar el programa utilizamos el siguiente comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+$ gcc -Wall -o tp1 main.c mymalloc.S myrealloc.S palindrome.S getch.S putch.S
+ crear_buffer.S leer_palabra.S es_capicua.S my_tolower.S
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+o se puede optar por ejecutar el script de bash:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+$ bash compilar.sh
+\end_layout
+
+\begin_layout Section
+Pruebas
+\end_layout
+
+\begin_layout Standard
+Para probar el programa utilizamos un script de bash llamado 'pruebas.sh'
+ que contiene un conjunto de pruebas que se realizan automáticamente.
+ Entre ellas,se encuentran pruebas con archivos vacios, archivos con un
+ solo caracter y archivos solo con simbolos.
+ Por otro lado, también se prueba que funcionen correctamente los mensajes
+ de error cuando los parámetros no son usados correctamente.
+ Se realizan pruebas para distintos tamaños de buffer para asegurarnos que
+ funcione correctamente.
+ Todas las pruebas utilizan el siguiente comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+$ diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde si no muestra nada significa que ambos archivos son iguales, y que
+ por lo tanto todas las pruebas del programa funcionan correctamente.
+\end_layout
+
+\begin_layout Standard
+En algunas de las pruebas utilizamos un archivo de texto ''entrada.txt''
+ que contiene un conjunto de palabras con combinaciones de letras, numeros
+ y guiones y mezclando mayúsculas y minúsculas.
+ Luego tenemos otro archivo, ''resultado.txt'' que es lo que se espera que
+ devuelva el programa al ejecutarse con ese archivo de entrada.
+ En la siguiente sección se muestran esos archivos.
+ Por otro lado, también se realizan pruebas con un archivo ''archivo_largo.txt'',
+ que contiene 30 líneas de 5000 caracteres cada una, y donde además todas
+ son palindromos.
+ En el resto de las pruebas se usan archivos creados dentro del mismo script,
+ que se borran al finalizar.
+\end_layout
+
+\begin_layout Standard
+También realizamos pruebas utilizando salida estándar y entrada estándar,
+ los cuales funcionaron correctamente.
+ Cuando se trabaja con entrada estándar y se desea finalizar se debe ingresar
+ ''ctrl D'', que inserta un EOF, ya que utilizando ''ctrl C'' finaliza abruptame
+nte y no se guarda correctamente el resultado.
+\end_layout
+
+\begin_layout Standard
+El script de pruebas se puede ejecutar con el comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+$ bash pruebas.sh
+\end_layout
+
+\begin_layout Subsection
+Archivo 'pruebas.sh'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI pruebas.sh ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo ’entrada.txt’
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Pruebas varias:
+\end_layout
+
+\begin_layout Plain Layout
+
+aaa     pelota hola como estas
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+pepep aaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa
+\end_layout
+
+\begin_layout Plain Layout
+
+_aa_
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+_aAAa_
+\end_layout
+
+\begin_layout Plain Layout
+
+-a-a-
+\end_layout
+
+\begin_layout Plain Layout
+
+-a-a
+\end_layout
+
+\begin_layout Plain Layout
+
+Neuquen
+\end_layout
+
+\begin_layout Plain Layout
+
+-Neuquen-   neu%q%uen
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+1234321   ?123?123abc4cba321
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Prueba del enunciado:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Somos los primeros en completar el TP 0.
+\end_layout
+
+\begin_layout Plain Layout
+
+Ojo que La fecha de entrega del TP0 es el martes 12 de septiembre.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Palabras largas mezcladas:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+abcdefghijklmnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba??=
+=
+\end_layout
+
+\begin_layout Plain Layout
+
+ABCDEFGHIJKLMnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba??=
+=
+\end_layout
+
+\begin_layout Plain Layout
+
+EstoesUnPalindromoOMOrdnilapNUSEOTse.........EStono
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Pruebas de guiones  guiones bajos:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+__--__???????######$$$$_-_-_@@@@@-_-__-_-!    ---___
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Pruebas de palabras de una letra:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+a   %%% % 1 2 ^4^ - _ C D
+\end_layout
+
+\begin_layout Plain Layout
+
+b  ! @ # $ % ^ & * ( ) = + 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+c
+\end_layout
+
+\begin_layout Plain Layout
+
+d
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Pruebas solo mayusculas:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+AAA ABCDEDCBA   ABC123--321CBA  WXXW
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+PALINDROMO  -ABCB-
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Archivo ’resultado.txt’
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+aaa
+\end_layout
+
+\begin_layout Plain Layout
+
+pepep
+\end_layout
+
+\begin_layout Plain Layout
+
+aaaaaaaaaaaaaaa
+\end_layout
+
+\begin_layout Plain Layout
+
+aaaaaaaaaaaaaaaa
+\end_layout
+
+\begin_layout Plain Layout
+
+_aa_
+\end_layout
+
+\begin_layout Plain Layout
+
+_aAAa_
+\end_layout
+
+\begin_layout Plain Layout
+
+-a-a-
+\end_layout
+
+\begin_layout Plain Layout
+
+Neuquen
+\end_layout
+
+\begin_layout Plain Layout
+
+-Neuquen-
+\end_layout
+
+\begin_layout Plain Layout
+
+q
+\end_layout
+
+\begin_layout Plain Layout
+
+1234321
+\end_layout
+
+\begin_layout Plain Layout
+
+123abc4cba321
+\end_layout
+
+\begin_layout Plain Layout
+
+Somos
+\end_layout
+
+\begin_layout Plain Layout
+
+0
+\end_layout
+
+\begin_layout Plain Layout
+
+Ojo
+\end_layout
+
+\begin_layout Plain Layout
+
+abcdefghijklmnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba
+\end_layout
+
+\begin_layout Plain Layout
+
+ABCDEFGHIJKLMnopqrstuvwxyz0123456789_---_9876543210zyxwvutsrqponmlkjihgfedcba
+\end_layout
+
+\begin_layout Plain Layout
+
+EstoesUnPalindromoOMOrdnilapNUSEOTse
+\end_layout
+
+\begin_layout Plain Layout
+
+__--__
+\end_layout
+
+\begin_layout Plain Layout
+
+_-_-_
+\end_layout
+
+\begin_layout Plain Layout
+
+-_-__-_-
+\end_layout
+
+\begin_layout Plain Layout
+
+a
+\end_layout
+
+\begin_layout Plain Layout
+
+1
+\end_layout
+
+\begin_layout Plain Layout
+
+2
+\end_layout
+
+\begin_layout Plain Layout
+
+4
+\end_layout
+
+\begin_layout Plain Layout
+
+-
+\end_layout
+
+\begin_layout Plain Layout
+
+_
+\end_layout
+
+\begin_layout Plain Layout
+
+C
+\end_layout
+
+\begin_layout Plain Layout
+
+D
+\end_layout
+
+\begin_layout Plain Layout
+
+b
+\end_layout
+
+\begin_layout Plain Layout
+
+c
+\end_layout
+
+\begin_layout Plain Layout
+
+d
+\end_layout
+
+\begin_layout Plain Layout
+
+AAA
+\end_layout
+
+\begin_layout Plain Layout
+
+ABCDEDCBA
+\end_layout
+
+\begin_layout Plain Layout
+
+ABC123--321CBA
+\end_layout
+
+\begin_layout Plain Layout
+
+WXXW
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Archivo archivo_largo.txt
+\end_layout
+
+\begin_layout Standard
+La función de este archivo es trabajar con varios palíndromos largos para
+ así poder probar el programa corerctamente.
+ A continuación se muestra la primer línea de este archivo.
+ Las lineas faltantes son una copia de ésta.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "documento hijo/hijo.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Mediciones del tiempo de ejecución
+\end_layout
+
+\begin_layout Standard
+Como se mencionó anteriormente, el objetivo del uso de los buffers es medir
+ cómo afectan las operaciones con archivos al tiempo de ejecución.
+ Para eso, creamos un script 'time.sh', que mide el tiempo que tarda en ejecutars
+e el programa con distintos tamaños de buffer, y guarda el resultado en
+ un archivo 'time.txt'.
+ Se realizaron las mismas mediciones con el archivo 'entrada.txt' (3.2) y
+ con el 'archivo_largo.txt' (3.4), para analizar cómo afecta también el tamaño
+ del archivo.
+\end_layout
+
+\begin_layout Standard
+El script de mediciones se puede ejecutar con el comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+$ bash time.sh
+\end_layout
+
+\begin_layout Subsection
+Archivo 'time.sh'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI time.sh ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo 'time.txt'
+\end_layout
+
+\begin_layout Standard
+Este es el resultado obtenido al ejecutar las mediciones:
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI time.txt ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Resultados y comparaciones
+\end_layout
+
+\begin_layout Standard
+Para analizar los resultados, realizamos unos gráficos con los datos obtenidos:
+\end_layout
+
+\begin_layout Standard
+#####################################################################
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI LA IMAGEN tiempos_corto.png ########################################
+###########
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Standard
+#####################################################################
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI LA IMAGEN tiempos_largo.png ########################################
+###########
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Standard
+Como se puede observar en ambos gráficos, la mayor diferencia se encuentra
+ entre el buffer de tamaño 1 byte y el de 20 bytes, es decir, cuando el
+ buffer es muy chico.
+ Se puede ver que si se sigue aumentando el tamaño el tiempo casi no cambia.
+ Por otro lado, es importante notar que para el archivo largo la diferencia
+ entre el tamaño 1 byte y el de 20 bytes es muy grande, aproximadamente
+ 10 segundos.
+ Esto significa que cuanto más grande es el archivo, mayor es la importancia
+ de que el buffer no sea muy pequeño, aunque tampoco hace falta que sea
+ muy grande.
+ Con los resultados obtenidos, podemos afirmar que el tamaño óptimo del
+ buffer está entre 15 y 100 bytes.
+\end_layout
+
+\begin_layout Section
+Código fuente
+\end_layout
+
+\begin_layout Subsection
+Archivo 'main.c'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI MAIN.C ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo 'palindrome.S'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI palindrome.S ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo 'getch.S'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI getch.S ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo 'putch.S'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI putch.S ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo 'crear_buffer.S'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI crear_buffer.S ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo 'leer_palabra.S'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI leer_palabra.S ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo 'es_capicua.S'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI es_capicua.S ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo 'my_tolower.S'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI my_tolower.S ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Subsection
+Archivo 'myrealloc.S'
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI myrealloc.S ###################################################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\begin_layout Section
+Enunciado
+\end_layout
+
+\begin_layout Standard
+INSERTE AQUI EL PDF DEL ENUNCIADO tp1-2017-2q.pdf################################
+###################
+\end_layout
+
+\begin_layout Standard
+##############################################################
+\end_layout
+
+\end_body
+\end_document
