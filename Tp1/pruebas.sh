@@ -1,55 +1,29 @@
 #/bin/bash
 
-./compilar.sh
+bash compilar.sh
 
-
-if [ -f time.txt ]; then
-    rm time.txt
-fi
 
 # Pruebas con archivo de pruebas entrada.txt y resultado.txt
-echo -e "PRUEBAS CON ARCHIVO DE PRUEBAS ENTRADA.TXT Y RESULTADO.TXT\n" >> time.txt
 
-echo -e "Resultado con 1 byte entrada y 1 byte salida:" >> time.txt
-
-(time ./tp1 -i entrada.txt -o salida.txt -I 1 -O 1)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 1 -O 1
 diff salida.txt resultado.txt
-
-echo -e "\nResultado con 20 bytes entrada y 20 bytes salida:" >> time.txt
-
-(time ./tp1 -i entrada.txt -o salida.txt -I 20 -O 20)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 20 -O 20
 diff salida.txt resultado.txt
-
-echo -e "\nResultado con 100 bytes entrada y 100 bytes salida:" >> time.txt
-(time ./tp1 -i entrada.txt -o salida.txt -I 100 -O 100)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 100 -O 100
 diff salida.txt resultado.txt
-
-echo -e "\nResultado con 1000 bytes entrada y 1000 bytes salida:" >> time.txt
-(time ./tp1 -i entrada.txt -o salida.txt -I 1000 -O 1000)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 1000 -O 1000
 diff salida.txt resultado.txt
-
-echo -e "\nResultado con 20 bytes entrada y 100 bytes salida:" >> time.txt
-(time ./tp1 -i entrada.txt -o salida.txt -I 20 -O 100)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 20 -O 100
 diff salida.txt resultado.txt
-
-echo -e "\nResultado con 100 bytes entrada y 20 bytes salida:" >> time.txt
-(time ./tp1 -i entrada.txt -o salida.txt -I 100 -O 20)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 100 -O 20
 diff salida.txt resultado.txt
-
-echo -e "\nResultado con 1 byte entrada y 100 bytes salida:" >> time.txt
-(time ./tp1 -i entrada.txt -o salida.txt -I 1 -O 100)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 1 -O 100
 diff salida.txt resultado.txt
-
-echo -e "\nResultado con 100 bytes entrada y 1 byte salida:" >> time.txt
-(time ./tp1 -i entrada.txt -o salida.txt -I 100 -O 1)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 100 -O 1
 diff salida.txt resultado.txt
-
-echo -e "\nResultado con 20 bytes entrada y 1000 bytes salida:" >> time.txt
-(time ./tp1 -i entrada.txt -o salida.txt -I 20 -O 1000)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 20 -O 1000
 diff salida.txt resultado.txt
-
-echo -e "\nResultado con 1000 bytes entrada y 20 bytes salida:" >> time.txt
-(time ./tp1 -i entrada.txt -o salida.txt -I 1000 -O 20)2>>time.txt
+./tp1 -i entrada.txt -o salida.txt -I 1000 -O 20
 diff salida.txt resultado.txt
 
 # Prueba con archivo vacio
@@ -262,46 +236,26 @@ diff salida.txt vacio.txt
 
 #Prueba con un archivo con 30 lineas de 5000 caracteres cada una,
 # donde cada una es palindromo en su totalidad
-echo -e "\nPRUEBAS CON ARCHIVO CON LINEAS DE 5000 CARACTERES CADA UNA (TODAS SON PALINDROMO)\n" >> time.txt
 
-echo -e "\nResultado con 1 byte entrada y 1 byte salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 1 -O 1)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 1 -O 1
 diff salida.txt archivo_largo.txt
-
-echo -e "\nResultado con 20 bytes entrada y 20 bytes salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 20 -O 20)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 20 -O 20
 diff salida.txt archivo_largo.txt
-
-echo -e "\nResultado con 100 bytes entrada y 100 bytes salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 100 -O 100)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 100 -O 100
 diff salida.txt archivo_largo.txt
-
-echo -e "\nResultado con 1000 bytes entrada y 1000 bytes salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 1000 -O 1000)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 1000 -O 1000
 diff salida.txt archivo_largo.txt
-
-echo -e "\nResultado con 20 bytes entrada y 100 bytes salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 20 -O 100)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 20 -O 100
 diff salida.txt archivo_largo.txt
-
-echo -e "\nResultado con 100 bytes entrada y 20 bytes salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 100 -O 20)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 100 -O 20
 diff salida.txt archivo_largo.txt
-
-echo -e "\nResultado con 1 byte entrada y 20 bytes salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 1 -O 100)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 1 -O 100
 diff salida.txt archivo_largo.txt
-
-echo -e "\nResultado con 100 bytes entrada y 1 byte salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 100 -O 1)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 100 -O 1
 diff salida.txt archivo_largo.txt
-
-echo -e "\nResultado con 20 bytes entrada y 1000 bytes salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 20 -O 1000)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 20 -O 1000
 diff salida.txt archivo_largo.txt
-
-echo -e "\nResultado con 1000 bytes entrada y 20 bytes salida:" >> time.txt
-(time ./tp1 -i archivo_largo.txt -o salida.txt -I 1000 -O 20)2>>time.txt
+./tp1 -i archivo_largo.txt -o salida.txt -I 1000 -O 20
 diff salida.txt archivo_largo.txt
 
 # Prueba error: no se ingresa archivo de entrada
