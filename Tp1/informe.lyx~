@@ -425,7 +425,7 @@ La función leer_palabra, que se encarga de leer una palabra del archivo.
  que se pide al inicio y al redimensionar.
  En principio esa variable puede contener cualquier número, pero para no
  estar redimensionando muchas veces y para no pedir mucha memoria innecesaria,
- definimos ese valor en 50.
+ definimos ese valor en 30.
  La función recibe por parámetro un puntero a entero, que sirve para guardar
  la longitud de la palabra leída, con el objetivo de no tener que calcularla
  nuevamente en otro momento.
@@ -8712,6 +8712,7 @@ Enunciado
 \begin_inset External
 	template PDFPages
 	filename tp1-2017-2q.pdf
+	extra LaTeX "pages =-"
 
 \end_inset
 

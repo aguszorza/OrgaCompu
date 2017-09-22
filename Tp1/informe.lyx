@@ -8704,14 +8704,11 @@ return:
 
 \end_layout
 
-\begin_layout Section
-Enunciado
-\end_layout
-
 \begin_layout Standard
 \begin_inset External
 	template PDFPages
 	filename tp1-2017-2q.pdf
+	extra LaTeX "pages =-"
 
 \end_inset
 
