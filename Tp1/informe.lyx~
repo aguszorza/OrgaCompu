@@ -4112,13 +4112,13 @@ Para analizar los resultados, realizamos unos gráficos con los datos obtenidos:
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename tiempos_corto.png
-	scale 50
+	scale 75
 
 \end_inset
 
@@ -4157,7 +4157,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename tiempos_largo.png
-	scale 50
+	scale 75
 
 \end_inset
 
