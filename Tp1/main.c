@@ -74,7 +74,15 @@ int main(int argc, char* argv[]){
 			return 0;
 		}
 		else if (strcmp(argv[i],"-h") == 0){
-			fprintf(stdout, "Usage:\n\ntp1 -h\ntp1 -V\ntp1 [options]\n\nOptions:\n-V, --version  Print version and quit.\n-h, --help   Print this information.\n-i, --input   Location of the input file.\n-o, --output   Location of the output file.\n-I, --ibuf-bytes Byte-count of the input buffer.\n-O, --obuf-bytes Byte-count of the output buffer.\n\nExample:\ntp0 -i ~/input -o ~/output\n");
+			fprintf(stdout, "Usage:\n\ntp1 -h\ntp1 -V\ntp1 [options]\n\n");
+			fprintf(stdout, "Options:\n-V, --version  Print version and quit.\n");
+			fprintf(stdout, "-h, --help   Print this information.\n");
+			fprintf(stdout, "-i, --input   Location of the input file.\n");
+			fprintf(stdout, "-o, --output   Location of the output file.\n");
+			fprintf(stdout, "-I, --ibuf-bytes Byte-count of the input buffer.\n");
+			fprintf(stdout, "-I, --ibuf-bytes Byte-count of the input buffer.\n");
+			fprintf(stdout, "-O, --obuf-bytes Byte-count of the output buffer.\n");
+			fprintf(stdout, "\nExample:\ntp1 -i ~/input -o ~/output -I 10 -O 10\n");
 			return 0;
 		}
 	}
