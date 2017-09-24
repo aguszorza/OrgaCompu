@@ -148,5 +148,4 @@ tam_buffer_entrada: .word 0
 pos_buffer_salida: .word 0
 tam_buffer_salida: .word 0
 eof_leido: .word 0
-eof_escrito: .word 0
 TAM: .word 30
