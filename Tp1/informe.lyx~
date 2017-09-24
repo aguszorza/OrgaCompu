@@ -5962,11 +5962,700 @@ Archivo ''putch.S''
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\small},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+#include <mips/regdef.h>
+\end_layout
+
+\begin_layout Plain Layout
+#include <sys/syscall.h>
+\end_layout
+
+\begin_layout Plain Layout
+#define TAM_SF 48
+\end_layout
+
+\begin_layout Plain Layout
+#define S0_SF 16
+\end_layout
+
+\begin_layout Plain Layout
+#define S1_SF 20
+\end_layout
+
+\begin_layout Plain Layout
+#define S2_SF 24
+\end_layout
+
+\begin_layout Plain Layout
+#define S3_SF 28
+\end_layout
+
+\begin_layout Plain Layout
+#define FP_SF 32
+\end_layout
+
+\begin_layout Plain Layout
+#define GP_SF 36
+\end_layout
+
+\begin_layout Plain Layout
+#define RA_SF 40
+\end_layout
+
+\begin_layout Plain Layout
+#define ARG0 48
+\end_layout
+
+\begin_layout Plain Layout
+#define ARG1 52
+\end_layout
+
+\begin_layout Plain Layout
+#define ARG2 56
+\end_layout
+
+\begin_layout Plain Layout
+#define ASCII_NEWLINE 10
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+.text
+\end_layout
+
+\begin_layout Plain Layout
+.abicalls
+\end_layout
+
+\begin_layout Plain Layout
+.align 2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+.globl putch
+\end_layout
+
+\begin_layout Plain Layout
+.ent putch
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+putch:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+	.frame $fp, TAM_SF, ra
+\end_layout
+
+\begin_layout Plain Layout
+	.set noreorder
+\end_layout
+
+\begin_layout Plain Layout
+	.cpload t9
+\end_layout
+
+\begin_layout Plain Layout
+	.set reorder
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+	subu sp, sp, TAM_SF
+\end_layout
+
+\begin_layout Plain Layout
+	sw s0, S0_SF(sp)
+\end_layout
+
+\begin_layout Plain Layout
+	sw s1, S1_SF(sp)
+\end_layout
+
+\begin_layout Plain Layout
+	sw s2, S2_SF(sp)
+\end_layout
+
+\begin_layout Plain Layout
+	sw s3, S3_SF(sp)
+\end_layout
+
+\begin_layout Plain Layout
+	sw $fp, FP_SF(sp)
+\end_layout
+
+\begin_layout Plain Layout
+	.cprestore GP_SF
+\end_layout
+
+\begin_layout Plain Layout
+	sw ra, RA_SF(sp)
+\end_layout
+
+\begin_layout Plain Layout
+	move $fp, sp
+\end_layout
+
+\begin_layout Plain Layout
+	
+\end_layout
+
+\begin_layout Plain Layout
+	sw a0, ARG0($fp)                 #Guardamos el archivo de salida
+\end_layout
+
+\begin_layout Plain Layout
+	sw a1, ARG1($fp)                 #Guardamos el puntero a la palabra
+\end_layout
+
+\begin_layout Plain Layout
+    sw a2, ARG2($fp)                 #Guardamos el buffer
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    la t0, pos_buffer_salida
+\end_layout
+
+\begin_layout Plain Layout
+    lw s0, 0(t0)                     #s0 = pos actual del buffer
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    addu s1, zero, zero              #s1 = indice de la palabra = 0
+\end_layout
+
+\begin_layout Plain Layout
+    
+\end_layout
+
+\begin_layout Plain Layout
+    la t0, eof_leido
+\end_layout
+
+\begin_layout Plain Layout
+    lw t1, 0(t0)                     #t1 = eof debe ser escrito?
+\end_layout
+
+\begin_layout Plain Layout
+    beq t1,zero, loop     		     #Salta si eof no debe ser escrito
+\end_layout
+
+\begin_layout Plain Layout
+    
+\end_layout
+
+\begin_layout Plain Layout
+#Si no salta es la ultima escritura en el archivo
+\end_layout
+
+\begin_layout Plain Layout
+    move s3, zero					 #s3 = cant bytes escritos = 0
+\end_layout
+
+\begin_layout Plain Layout
+    la t0, tam_buffer_salida
+\end_layout
+
+\begin_layout Plain Layout
+    sw s0, 0(t0)                     #Actualiza el tamanio del buffer 
+\end_layout
+
+\begin_layout Plain Layout
+									 #a la posicion actual
+\end_layout
+
+\begin_layout Plain Layout
+    b escribir_todo
+\end_layout
+
+\begin_layout Plain Layout
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+loop:
+\end_layout
+
+\begin_layout Plain Layout
+    lw a1, ARG1($fp)                 #Cargamos el puntero a la palabra
+\end_layout
+
+\begin_layout Plain Layout
+    addu t3, a1, s1                  #t3 = palabra + indice
+\end_layout
+
+\begin_layout Plain Layout
+    lbu s2, 0(t3)                    #s2 = caracter a escribir
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    lw a2, ARG2($fp)                 #Cargamos el puntero al buffer
+\end_layout
+
+\begin_layout Plain Layout
+    addu t5, a2, s0                  #t5 = buffer + pos_actual
+\end_layout
+
+\begin_layout Plain Layout
+    sb s2, 0(t5)                     #Guardamos el caracter
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    addiu s0,s0,1                    #Incrementamos pos_actual
+\end_layout
+
+\begin_layout Plain Layout
+    la t0, tam_buffer_salida
+\end_layout
+
+\begin_layout Plain Layout
+    lw t1, 0(t0)                     #Cargamos el tamanio del buffer
+\end_layout
+
+\begin_layout Plain Layout
+    bltu s0, t1, continuar_loop      #Salta si pos_actual < tam_buffer
+\end_layout
+
+\begin_layout Plain Layout
+    move s3, zero					 #s3 = cant bytes escritos = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+#Si no salta hay que volver a escribir el archivo y vaciar el buffer
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+escribir_todo:
+\end_layout
+
+\begin_layout Plain Layout
+    lw a0, ARG0($fp)                 #Cargamos el archivo de salida 
+\end_layout
+
+\begin_layout Plain Layout
+    lw a1, ARG2($fp)                 #Cargamos el buffer 
+\end_layout
+
+\begin_layout Plain Layout
+    addu a1, a1, s3					 #a1 = buffer + cant bytes escritos
+\end_layout
+
+\begin_layout Plain Layout
+    la t0, tam_buffer_salida
+\end_layout
+
+\begin_layout Plain Layout
+    lw a2, 0(t0)                     #Cargamos tam total del buffer 
+\end_layout
+
+\begin_layout Plain Layout
+    subu a2, a2, s3					 #a2 = tam - cant bytes escritos
+\end_layout
+
+\begin_layout Plain Layout
+    li v0, SYS_write
+\end_layout
+
+\begin_layout Plain Layout
+    syscall
+\end_layout
+
+\begin_layout Plain Layout
+    
+\end_layout
+
+\begin_layout Plain Layout
+    bne a3, zero, error			     #Salta si ocurrio un error
+\end_layout
+
+\begin_layout Plain Layout
+    addu s3, s3, v0					 #s3 = cant bytes escritos
+\end_layout
+
+\begin_layout Plain Layout
+    la t0, tam_buffer_salida
+\end_layout
+
+\begin_layout Plain Layout
+    lw t1, 0(t0)                     # t1 = tamanio total del buffer 
+\end_layout
+
+\begin_layout Plain Layout
+    blt s3, t1, escribir_todo       #Si escribio menos vuelve a escribir
+\end_layout
+
+\begin_layout Plain Layout
+    
+\end_layout
+
+\begin_layout Plain Layout
+    addu s0, zero, zero              #Pos_actual = 0
+\end_layout
+
+\begin_layout Plain Layout
+    
+\end_layout
+
+\begin_layout Plain Layout
+    la t0, eof_leido
+\end_layout
+
+\begin_layout Plain Layout
+    lw t1, 0(t0)                     #t1 = eof escrito ?
+\end_layout
+
+\begin_layout Plain Layout
+    bgt t1, zero, terminar      	 #Termina si EOF fue escrito
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+continuar_loop:
+\end_layout
+
+\begin_layout Plain Layout
+    addu s1, s1, 1                   #Incrementa el indice de la palabra
+\end_layout
+
+\begin_layout Plain Layout
+    bne s2, ASCII_NEWLINE, loop      #Vuelve al loop si no es 
+\backslash
+n
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+terminar:
+\end_layout
+
+\begin_layout Plain Layout
+	addiu v0, zero, 1			      #Devuelve 1 si no ocurrio un error
+\end_layout
+
+\begin_layout Plain Layout
+	
+\end_layout
+
+\begin_layout Plain Layout
+return:
+\end_layout
+
+\begin_layout Plain Layout
+    la t0, pos_buffer_salida
+\end_layout
+
+\begin_layout Plain Layout
+    sw s0, 0(t0)    				  #Actualiza la posicion actual                
+  
+\end_layout
+
+\begin_layout Plain Layout
+    lw s0, S0_SF($fp)
+\end_layout
+
+\begin_layout Plain Layout
+    lw s1, S1_SF($fp)
+\end_layout
+
+\begin_layout Plain Layout
+    lw s2, S2_SF($fp)
+\end_layout
+
+\begin_layout Plain Layout
+    lw s3, S3_SF($fp)
+\end_layout
+
+\begin_layout Plain Layout
+    lw ra, RA_SF($fp)
+\end_layout
+
+\begin_layout Plain Layout
+	lw gp, GP_SF($fp)
+\end_layout
+
+\begin_layout Plain Layout
+	lw $fp, FP_SF($fp)
+\end_layout
+
+\begin_layout Plain Layout
+	addiu sp, sp, TAM_SF
+\end_layout
+
+\begin_layout Plain Layout
+	jr ra
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+error:
+\end_layout
+
+\begin_layout Plain Layout
+	move v0, zero						#Devuelve 0 si ocurrio un error
+\end_layout
+
+\begin_layout Plain Layout
+	b return
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+.end putch
+\end_layout
+
+\begin_layout Plain Layout
+.size putch,.-putch
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Subsection
 Archivo ''crear_buffer.S''
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\small},breaklines=true,tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+#include <mips/regdef.h>
+\end_layout
+
+\begin_layout Plain Layout
+#define TAM_SF 32
+\end_layout
+
+\begin_layout Plain Layout
+#define FP_SF 16
+\end_layout
+
+\begin_layout Plain Layout
+#define GP_SF 20
+\end_layout
+
+\begin_layout Plain Layout
+#define RA_SF 24
+\end_layout
+
+\begin_layout Plain Layout
+#define ARG0 32
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+.text
+\end_layout
+
+\begin_layout Plain Layout
+.abicalls
+\end_layout
+
+\begin_layout Plain Layout
+.align 2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+.globl crear_buffer
+\end_layout
+
+\begin_layout Plain Layout
+.ent crear_buffer
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+crear_buffer:
+\end_layout
+
+\begin_layout Plain Layout
+	.frame $fp, TAM_SF, ra
+\end_layout
+
+\begin_layout Plain Layout
+	.set noreorder
+\end_layout
+
+\begin_layout Plain Layout
+	.cpload t9
+\end_layout
+
+\begin_layout Plain Layout
+	.set reorder
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+	subu sp, sp, TAM_SF
+\end_layout
+
+\begin_layout Plain Layout
+	sw $fp, FP_SF(sp)
+\end_layout
+
+\begin_layout Plain Layout
+	.cprestore GP_SF
+\end_layout
+
+\begin_layout Plain Layout
+	sw ra, RA_SF(sp)
+\end_layout
+
+\begin_layout Plain Layout
+	move $fp, sp
+\end_layout
+
+\begin_layout Plain Layout
+	
+\end_layout
+
+\begin_layout Plain Layout
+	sw a0, ARG0($fp)               #Guardamos el tamanio del buffer
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    la t9, mymalloc                    
+\end_layout
+
+\begin_layout Plain Layout
+    jalr t9                        #Llama a malloc
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+return:							
+\end_layout
+
+\begin_layout Plain Layout
+    lw ra, RA_SF($fp)			
+\end_layout
+
+\begin_layout Plain Layout
+	lw gp, GP_SF($fp)
+\end_layout
+
+\begin_layout Plain Layout
+	lw $fp, FP_SF($fp)
+\end_layout
+
+\begin_layout Plain Layout
+	addiu sp, sp, TAM_SF
+\end_layout
+
+\begin_layout Plain Layout
+	jr ra
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+.end crear_buffer
+\end_layout
+
+\begin_layout Plain Layout
+.size crear_buffer,.-crear_buffer
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
