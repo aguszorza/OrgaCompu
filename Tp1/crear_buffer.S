@@ -28,12 +28,9 @@ crear_buffer:
 
     la t9, mymalloc                    
     jalr t9                        #Llama a malloc
-    
-    bne v0, zero, return           #Salta si no ocurrio un error
-    move v0, zero				   #Devuelve 0 si ocurrio un error
 
-return:
-    lw ra, RA_SF($fp)
+return:							
+    lw ra, RA_SF($fp)			
 	lw gp, GP_SF($fp)
 	lw $fp, FP_SF($fp)
 	addiu sp, sp, TAM_SF

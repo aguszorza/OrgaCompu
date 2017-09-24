@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass article
 \begin_preamble
 \date{}
@@ -37,16 +39,16 @@ fixltx2e
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format pdf2
 \output_sync 0
@@ -804,8 +806,61 @@ Stackframe de myrealloc
 
 \end_layout
 
+\begin_layout Subsection
+Variables globales
+\end_layout
+
+\begin_layout Standard
+A continuación se explican las variables globales utilizadas y cómo se las
+ interpreta.
+\end_layout
+
+\begin_layout Enumerate
+pos_buffer_entrada: Indica la posición del próximo caracter a leer en el
+ buffer de entrada.
+ Se incrementa en uno cada vez que se lee un caracter y se reinicia a cero
+ cuando se vuelve a llenar el buffer.
+ Esta variable comienza seteada en -1, que sin signo es el número más alto,
+ para que se produzca la primer lectura del archivo.
+\end_layout
+
+\begin_layout Enumerate
+pos_buffer_salida: Indica la posición del próximo caracter a escribir en
+ el buffer de salida.
+ Se incrementa en uno cada vez que se escribe un caracter y se reinicia
+ a cero cuando se realiza la escritura del archivo y se vacía el buffer.
+\end_layout
+
+\begin_layout Enumerate
+tam_buffer_entrada: Indica el tamaño del buffer de entrada.
+ Se inicializa en la creación del buffer con su valor correspondiente.
+ Solo se actualiza cuando se realiza la última lectura (que lee menos bytes)
+ para saber cuántos bytes quedan.
+\end_layout
+
+\begin_layout Enumerate
+tam_buffer_salida: Indica el tamaño del buffer de salida.
+ Se inicializa en la creación del buffer con su valor correspondiente.
+ Solo se actualiza cuando se debe realizar la última escritura (que escribe
+ menos bytes) para saber cuántos bytes quedan en el buffer.
+\end_layout
+
+\begin_layout Enumerate
+eof_leido: Permite saber cuando se alcanzó el final del archivo de lectura.
+ Su valor es 0 hasta el momento que se hayan leído todos los caracteres
+ del archivo de entrada y además el buffer de entrada esté vacío, es decir,
+ que ya se analizaron todos los caracteres.
+ Permite saber que debemos escribir todo lo que queda en el buffer de salida
+ y terminar el programa.
+\end_layout
+
+\begin_layout Enumerate
+TAM: Es el tamaño del bloque de memoria que se crea para cada palabra, y
+ también el tamaño a agregarle al redimensionar.
+\end_layout
+
 \begin_layout Section
-Comandos para compilacion
+Comandos para compilación
 \end_layout
 
 \begin_layout Standard

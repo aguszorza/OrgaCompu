@@ -13,7 +13,7 @@ int main(int argc, char* argv[]){
 	
 	int i;
 	for (i = 1; i < argc; i += 2){
-		if (strcmp(argv[i],"-i") == 0){
+		if ((strcmp(argv[i],"-i") == 0) || (strcmp(argv[i],"--input") == 0)){
 			if (i + 1 >= argc){
 				fputs("Debe indicar un archivo de entrada luego de -i\n", stderr);
 				return 3;
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]){
 				}
 			}
 		}
-		else if (strcmp(argv[i],"-o") == 0){
+		else if ((strcmp(argv[i],"-o") == 0) || (strcmp(argv[i],"--output") == 0)){
 			if (i + 1 >= argc){
 				fputs("Debe indicar un archivo de salida luego de -o\n", stderr);
 				return 3;
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]){
 				}
 			}
 		}
-		else if (strcmp(argv[i],"-I") == 0){
+		else if ((strcmp(argv[i],"-I") == 0) || (strcmp(argv[i],"--ibuff-bytes") == 0)){
 			if (i + 1 >= argc){
 				fputs("Debe indicar un numero luego de -I\n", stderr);
 				return 3;
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]){
 				}
 			}
 		}
-		else if (strcmp(argv[i],"-O") == 0){
+		else if ((strcmp(argv[i],"-O") == 0) || (strcmp(argv[i],"--obuff-bytes") == 0)){
 			if (i + 1 >= argc){
 				fputs("Debe indicar un numero luego de -O\n", stderr);
 				return 3;
@@ -69,11 +69,11 @@ int main(int argc, char* argv[]){
 				}
 			}
 		}
-		else if (strcmp(argv[i],"-V") == 0){
+		else if ((strcmp(argv[i],"-V") == 0) || (strcmp(argv[i],"--version") == 0)){
 			fprintf(stdout, "TP1 version 1.0001\n");
 			return 0;
 		}
-		else if (strcmp(argv[i],"-h") == 0){
+		else if ((strcmp(argv[i],"-h") == 0) || (strcmp(argv[i],"--help") == 0)){
 			fprintf(stdout, "Usage:\n\ntp1 -h\ntp1 -V\ntp1 [options]\n\n");
 			fprintf(stdout, "Options:\n-V, --version  Print version and quit.\n");
 			fprintf(stdout, "-h, --help   Print this information.\n");
@@ -85,7 +85,7 @@ int main(int argc, char* argv[]){
 			return 0;
 		}
 		else {
-			fputs("La opcion seleccionada no existe, ejecute tp1 -h para mas informacion.\n", stderr);
+			fputs("La opcion seleccionada no existe, ejecute la opcion -h para mas informacion.\n", stderr);
 			return 3;
 		}
 	}

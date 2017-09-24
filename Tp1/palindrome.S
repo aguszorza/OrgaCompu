@@ -89,9 +89,7 @@ continuar_loop:
     la t0, eof_leido
     lw t1, 0(t0)					   #t1 = eof leido?
     beq t1, zero, loop           	   #si no fue leido sigue el loop
-    la t0, eof_escrito
-    addiu t1, zero, 1
-    sw t1, 0(t0)					   #actualiza eof_escrito = 1
+    
     lw a0, ARG2($fp)				   #a0 = archivo de salida
     lw a2, BUFF_OUT($fp)			   #a2 = buffer de salida
     la t9, putch
@@ -143,7 +141,6 @@ error:
 .globl pos_buffer_salida
 .globl tam_buffer_salida
 .globl eof_leido
-.globl eof_escrito
 .globl TAM
 
 pos_buffer_entrada: .word -1
