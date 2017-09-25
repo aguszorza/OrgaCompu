@@ -46,7 +46,7 @@ putch:
 
     addu s1, zero, zero              #s1 = indice de la palabra = 0
     
-    la t0, eof_leido
+    la t0, escribir_eof
     lw t1, 0(t0)                     #t1 = eof debe ser escrito?
     beq t1,zero, loop     		     #Salta si eof no debe ser escrito
     
@@ -93,7 +93,7 @@ escribir_todo:
     
     addu s0, zero, zero              #Pos_actual = 0
     
-    la t0, eof_leido
+    la t0, escribir_eof
     lw t1, 0(t0)                     #t1 = eof escrito ?
     bgt t1, zero, terminar      	 #Termina si EOF fue escrito
 

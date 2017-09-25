@@ -86,7 +86,7 @@ continuar_loop:
     la t9, myfree
     jalr t9                            #Llama a free(palabra)
     
-    la t0, eof_leido
+    la t0, escribir_eof
     lw t1, 0(t0)					   #t1 = eof leido?
     beq t1, zero, loop           	   #si no fue leido sigue el loop
     
@@ -141,11 +141,14 @@ error:
 .globl pos_buffer_salida
 .globl tam_buffer_salida
 .globl eof_leido
+.globl escribir_eof
 .globl TAM
+
 
 pos_buffer_entrada: .word -1
 tam_buffer_entrada: .word 0
 pos_buffer_salida: .word 0
 tam_buffer_salida: .word 0
 eof_leido: .word 0
+escribir_eof: .word 0
 TAM: .word 30

@@ -348,15 +348,15 @@ El programa se divide en las siguientes funciones:
 \color black
 La función principal, main, que se encargará de la lógica de leer los parámetros
  de entrada y el manejo de los archivos.
- Si algun archivo no se puede abrir, no se pasaron correctamente los parámetros
- el programa, o se produjo un error en la ejecución, mostrará un mensaje
+ Si algun archivo no se puede abrir, no se pasaron correctamente los parámetros,
+ o se produjo un error en la ejecución, el programa mostrará un mensaje
  de error en el archivo stderr y finalizará con un código de error.
  Esta funcion será escrita en lenguaje C.
 \end_layout
 
 \begin_layout Enumerate
-Esta función consiste en leer una palabra del archivo de entrada, comprobar
- si es palíndromo y escribirla en el archivo de salida si corresponde.
+La función palindrome, que consiste en leer una palabra del archivo de entrada,
+ comprobar si es palíndromo y escribirla en el archivo de salida si corresponde.
  Ésta es la función de entrada al programa en MIPS que deberá ser llamada
  desde el programa en C.
 
@@ -395,7 +395,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Stackframe de leer_archivo
+Stackframe de palindrome
 \end_layout
 
 \end_inset
@@ -3336,7 +3336,7 @@ Archivo archivo_largo.txt
 
 \begin_layout Standard
 La función de este archivo es trabajar con varios palíndromos largos para
- así poder probar el programa corerctamente.
+ así poder probar el programa correctamente.
  A continuación se muestra la primer línea de este archivo.
  Las lineas faltantes son una copia de ésta.
 \end_layout
@@ -3373,7 +3373,7 @@ Mediciones del tiempo de ejecución
 Como se mencionó anteriormente, el objetivo del uso de los buffers es medir
  cómo afectan las operaciones con archivos al tiempo de ejecución.
  Para eso, creamos un script 'time.sh', que mide el tiempo que tarda en ejecutars
- e el programa con distintos tamaños de buffer, y guarda el resultado en
+e el programa con distintos tamaños de buffer, y guarda el resultado en
  un archivo 'time.txt'.
  Se realizaron las mismas mediciones con el archivo 'entrada.txt' (3.2) y
  con el 'archivo_largo.txt' (3.4), para analizar cómo afecta también el tamaño
@@ -4860,54 +4860,67 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 #include <mips/regdef.h>
 \end_layout
 
 \begin_layout Plain Layout
+
 #define TAM_SF 48
 \end_layout
 
 \begin_layout Plain Layout
+
 #define FP_SF 32
 \end_layout
 
 \begin_layout Plain Layout
+
 #define GP_SF 36
 \end_layout
 
 \begin_layout Plain Layout
+
 #define RA_SF 40
 \end_layout
 
 \begin_layout Plain Layout
+
 #define ARG0 48
 \end_layout
 
 \begin_layout Plain Layout
+
 #define ARG1 52
 \end_layout
 
 \begin_layout Plain Layout
+
 #define ARG2 56
 \end_layout
 
 \begin_layout Plain Layout
+
 #define ARG3 60
 \end_layout
 
 \begin_layout Plain Layout
+
 #define BUFF_IN 24
 \end_layout
 
 \begin_layout Plain Layout
+
 #define BUFF_OUT 28
 \end_layout
 
 \begin_layout Plain Layout
+
 #define LEN 16
 \end_layout
 
 \begin_layout Plain Layout
+
 #define POINTER 20
 \end_layout
 
@@ -4916,14 +4929,17 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
 .text
 \end_layout
 
 \begin_layout Plain Layout
+
 .abicalls
 \end_layout
 
 \begin_layout Plain Layout
+
 .align 2
 \end_layout
 
@@ -4932,10 +4948,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
 .globl palindrome
 \end_layout
 
 \begin_layout Plain Layout
+
 .ent palindrome
 \end_layout
 
@@ -4944,22 +4962,27 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
 palindrome:							
 \end_layout
 
 \begin_layout Plain Layout
+
 	.frame $fp, TAM_SF, ra
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set noreorder
 \end_layout
 
 \begin_layout Plain Layout
+
 	.cpload t9
 \end_layout
 
 \begin_layout Plain Layout
+
 	.set reorder
 \end_layout
 
@@ -4968,42 +4991,52 @@ palindrome:
 \end_layout
 
 \begin_layout Plain Layout
+
 	subu sp, sp, TAM_SF
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw $fp, FP_SF(sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	.cprestore GP_SF
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw ra, RA_SF(sp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	move $fp, sp
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw a0, ARG0($fp)                #guardamos el archivo de entrada
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw a1, ARG1($fp)                #guardamos el tamanio buffer entrada
 \end_layout
 
 \begin_layout Plain Layout
+
     sw a2, ARG2($fp)                #guardamos el archivo de salida
 \end_layout
 
 \begin_layout Plain Layout
+
     sw a3, ARG3($fp)                #guardamos el tamanio buffer salida
 \end_layout
 
@@ -5012,6 +5045,7 @@ palindrome:
 \end_layout
 
 \begin_layout Plain Layout
+
     move a0, a1                     #a0 = tamanio del buffer entrada
 \end_layout
 
@@ -5020,30 +5054,37 @@ palindrome:
 \end_layout
 
 \begin_layout Plain Layout
+
     la t9, crear_buffer
 \end_layout
 
 \begin_layout Plain Layout
+
     jalr t9                           	#Crea el buffer de entrada
 \end_layout
 
 \begin_layout Plain Layout
+
     beq v0, zero, error_primer_buffer	#Si devuelve 0 ocurrio un error
 \end_layout
 
 \begin_layout Plain Layout
+
     sw v0, BUFF_IN($fp)                 #Guardamos el buffer de entrada
 \end_layout
 
 \begin_layout Plain Layout
+
     la t0, tam_buffer_entrada
 \end_layout
 
 \begin_layout Plain Layout
+
     lw t1, ARG1($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
     sw t1, 0(t0)				    #Actualiza el tam del buffer entrada
 \end_layout
 
@@ -5052,66 +5093,82 @@ palindrome:
 \end_layout
 
 \begin_layout Plain Layout
+
     lw a0, ARG3($fp)                    #a0 = tam del buffer de salida
 \end_layout
 
 \begin_layout Plain Layout
+
     la t9, crear_buffer
 \end_layout
 
 \begin_layout Plain Layout
+
     jalr t9                           	#Crea el buffer de salida
 \end_layout
 
 \begin_layout Plain Layout
+
     beq v0, zero, error_segundo_buffer	#Si devuelve 0 ocurrio un error
 \end_layout
 
 \begin_layout Plain Layout
+
     sw v0, BUFF_OUT($fp)                #Guardamos el buffer de salida
 \end_layout
 
 \begin_layout Plain Layout
+
     la t0, tam_buffer_salida
 \end_layout
 
 \begin_layout Plain Layout
+
     lw t1, ARG3($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
     sw t1, 0(t0)				     #Actualiza el tam del buffer salida
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
 \begin_layout Plain Layout
+
 loop:
 \end_layout
 
 \begin_layout Plain Layout
+
     lw a0, ARG0($fp)                    #a0 = archivo de entrada
 \end_layout
 
 \begin_layout Plain Layout
+
 	addu a1, $fp, LEN                   #a1 = puntero a len
 \end_layout
 
 \begin_layout Plain Layout
+
     lw a2, BUFF_IN($fp)                 #a2 = buffer de entrada
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
 \begin_layout Plain Layout
+
 	la t9, leer_palabra
 \end_layout
 
 \begin_layout Plain Layout
+
 	jalr t9                          	#Lee la proxima palabra
 \end_layout
 
@@ -5120,10 +5177,12 @@ loop:
 \end_layout
 
 \begin_layout Plain Layout
+
 	sw v0, POINTER($fp)               #Guardamos el puntero a la palabra
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq v0, zero, error             #Salta si no se pudo leer la palabra
 \end_layout
 
@@ -5132,18 +5191,22 @@ loop:
 \end_layout
 
 \begin_layout Plain Layout
+
 	move a0, v0                        #a0 = puntero a palabra
 \end_layout
 
 \begin_layout Plain Layout
+
     lw a1, LEN ($fp)                   #a1 = len(palabra)
 \end_layout
 
 \begin_layout Plain Layout
+
 	la t9, es_capicua
 \end_layout
 
 \begin_layout Plain Layout
+
 	jalr t9                            #Llama a es_capicua      
 \end_layout
 
@@ -5152,35 +5215,43 @@ loop:
 \end_layout
 
 \begin_layout Plain Layout
+
 	beq v0, zero, continuar_loop       #Si no es capicua sigue el loop    
      
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw a0, ARG2($fp)                   #a0 = archivo de salida
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw a1, POINTER($fp)                #a1 = puntero a la palabra
 \end_layout
 
 \begin_layout Plain Layout
+
     lw a2, BUFF_OUT($fp)               #a2 = buffer de salida
 \end_layout
 
 \begin_layout Plain Layout
+
     la t9, putch
 \end_layout
 
 \begin_layout Plain Layout
+
     jalr t9                            #Escribe la palabra en el archivo
 \end_layout
 
 \begin_layout Plain Layout
+
     beq v0, zero, error_escritura	   #Si devuelve 0 ocurrio un error
 \end_layout
 
@@ -5189,62 +5260,77 @@ loop:
 \end_layout
 
 \begin_layout Plain Layout
+
 continuar_loop:
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \end_layout
 
 \begin_layout Plain Layout
+
     lw a0, POINTER($fp)                #a0 = puntero a palabra
 \end_layout
 
 \begin_layout Plain Layout
+
     la t9, myfree
 \end_layout
 
 \begin_layout Plain Layout
+
     jalr t9                            #Llama a free(palabra)
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \end_layout
 
 \begin_layout Plain Layout
+
     la t0, eof_leido
 \end_layout
 
 \begin_layout Plain Layout
+
     lw t1, 0(t0)					   #t1 = eof leido?
 \end_layout
 
 \begin_layout Plain Layout
+
     beq t1, zero, loop           	   #si no fue leido sigue el loop
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \end_layout
 
 \begin_layout Plain Layout
+
     lw a0, ARG2($fp)				   #a0 = archivo de salida
 \end_layout
 
 \begin_layout Plain Layout
+
     lw a2, BUFF_OUT($fp)			   #a2 = buffer de salida
 \end_layout
 
 \begin_layout Plain Layout
+
     la t9, putch
 \end_layout
 
 \begin_layout Plain Layout
+
     jalr t9                      #Escribe todo lo que queda en el buffer
 \end_layout
 
 \begin_layout Plain Layout
+
     beq v0, zero, error         	   #Si devuelve 0 ocurrio un error
 \end_layout
 
@@ -5253,42 +5339,52 @@ continuar_loop:
 \end_layout
 
 \begin_layout Plain Layout
+
 terminar:
 \end_layout
 
 \begin_layout Plain Layout
+
 	move v0, zero
 \end_layout
 
 \begin_layout Plain Layout
+
 free_segundo_buffer:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw a0, BUFF_OUT($fp)                #Cargamos el buffer de salida 
 \end_layout
 
 \begin_layout Plain Layout
+
 	la t9,myfree
 \end_layout
 
 \begin_layout Plain Layout
+
 	jalr t9								#Liberamos el segundo buffer
 \end_layout
 
 \begin_layout Plain Layout
+
 free_primer_buffer:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw a0, BUFF_IN($fp)                 #Cargamos el buffer de entrada 
 \end_layout
 
 \begin_layout Plain Layout
+
 	la t9,myfree
 \end_layout
 
 \begin_layout Plain Layout
+
 	jalr t9								#Liberamos el primer buffer
 \end_layout
 
@@ -5297,26 +5393,32 @@ free_primer_buffer:
 \end_layout
 
 \begin_layout Plain Layout
+
 return:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw ra, RA_SF($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw gp, GP_SF($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw $fp, FP_SF($fp)
 \end_layout
 
 \begin_layout Plain Layout
+
 	addiu sp, sp, TAM_SF
 \end_layout
 
 \begin_layout Plain Layout
+
 	jr ra
 \end_layout
 
@@ -5325,26 +5427,32 @@ return:
 \end_layout
 
 \begin_layout Plain Layout
+
 error_segundo_buffer:
 \end_layout
 
 \begin_layout Plain Layout
+
 	addiu v0, zero, 1					#Devuelve codigo de error 1
 \end_layout
 
 \begin_layout Plain Layout
+
 	b free_primer_buffer				#Libera el primer buffer
 \end_layout
 
 \begin_layout Plain Layout
+
 error_primer_buffer:
 \end_layout
 
 \begin_layout Plain Layout
+
 	addiu v0, zero, 1 					#Devuelve codigo de error 1
 \end_layout
 
 \begin_layout Plain Layout
+
 	b return        					#No libera nada
 \end_layout
 
@@ -5353,42 +5461,52 @@ error_primer_buffer:
 \end_layout
 
 \begin_layout Plain Layout
+
 error_escritura:
 \end_layout
 
 \begin_layout Plain Layout
+
 	lw a0, POINTER($fp)                 #a0 = puntero a la palabra
 \end_layout
 
 \begin_layout Plain Layout
+
 	la t9, myfree
 \end_layout
 
 \begin_layout Plain Layout
+
 	jalr t9								#Libera la palabra
 \end_layout
 
 \begin_layout Plain Layout
+
 error:
 \end_layout
 
 \begin_layout Plain Layout
+
 	addiu v0, zero, 2 					#Devuelve codigo de error 2
 \end_layout
 
 \begin_layout Plain Layout
+
 	b free_segundo_buffer				#Libera ambos buffer
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
 \begin_layout Plain Layout
+
 .end palindrome
 \end_layout
 
 \begin_layout Plain Layout
+
 .size palindrome,.-palindrome
 \end_layout
 
@@ -5405,6 +5523,7 @@ error:
 \end_layout
 
 \begin_layout Plain Layout
+
 .data
 \end_layout
 
@@ -5413,26 +5532,32 @@ error:
 \end_layout
 
 \begin_layout Plain Layout
+
 .globl pos_buffer_entrada
 \end_layout
 
 \begin_layout Plain Layout
+
 .globl tam_buffer_entrada
 \end_layout
 
 \begin_layout Plain Layout
+
 .globl pos_buffer_salida
 \end_layout
 
 \begin_layout Plain Layout
+
 .globl tam_buffer_salida
 \end_layout
 
 \begin_layout Plain Layout
+
 .globl eof_leido
 \end_layout
 
 \begin_layout Plain Layout
+
 .globl TAM
 \end_layout
 
@@ -5441,26 +5566,32 @@ error:
 \end_layout
 
 \begin_layout Plain Layout
+
 pos_buffer_entrada: .word -1
 \end_layout
 
 \begin_layout Plain Layout
+
 tam_buffer_entrada: .word 0
 \end_layout
 
 \begin_layout Plain Layout
+
 pos_buffer_salida: .word 0
 \end_layout
 
 \begin_layout Plain Layout
+
 tam_buffer_salida: .word 0
 \end_layout
 
 \begin_layout Plain Layout
+
 eof_leido: .word 0
 \end_layout
 
 \begin_layout Plain Layout
+
 TAM: .word 30
 \end_layout
 

@@ -43,19 +43,14 @@ getch:
     bltu s0, a2, leer_caracter        #Salta si pos actual < tam buffer       
 
 #Si no salta hay que volver a leer del archivo y llenar el buffer
+    
+	la t0, eof_leido
+	lw t1, 0(t0)
+	bne t1, zero, leyo_eof
+	
 
-    li v0, SYS_read					  #a0,a1,a2 ya estan seteados
-    syscall
-    bne a3, zero, error			      #Salta si hubo un error
-    beq v0, zero, leyo_eof		      #Si read devuelve 0 leyo EOF
-    
-    addu s0, zero, zero               #Pos_actual = 0
-    move s1,v0 						  #s1 = cantidad bytes leidos
-    
-    la t0, tam_buffer_entrada
-    lw a2, 0(t0)                      #a2 = tam actual del buffer
-    beq v0,a2, leer_caracter		  #Salta si read no leyo menos bytes 
-									  #de lo indicado
+    move s1,zero						  #s1 = cantidad bytes leidos
+
 	
 #Si leyo menos bytes 
 leer_archivo:
@@ -80,6 +75,10 @@ eof_fue_leido:
 	la t0, tam_buffer_entrada		#Si leyo menos bytes pero todavia 
 	sw s1, 0(t0)					#hay cosas en el buffer
 	             					#Actualizo el tamanio del buffer
+	la t0, eof_leido
+	addiu t1, zero, 1
+	sw t1, 0(t0)
+
 
 leer_caracter:
     
@@ -101,7 +100,7 @@ return:
 	jr ra
 
 leyo_eof:
-	la t0, eof_leido
+	la t0, escribir_eof
 	addiu t1,zero,1
 	sw t1, 0(t0)						#Actualizo la variable EOF leido
 	addu v0, zero, zero					#Devuelvo 0
