@@ -95,7 +95,7 @@ escribir_todo:
     
     la t0, escribir_eof
     lw t1, 0(t0)                     #t1 = eof escrito ?
-    bgt t1, zero, terminar      	 #Termina si EOF fue escrito
+    bne t1, zero, terminar      	 #Termina si EOF fue escrito
 
 continuar_loop:
     addu s1, s1, 1                   #Incrementa el indice de la palabra

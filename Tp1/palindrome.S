@@ -87,8 +87,8 @@ continuar_loop:
     jalr t9                            #Llama a free(palabra)
     
     la t0, escribir_eof
-    lw t1, 0(t0)					   #t1 = eof leido?
-    beq t1, zero, loop           	   #si no fue leido sigue el loop
+    lw t1, 0(t0)					   #t1 = hay que escribir eof?
+    beq t1, zero, loop           	   #salta si no hay que escribirlo
     
     lw a0, ARG2($fp)				   #a0 = archivo de salida
     lw a2, BUFF_OUT($fp)			   #a2 = buffer de salida

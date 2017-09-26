@@ -45,14 +45,14 @@ getch:
 #Si no salta hay que volver a leer del archivo y llenar el buffer
     
 	la t0, eof_leido
-	lw t1, 0(t0)
-	bne t1, zero, leyo_eof
+	lw t1, 0(t0)					  #t1 = eof fue leido?
+	bne t1, zero, leyo_eof			  #salta si fue leido
 	
+    move s1,zero					  #s1 = cantidad bytes leidos = 0
+    move s0, zero					  #Pos actual = 0
 
-    move s1,zero						  #s1 = cantidad bytes leidos
+#Lectura del archivo
 
-	
-#Si leyo menos bytes 
 leer_archivo:
 	lw a0, ARG0($fp)                  # a0 = archivo de entrada
 	lw a1, ARG1($fp)                      
@@ -69,7 +69,7 @@ leer_archivo:
 	la t0, tam_buffer_entrada
     lw t1, 0(t0)						#t1 = tam buffer entrada
     blt s1, t1, leer_archivo	   #Si bytes leidos < tam vuelve a leer
-    beq s1, t1, leer_caracter	        #Si ya leyo todo salta
+    b leer_caracter	                    #Si ya leyo todo salta
 	
 eof_fue_leido:
 	la t0, tam_buffer_entrada		#Si leyo menos bytes pero todavia 
@@ -77,7 +77,8 @@ eof_fue_leido:
 	             					#Actualizo el tamanio del buffer
 	la t0, eof_leido
 	addiu t1, zero, 1
-	sw t1, 0(t0)
+	sw t1, 0(t0)					#Actualiza eof leido
+	beq s1, zero, leyo_eof			#Salta si no leyo nada
 
 
 leer_caracter:
@@ -102,7 +103,7 @@ return:
 leyo_eof:
 	la t0, escribir_eof
 	addiu t1,zero,1
-	sw t1, 0(t0)						#Actualizo la variable EOF leido
+	sw t1, 0(t0)						#Actualizo escribir_eof
 	addu v0, zero, zero					#Devuelvo 0
 	b return
 
