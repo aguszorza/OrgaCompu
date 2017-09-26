@@ -258,6 +258,33 @@ diff salida.txt archivo_largo.txt
 ./tp1 -i archivo_largo.txt -o salida.txt -I 1000 -O 20
 diff salida.txt archivo_largo.txt
 
+# Pruebas con tamaños de buffer al azar
+
+./tp1 -i entrada.txt -o salida.txt -I 18 -O 43
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 54 -O 129
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 38 -O 741
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 153 -O 153
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 41 -O 22
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 111 -O 333
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 358 -O 7
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 264 -O 265
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 4 -O 874
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 26 -O 147
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 99 -O 101
+diff salida.txt resultado.txt
+./tp1 -i entrada.txt -o salida.txt -I 94 -O 45
+diff salida.txt resultado.txt
+
 # Prueba error: no se ingresa archivo de entrada
 echo "Debe indicar un archivo de entrada luego de -i" > res.txt
 ./tp1 -i 2> error.txt
@@ -334,6 +361,17 @@ diff error.txt res.txt
 ./tp1 -I 10 -O nueve 2> error.txt
 diff error.txt res.txt
 ./tp1 -i entrada.txt -I 10 -O abc123 2> error.txt
+diff error.txt res.txt
+
+# Prueba error: se ingresa una opcion incorrecta
+echo "La opcion seleccionada no existe, ejecute la opcion -h para mas informacion." > res.txt			
+./tp1 -z 2> error.txt
+diff error.txt res.txt
+./tp1 -i entrada.txt -p 2 -I 10 2> error.txt
+diff error.txt res.txt
+./tp1 -p 10 -O 8 2> error.txt
+diff error.txt res.txt
+./tp1 -a -b -c 2> error.txt
 diff error.txt res.txt
 
 #Pruebas con stdin (sin poner '-i' o poniendo '-i -')
