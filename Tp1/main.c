@@ -49,7 +49,7 @@ int main(int argc, char* argv[]){
 			parametro = argv[i + 1];
 			if (strcmp(parametro,"-") != 0){
 				tam_buffer_entrada = atoi(parametro);
-				if (tam_buffer_entrada == 0){
+				if (tam_buffer_entrada <= 0){
 					fputs("El parametro de -I debe ser un numero\n", stderr);
 					return 4;
 				}
@@ -63,7 +63,7 @@ int main(int argc, char* argv[]){
 			parametro = argv[i + 1];
 			if (strcmp(parametro,"-") != 0){
 				tam_buffer_salida = atoi(parametro);
-				if (tam_buffer_salida == 0){
+				if (tam_buffer_salida <= 0){
 					fputs("El parametro de -O debe ser un numero\n", stderr);
 					return 4;
 				}

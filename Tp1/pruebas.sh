@@ -352,6 +352,26 @@ diff error.txt res.txt
 ./tp1 -i entrada.txt -O 10 -I abc123 2> error.txt
 diff error.txt res.txt
 
+# Prueba error: el tamaño del buffer de entrada es un numero menor o igual a cero
+echo "El parametro de -I debe ser un numero" > res.txt			
+./tp1 -I 0 2> error.txt
+diff error.txt res.txt
+./tp1 -i entrada.txt -I 0 2> error.txt
+diff error.txt res.txt
+./tp1 -O 10 -I 0 2> error.txt
+diff error.txt res.txt
+./tp1 -i entrada.txt -O 10 -I 0 2> error.txt
+diff error.txt res.txt
+./tp1 -I -10 2> error.txt
+diff error.txt res.txt
+./tp1 -i entrada.txt -I -10 2> error.txt
+diff error.txt res.txt
+./tp1 -O 10 -I -10 2> error.txt
+diff error.txt res.txt
+./tp1 -i entrada.txt -O 10 -I -10 2> error.txt
+diff error.txt res.txt
+
+
 # Prueba error: el tamaño del buffer de salida no es un numero
 echo "El parametro de -O debe ser un numero" > res.txt			
 ./tp1 -O abc 2> error.txt
@@ -361,6 +381,25 @@ diff error.txt res.txt
 ./tp1 -I 10 -O nueve 2> error.txt
 diff error.txt res.txt
 ./tp1 -i entrada.txt -I 10 -O abc123 2> error.txt
+diff error.txt res.txt
+
+# Prueba error: el tamaño del buffer de salida es un numero menor o igual a cero
+echo "El parametro de -O debe ser un numero" > res.txt			
+./tp1 -O 0 2> error.txt
+diff error.txt res.txt
+./tp1 -i entrada.txt -O 0 2> error.txt
+diff error.txt res.txt
+./tp1 -I 10 -O 0 2> error.txt
+diff error.txt res.txt
+./tp1 -i entrada.txt -I 10 -O 0 2> error.txt
+diff error.txt res.txt
+./tp1 -O -10 2> error.txt
+diff error.txt res.txt
+./tp1 -i entrada.txt -O -10 2> error.txt
+diff error.txt res.txt
+./tp1 -I 10 -O -10 2> error.txt
+diff error.txt res.txt
+./tp1 -i entrada.txt -I 10 -O -10 2> error.txt
 diff error.txt res.txt
 
 # Prueba error: se ingresa una opcion incorrecta
