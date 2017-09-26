@@ -987,7 +987,6 @@ inline false
 status open
 
 \begin_layout Plain Layout
-
 #/bin/bash
 \end_layout
 
@@ -996,7 +995,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
 bash compilar.sh
 \end_layout
 
@@ -1009,7 +1007,6 @@ bash compilar.sh
 \end_layout
 
 \begin_layout Plain Layout
-
 # Pruebas con archivo de pruebas entrada.txt y resultado.txt
 \end_layout
 
@@ -1018,102 +1015,82 @@ bash compilar.sh
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
@@ -1122,117 +1099,94 @@ diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Prueba con archivo vacio
 \end_layout
 
 \begin_layout Plain Layout
-
 touch vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 touch resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i vacio.txt -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado_vacio.txt
 \end_layout
 
@@ -1241,112 +1195,90 @@ diff salida.txt resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Pruebas con una sola letra mayúscula
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M > res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo M | ./tp1 -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
@@ -1355,112 +1287,90 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Pruebas con una sola letra minúscula
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m > res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo m | ./tp1 -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
@@ -1469,112 +1379,90 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Prueba con un número
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 > res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo 3 | ./tp1 -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
@@ -1583,112 +1471,90 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Pruebas con un guion
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - > res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo - | ./tp1 -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
@@ -1697,112 +1563,90 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Pruebas con un guion bajo
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ > res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo _ | ./tp1 -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt res.txt
 \end_layout
 
@@ -1811,107 +1655,86 @@ diff salida.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Pruebas con un simbolo
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 echo @ | ./tp1 -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
@@ -1920,112 +1743,90 @@ diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Prueba con espacios
 \end_layout
 
 \begin_layout Plain Layout
-
 echo "                    " > ent.txt 
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
@@ -2034,114 +1835,92 @@ diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Pruebas con simbolos
 \end_layout
 
 \begin_layout Plain Layout
-
 echo "@#$%^*()!{}[],./?<>;:*+
 \backslash
 |=+" > ent.txt 
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i ent.txt -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt vacio.txt
 \end_layout
 
@@ -2154,12 +1933,10 @@ diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 #Prueba con un archivo con 30 lineas de 5000 caracteres cada una,
 \end_layout
 
 \begin_layout Plain Layout
-
 # donde cada una es palindromo en su totalidad
 \end_layout
 
@@ -2168,102 +1945,82 @@ diff salida.txt vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 1 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 20 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 100 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 1000 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 20 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 100 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 1 -O 100
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 100 -O 1
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 20 -O 1000
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i archivo_largo.txt -o salida.txt -I 1000 -O 20
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt archivo_largo.txt
 \end_layout
 
@@ -2272,52 +2029,150 @@ diff salida.txt archivo_largo.txt
 \end_layout
 
 \begin_layout Plain Layout
+# Pruebas con tamaños de buffer al azar
+\end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 18 -O 43
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 54 -O 129
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 38 -O 741
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 153 -O 153
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 41 -O 22
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 111 -O 333
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 358 -O 7
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 264 -O 265
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 4 -O 874
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 26 -O 147
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 99 -O 101
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -o salida.txt -I 94 -O 45
+\end_layout
+
+\begin_layout Plain Layout
+diff salida.txt resultado.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
 # Prueba error: no se ingresa archivo de entrada
 \end_layout
 
 \begin_layout Plain Layout
-
 echo "Debe indicar un archivo de entrada luego de -i" > res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -I 10 -i 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -I 10 -O 10 -i 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -o salida.txt -i 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
@@ -2326,52 +2181,42 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Prueba error: no se ingresa archivo de salida
 \end_layout
 
 \begin_layout Plain Layout
-
 echo "Debe indicar un archivo de salida luego de -o" > res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -o 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -o 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -I 10 -o 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -I 10 -O 10 -o 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
@@ -2380,52 +2225,42 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Prueba error: no se ingresa tamaño del buffer de entrada
 \end_layout
 
 \begin_layout Plain Layout
-
 echo "Debe indicar un numero luego de -I" > res.txt       
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -I 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -O 10 -I 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -O 10 -I 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
@@ -2434,52 +2269,42 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Prueba error: no se ingresa tamaño del buffer de salida
 \end_layout
 
 \begin_layout Plain Layout
-
 echo "Debe indicar un numero luego de -O" > res.txt     
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -O 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -O 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -I 10 -O 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 10 -O 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
@@ -2492,52 +2317,42 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Prueba error: no se puede abrir el archivo de entrada
 \end_layout
 
 \begin_layout Plain Layout
-
 echo "El archivo de entrada no pudo abrirse" > res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i inexistente.txt 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -o salida.txt -i inexistente.txt 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -I 10 -i inexistente.txt 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i inexistente.txt -I 10 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
@@ -2546,52 +2361,119 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 # Prueba error: el tamaño del buffer de entrada no es un numero
 \end_layout
 
 \begin_layout Plain Layout
-
-echo "El parametro de -I debe ser un numero" > res.txt			
+echo "El parametro de -I debe ser un numero positivo" > res.txt			
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -I abc 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I numero 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -O 10 -I nueve 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -O 10 -I abc123 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+# Prueba error: el tamaño del buffer de entrada es un numero menor o igual
+ a cero
+\end_layout
+
+\begin_layout Plain Layout
+echo "El parametro de -I debe ser un numero positivo" > res.txt			
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -I 0 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -I 0 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -O 10 -I 0 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -O 10 -I 0 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -I -10 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -I -10 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -O 10 -I -10 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -O 10 -I -10 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
 diff error.txt res.txt
 \end_layout
 
@@ -2601,51 +2483,45 @@ diff error.txt res.txt
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
 # Prueba error: el tamaño del buffer de salida no es un numero
 \end_layout
 
 \begin_layout Plain Layout
-
-echo "El parametro de -O debe ser un numero" > res.txt			
+echo "El parametro de -O debe ser un numero positivo" > res.txt			
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -O abc 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -O numero 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -I 10 -O nueve 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 10 -O abc123 2> error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff error.txt res.txt
 \end_layout
 
@@ -2654,107 +2530,208 @@ diff error.txt res.txt
 \end_layout
 
 \begin_layout Plain Layout
+# Prueba error: el tamaño del buffer de salida es un numero menor o igual
+ a cero
+\end_layout
 
+\begin_layout Plain Layout
+echo "El parametro de -O debe ser un numero positivo" > res.txt			
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -O 0 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -O 0 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -I 10 -O 0 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -I 10 -O 0 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -O -10 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -O -10 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -I 10 -O -10 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -I 10 -O -10 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+# Prueba error: se ingresa una opcion incorrecta
+\end_layout
+
+\begin_layout Plain Layout
+echo "La opcion seleccionada no existe, ejecute la opcion -h para mas informacio
+n." > res.txt			
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -z 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -i entrada.txt -p 2 -I 10 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -p 10 -O 8 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+./tp1 -a -b -c 2> error.txt
+\end_layout
+
+\begin_layout Plain Layout
+diff error.txt res.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
 #Pruebas con stdin (sin poner '-i' o poniendo '-i -')
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -o salida.txt -I 1 -O 1  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -o salida.txt -I 20 -O 20  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -o salida.txt -I 100 -O 100  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -o salida.txt -I 1000 -O 1000  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -o salida.txt -I 20 -O 100  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -o salida.txt -I 100 -O 20  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i - -o salida.txt -I 1 -O 100  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i - -o salida.txt -I 100 -O 1  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i - -o salida.txt -I 20 -O 1000  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i - -o salida.txt -I 1000 -O 20  < entrada.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
@@ -2767,107 +2744,86 @@ diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 #Prueba con stdout (sin poner '-o' o poniendo '-o -')
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 1 -O 1 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 20 -O 20 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 100 -O 100 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 1000 -O 1000 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 20 -O 100 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 100 -O 20 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 1 -O 100 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 100 -O 1 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 20 -O 1000 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 ./tp1 -i entrada.txt -I 1000 -O 20 > salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 diff salida.txt resultado.txt
 \end_layout
 
@@ -2880,37 +2836,30 @@ diff salida.txt resultado.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 #Borramos archivos sobrantes
 \end_layout
 
 \begin_layout Plain Layout
-
 rm vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 rm resultado_vacio.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 rm salida.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 rm ent.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 rm error.txt
 \end_layout
 
 \begin_layout Plain Layout
-
 rm res.txt
 \end_layout
 
@@ -4273,17 +4222,14 @@ inline false
 status open
 
 \begin_layout Plain Layout
-
 #include <stdio.h>
 \end_layout
 
 \begin_layout Plain Layout
-
 #include <stdlib.h>
 \end_layout
 
 \begin_layout Plain Layout
-
 #include <string.h>
 \end_layout
 
@@ -4292,7 +4238,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
 extern int palindrome (int ifd, size_t ibytes, int ofd, size_t obytes);
 \end_layout
 
@@ -4301,379 +4246,308 @@ extern int palindrome (int ifd, size_t ibytes, int ofd, size_t obytes);
 \end_layout
 
 \begin_layout Plain Layout
-
 int main(int argc, char* argv[]){
 \end_layout
 
 \begin_layout Plain Layout
-
 	FILE* entrada = stdin;
 \end_layout
 
 \begin_layout Plain Layout
-
 	FILE* salida = stdout;
 \end_layout
 
 \begin_layout Plain Layout
-
 	int tam_buffer_entrada = 1;
 \end_layout
 
 \begin_layout Plain Layout
-
 	int tam_buffer_salida = 1;
 \end_layout
 
 \begin_layout Plain Layout
-
 	char* parametro;
 \end_layout
 
 \begin_layout Plain Layout
-
 	
 \end_layout
 
 \begin_layout Plain Layout
-
 	int i;
 \end_layout
 
 \begin_layout Plain Layout
-
 	for (i = 1; i < argc; i += 2){
 \end_layout
 
 \begin_layout Plain Layout
-
 		if ((strcmp(argv[i],"-i") == 0) || (strcmp(argv[i],"--input") == 0)){
 \end_layout
 
 \begin_layout Plain Layout
-
 			if (i + 1 >= argc){
 \end_layout
 
 \begin_layout Plain Layout
-
 				fputs("Debe indicar un archivo de entrada luego de -i
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 				return 3;
 \end_layout
 
 \begin_layout Plain Layout
-
 			}
 \end_layout
 
 \begin_layout Plain Layout
-
 			parametro = argv[i + 1];
 \end_layout
 
 \begin_layout Plain Layout
-
 			if (strcmp(parametro,"-") != 0){
 \end_layout
 
 \begin_layout Plain Layout
-
 				entrada = fopen(argv[i + 1], "r");
 \end_layout
 
 \begin_layout Plain Layout
-
 				if (!entrada){
 \end_layout
 
 \begin_layout Plain Layout
-
 					fputs("El archivo de entrada no pudo abrirse
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 					return 4;
 \end_layout
 
 \begin_layout Plain Layout
-
 				}
 \end_layout
 
 \begin_layout Plain Layout
-
 			}
 \end_layout
 
 \begin_layout Plain Layout
-
 		}
 \end_layout
 
 \begin_layout Plain Layout
-
 		else if ((strcmp(argv[i],"-o") == 0) || (strcmp(argv[i],"--output") ==
  0)){
 \end_layout
 
 \begin_layout Plain Layout
-
 			if (i + 1 >= argc){
 \end_layout
 
 \begin_layout Plain Layout
-
 				fputs("Debe indicar un archivo de salida luego de -o
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 				return 3;
 \end_layout
 
 \begin_layout Plain Layout
-
 			}
 \end_layout
 
 \begin_layout Plain Layout
-
 			parametro = argv[i + 1];
 \end_layout
 
 \begin_layout Plain Layout
-
 			if (strcmp(parametro,"-") != 0){
 \end_layout
 
 \begin_layout Plain Layout
-
 				salida = fopen(argv[i + 1], "w");
 \end_layout
 
 \begin_layout Plain Layout
-
 				if (!salida){
 \end_layout
 
 \begin_layout Plain Layout
-
 					fputs("El archivo de salida no pudo abrirse
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 					return 4;
 \end_layout
 
 \begin_layout Plain Layout
-
 				}
 \end_layout
 
 \begin_layout Plain Layout
-
 			}
 \end_layout
 
 \begin_layout Plain Layout
-
 		}
 \end_layout
 
 \begin_layout Plain Layout
-
 		else if ((strcmp(argv[i],"-I") == 0) || (strcmp(argv[i],"--ibuff-bytes")
  == 0)){
 \end_layout
 
 \begin_layout Plain Layout
-
 			if (i + 1 >= argc){
 \end_layout
 
 \begin_layout Plain Layout
-
 				fputs("Debe indicar un numero luego de -I
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 				return 3;
 \end_layout
 
 \begin_layout Plain Layout
-
 			}
 \end_layout
 
 \begin_layout Plain Layout
-
 			parametro = argv[i + 1];
 \end_layout
 
 \begin_layout Plain Layout
-
 			if (strcmp(parametro,"-") != 0){
 \end_layout
 
 \begin_layout Plain Layout
-
 				tam_buffer_entrada = atoi(parametro);
 \end_layout
 
 \begin_layout Plain Layout
-
-				if (tam_buffer_entrada == 0){
+				if (tam_buffer_entrada <= 0){
 \end_layout
 
 \begin_layout Plain Layout
-
-					fputs("El parametro de -I debe ser un numero
+					fputs("El parametro de -I debe ser un numero positivo
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 					return 4;
 \end_layout
 
 \begin_layout Plain Layout
-
 				}
 \end_layout
 
 \begin_layout Plain Layout
-
 			}
 \end_layout
 
 \begin_layout Plain Layout
-
 		}
 \end_layout
 
 \begin_layout Plain Layout
-
 		else if ((strcmp(argv[i],"-O") == 0) || (strcmp(argv[i],"--obuff-bytes")
  == 0)){
 \end_layout
 
 \begin_layout Plain Layout
-
 			if (i + 1 >= argc){
 \end_layout
 
 \begin_layout Plain Layout
-
 				fputs("Debe indicar un numero luego de -O
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 				return 3;
 \end_layout
 
 \begin_layout Plain Layout
-
 			}
 \end_layout
 
 \begin_layout Plain Layout
-
 			parametro = argv[i + 1];
 \end_layout
 
 \begin_layout Plain Layout
-
 			if (strcmp(parametro,"-") != 0){
 \end_layout
 
 \begin_layout Plain Layout
-
 				tam_buffer_salida = atoi(parametro);
 \end_layout
 
 \begin_layout Plain Layout
-
-				if (tam_buffer_salida == 0){
+				if (tam_buffer_salida <= 0){
 \end_layout
 
 \begin_layout Plain Layout
-
-					fputs("El parametro de -O debe ser un numero
+					fputs("El parametro de -O debe ser un numero positivo
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 					return 4;
 \end_layout
 
 \begin_layout Plain Layout
-
 				}
 \end_layout
 
 \begin_layout Plain Layout
-
 			}
 \end_layout
 
 \begin_layout Plain Layout
-
 		}
 \end_layout
 
 \begin_layout Plain Layout
-
 		else if ((strcmp(argv[i],"-V") == 0) || (strcmp(argv[i],"--version") ==
  0)){
 \end_layout
 
 \begin_layout Plain Layout
-
 			fprintf(stdout, "TP1 version 1.0001
 \backslash
 n");
 \end_layout
 
 \begin_layout Plain Layout
-
 			return 0;
 \end_layout
 
 \begin_layout Plain Layout
-
 		}
 \end_layout
 
 \begin_layout Plain Layout
-
 		else if ((strcmp(argv[i],"-h") == 0) || (strcmp(argv[i],"--help") == 0)){
 \end_layout
 
 \begin_layout Plain Layout
-
 			fprintf(stdout, "Usage:
 \backslash
 n
@@ -4690,7 +4564,6 @@ n");
 \end_layout
 
 \begin_layout Plain Layout
-
 			fprintf(stdout, "Options:
 \backslash
 n-V, --version  Print version and quit.
@@ -4699,42 +4572,36 @@ n");
 \end_layout
 
 \begin_layout Plain Layout
-
 			fprintf(stdout, "-h, --help   Print this information.
 \backslash
 n");
 \end_layout
 
 \begin_layout Plain Layout
-
 			fprintf(stdout, "-i, --input   Location of the input file.
 \backslash
 n");
 \end_layout
 
 \begin_layout Plain Layout
-
 			fprintf(stdout, "-o, --output   Location of the output file.
 \backslash
 n");
 \end_layout
 
 \begin_layout Plain Layout
-
 			fprintf(stdout, "-I, --ibuf-bytes Byte-count of the input buffer.
 \backslash
 n");
 \end_layout
 
 \begin_layout Plain Layout
-
 			fprintf(stdout, "-O, --obuf-bytes Byte-count of the output buffer.
 \backslash
 n");
 \end_layout
 
 \begin_layout Plain Layout
-
 			fprintf(stdout, "
 \backslash
 nExample:
@@ -4747,22 +4614,18 @@ n");
 \end_layout
 
 \begin_layout Plain Layout
-
 			return 0;
 \end_layout
 
 \begin_layout Plain Layout
-
 		}
 \end_layout
 
 \begin_layout Plain Layout
-
 		else {
 \end_layout
 
 \begin_layout Plain Layout
-
 			fputs("La opcion seleccionada no existe, ejecute la opcion -h para mas
  informacion.
 \backslash
@@ -4770,80 +4633,65 @@ n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 			return 3;
 \end_layout
 
 \begin_layout Plain Layout
-
 		}
 \end_layout
 
 \begin_layout Plain Layout
-
 	}
 \end_layout
 
 \begin_layout Plain Layout
-
 	
 \end_layout
 
 \begin_layout Plain Layout
-
 	int resultado = palindrome(fileno(entrada), tam_buffer_entrada, fileno(salida),
  tam_buffer_salida);
 \end_layout
 
 \begin_layout Plain Layout
-
 	
 \end_layout
 
 \begin_layout Plain Layout
-
 	if (resultado != 0){
 \end_layout
 
 \begin_layout Plain Layout
-
 		fputs("Ocurrio un error
 \backslash
 n", stderr);
 \end_layout
 
 \begin_layout Plain Layout
-
 	}
 \end_layout
 
 \begin_layout Plain Layout
-
 	
 \end_layout
 
 \begin_layout Plain Layout
-
 	fclose(entrada);
 \end_layout
 
 \begin_layout Plain Layout
-
 	fclose(salida);
 \end_layout
 
 \begin_layout Plain Layout
-
 	
 \end_layout
 
 \begin_layout Plain Layout
-
 	return resultado;
 \end_layout
 
 \begin_layout Plain Layout
-
 }
 \end_layout
 
