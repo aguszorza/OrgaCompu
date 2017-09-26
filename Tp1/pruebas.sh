@@ -342,7 +342,7 @@ diff error.txt res.txt
 diff error.txt res.txt
 
 # Prueba error: el tamaño del buffer de entrada no es un numero
-echo "El parametro de -I debe ser un numero" > res.txt			
+echo "El parametro de -I debe ser un numero positivo" > res.txt			
 ./tp1 -I abc 2> error.txt
 diff error.txt res.txt
 ./tp1 -i entrada.txt -I numero 2> error.txt
@@ -353,7 +353,7 @@ diff error.txt res.txt
 diff error.txt res.txt
 
 # Prueba error: el tamaño del buffer de entrada es un numero menor o igual a cero
-echo "El parametro de -I debe ser un numero" > res.txt			
+echo "El parametro de -I debe ser un numero positivo" > res.txt			
 ./tp1 -I 0 2> error.txt
 diff error.txt res.txt
 ./tp1 -i entrada.txt -I 0 2> error.txt
@@ -373,7 +373,7 @@ diff error.txt res.txt
 
 
 # Prueba error: el tamaño del buffer de salida no es un numero
-echo "El parametro de -O debe ser un numero" > res.txt			
+echo "El parametro de -O debe ser un numero positivo" > res.txt			
 ./tp1 -O abc 2> error.txt
 diff error.txt res.txt
 ./tp1 -i entrada.txt -O numero 2> error.txt
@@ -384,7 +384,7 @@ diff error.txt res.txt
 diff error.txt res.txt
 
 # Prueba error: el tamaño del buffer de salida es un numero menor o igual a cero
-echo "El parametro de -O debe ser un numero" > res.txt			
+echo "El parametro de -O debe ser un numero positivo" > res.txt			
 ./tp1 -O 0 2> error.txt
 diff error.txt res.txt
 ./tp1 -i entrada.txt -O 0 2> error.txt
