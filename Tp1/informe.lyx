@@ -642,15 +642,11 @@ La función getch, que se encarga de leer un carácter del archivo de entrada.
  Esto lo solucionamos haciendo que la lectura se haga en un loop, que termina
  cuando no hay más para leer o cuando se llenó el buffer.
  Cuando se lee el EOF, para poder distinguir si quedan o no caracteres en
- el buffer para analizar, lo que hacemos es realizar una doble llamada al
- syscall.
- En la primera, se determina si quedan o no caracteres para analizar, si
- devuelve cero significa que no hay más.
- En cambio, si la segunda llamada, que es la que se realiza en el loop,
- devuelve cero en algún ciclo del loop, significa que se alcanzó el final
- de archivo pero todavía hay caracteres para analizar en el buffer.
- En este último caso no se actualiza la variable global que indica que el
- EOF fue leído.
+ el buffer para analizar, lo que hacemos es actualizar la variable eof_leido,
+ que indica que no hay más para leer pero todavía hay cosas en el buffer.
+ Cuando se intente leer nuevamente del archivo, si ésta variable es distinta
+ de cero, significa que no hay más cosas en el buffer, por lo que se actualiza
+ la variable escribir_eof y se devuelve cero.
  El stackframe correspondiente a esta función quedará definido de la siguiente
  manera:
 \begin_inset Float figure
@@ -843,12 +839,18 @@ tam_buffer_salida: Indica el tamaño del buffer de salida.
 \end_layout
 
 \begin_layout Enumerate
-eof_leido: Permite saber cuando se alcanzó el final del archivo de lectura.
+eof_leido: Permite saber cuando se alcanzó el final del archivo de lectura
+ y que por lo tanto no hay que hacer más lecturas.
  Su valor es 0 hasta el momento que se hayan leído todos los caracteres
- del archivo de entrada y además el buffer de entrada esté vacío, es decir,
- que ya se analizaron todos los caracteres.
- Permite saber que debemos escribir todo lo que queda en el buffer de salida
- y terminar el programa.
+ del archivo de entrada, hayan sido analizados todos los caracteres o no.
+ 
+\end_layout
+
+\begin_layout Enumerate
+escribir_eof: Indica que ya se analizaron todos los caracteres del archivo,
+ y que por lo tanto debe escribirse todo lo que queda en el buffer al archivo
+ y finalizar el programa.
+ Es 0 hasta el momento en que se analizan todos los caracteres.
 \end_layout
 
 \begin_layout Enumerate
